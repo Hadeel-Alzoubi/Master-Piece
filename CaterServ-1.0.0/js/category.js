@@ -1,16 +1,16 @@
 const urlCategory = "https://localhost:44397/api/Categories/GetAllCategory";
 async function GetCategory() {
-
+debugger;
     let response = await fetch(urlCategory);
     let data = await response.json();
     let x = document.getElementById("Category_DB");
 
     data.forEach(element => {
-        x.innerHTML += 
+        x.innerHTML +=
         ` <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
                     <div class="blog-item">
                         <div class="overflow-hidden rounded">
-                            <img src="img/blog-1.jpg" class="img-fluid w-100" alt="">
+                            <img src="img/${element.categoryImg}" class="img-fluid w-100" alt="" ">
                         </div>
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
@@ -24,10 +24,13 @@ async function GetCategory() {
                     </div>
                 </div> `
 });
+
 };
+GetCategory();
 
 function store(id) {
     localStorage.categoryId = id;
-    window.location = "product.html"
+    window.location.href = "product.html"
+    
 }
-GetCategory();
+

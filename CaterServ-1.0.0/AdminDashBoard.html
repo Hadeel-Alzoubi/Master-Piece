@@ -34,6 +34,7 @@
             <br>
             <ul>
                 <li><a href="#" data-target="crud-products">ادارة المنتجات</a></li>
+                <li><a href="#" data-target="order-products">طلبات خاصة</a></li>
                 <li><a href="#" data-target="update-profile">تعديل المعلومات الشخصية</a></li>
                 <li><a href="#" data-target="payment-method">طرق الدفع</a></li>
                 <li><a href="#" data-target="statistics">احصائيات</a></li>
@@ -61,10 +62,19 @@
                     </tbody>
                 </table>
             </section>
-            
+            <section id="order-products" class="section" style="display: none;">
+                <h2>طلبات الزبائن لقطع خاصة </h2>
+                <button class="btn btn-success">قبول</button>
+                <button class="btn btn-danger">رفض</button>
+                <!-- <button class="btn btn-primary" onclick="Go()">اضافة منتج</button> -->
+                <br>
+                <br>
+               <p>هنا يظهر مواصفات المنتج التي يطلبها الزبون </p>
+               <img src="" alt="صورة للمنتج اذا احب الزبون وضع صورة تقريبية للمنتج"></img>"
+            </section>
             <section id="update-profile" class="section" style="display: none;">
                 <h2 style="text-align: center;">تعديل المعلومات الشخصية</h2>
-                <form>
+                <form id="formUser">
                     <label for="username">الاسم</label>
                     <input type="text" id="username" name="username" />
                     <label for="email" >البريد الالكتروني</label>
@@ -81,7 +91,7 @@
                     
                     <label for="address" >الموقع</label>
                     <input type="text" id="address" name="address" />
-                    <button type="submit" class="btn btn-primary">حفظ التعديلات</button>
+                    <button type="submit" class="btn btn-primary" onclick="UpdateProfile()">حفظ التعديلات</button>
                 </form>
             </section>
             <section id="payment-method" class="section" style="display: none;">
@@ -174,7 +184,21 @@
         }
 
         function editProduct(id) {
-            window.location = `EditProduct.html?id=${id}`;
+            localStorage.setItem('productId', id);
+            window.location = `EditProduct.html`;
+        }
+        
+      async function deleteProduct(id) {
+        debugger;
+            event.preventDefault();
+            const urlDelete = `https://localhost:44397/api/Products/DeleteProduct?id=${id}`;
+          await fetch(urlDelete, {
+                    method: "DELETE",
+                    
+                });
+
+                window.location.reload();
+                window.alert("هل تريد حذف المنتج");
         }
         function addProduct() {
     document.getElementById('crud-products').style.display = 'none';
@@ -183,6 +207,7 @@
 
         getProducts();
     </script>
+    <script src="js/register.js"></script>
     <script src="js/AddProduct.js"></script>
 </body>
 </html>
