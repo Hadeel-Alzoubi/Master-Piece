@@ -7,49 +7,49 @@ namespace Supporting_projects.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CartController : ControllerBase
+    public class FavoriteController : ControllerBase
     {
         private readonly MyDbContext _db;
 
-        public CartController(MyDbContext db)
+        public FavoriteController(MyDbContext db)
         {
             _db = db;
         }
 
-        [Route("GetToCartItem")]
+        [Route("GetToFavoritetItem")]
         [HttpGet]
         public IActionResult Get()
         {
-            var cartItem = _db.CartItems.Select(
-                x => new cartItemDTO
+            var favorite = _db.Favorites.Select(
+                x => new FavoriteDTO
                 {
-                    CartItemId = x.CartItemId,
-                    CartId = x.CartId,
-                    Quantity = x.Quantity,
-                    Product = new productDTO
+                    FavoriteId = x.FavoriteId,
+                    UserId = x.UserId,
+                    Product = new productFDTO
                     {
                         ProductId = x.Product.ProductId,
                         ProductName = x.Product.ProductName,
                         Price = x.Product.Price,
+                        ImageUrl = x.Product.ImageUrl,
                     }
                 }
 
 
 
                 );
-            return Ok(cartItem);
+            return Ok(favorite);
         }
 
         [HttpPost]
-        public IActionResult addCartItem([FromBody] addCartItemDTO cart)
+        public IActionResult addCartItem([FromBody] FavoriteDTO favorite)
         {
-            var data = new CartItem
+            var data = new Favorite
             {
-                CartId = cart.CartId,
-                Quantity = cart.Quantity,
-                ProductId = cart.ProductId,
+                FavoriteId = favorite.FavoriteId,
+                UserId = favorite.UserId,
+                ProductId = favorite.Product.ProductId,
             };
-            _db.CartItems.Add(data);
+            _db.Favorites.Add(data);
             _db.SaveChanges();
             return Ok();
         }
@@ -67,7 +67,7 @@ namespace Supporting_projects.Controllers
             return Ok(u);
         }
 
-        [Route("DeleteItem/{id}")]
+        [Route("DeleteFromFavorite/{id}")]
         [HttpDelete]
         public IActionResult DeleteProduct(int id)
         {
@@ -86,6 +86,7 @@ namespace Supporting_projects.Controllers
             _db.SaveChanges();
             return Ok();
         }
+
 
     }
 }
