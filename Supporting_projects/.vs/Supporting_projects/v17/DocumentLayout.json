@@ -3,52 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\controllers\\favoritecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\controllers\\favoritecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\dtos\\favoritedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\dtos\\favoritedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\dtos\\cartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\dtos\\cartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\dtos\\cartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\dtos\\cartdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\dtos\\addcartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\dtos\\addcartitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\models\\favorite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\models\\favorite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\supporting_projects\\supporting_projects\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,11 +22,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "Supporting_projects\\Controllers\\UsersController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAA1wCQAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T17:15:36.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "cartItemDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\DTOs\\cartItemDTO.cs",
+              "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\cartItemDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\DTOs\\cartItemDTO.cs",
+              "RelativeToolTip": "Supporting_projects\\DTOs\\cartItemDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T16:53:32.387Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -72,149 +62,10 @@
               "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\CartController.cs",
               "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Controllers\\CartController.cs",
               "RelativeToolTip": "Supporting_projects\\Controllers\\CartController.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAEwDYAAAAJAAAA",
+              "ViewState": "AQIAADkAAAAAAAAAAAAAAEYAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T18:04:33.036Z",
+              "WhenOpened": "2024-09-13T16:51:18.743Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "cartItemDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\DTOs\\cartItemDTO.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\cartItemDTO.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\DTOs\\cartItemDTO.cs",
-              "RelativeToolTip": "Supporting_projects\\DTOs\\cartItemDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T17:54:13.235Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "cartDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\DTOs\\cartDTO.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\cartDTO.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\DTOs\\cartDTO.cs",
-              "RelativeToolTip": "Supporting_projects\\DTOs\\cartDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T17:54:10.815Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "addCartItemDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\DTOs\\addCartItemDTO.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\addCartItemDTO.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\DTOs\\addCartItemDTO.cs",
-              "RelativeToolTip": "Supporting_projects\\DTOs\\addCartItemDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T17:54:01.197Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Favorite.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Models\\Favorite.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\Models\\Favorite.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Models\\Favorite.cs",
-              "RelativeToolTip": "Supporting_projects\\Models\\Favorite.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T17:53:29.086Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FavoriteDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\DTOs\\FavoriteDTO.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\FavoriteDTO.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\DTOs\\FavoriteDTO.cs",
-              "RelativeToolTip": "Supporting_projects\\DTOs\\FavoriteDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T17:53:08.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FavoriteController.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Controllers\\FavoriteController.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\FavoriteController.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Controllers\\FavoriteController.cs",
-              "RelativeToolTip": "Supporting_projects\\Controllers\\FavoriteController.cs",
-              "ViewState": "AQIAADcAAAAAAAAAAAAkwEUAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T17:50:49.724Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Cart.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Models\\Cart.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\Models\\Cart.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Models\\Cart.cs",
-              "RelativeToolTip": "Supporting_projects\\Models\\Cart.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-04T17:17:38.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\ProductsController.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "Supporting_projects\\Controllers\\ProductsController.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAkwBUAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T17:41:09.453Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CategoriesController.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Controllers\\CategoriesController.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\CategoriesController.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Controllers\\CategoriesController.cs",
-              "RelativeToolTip": "Supporting_projects\\Controllers\\CategoriesController.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAkwDUAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T15:12:45.169Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "Supporting_projects\\Controllers\\UsersController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAUwBsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T10:39:12.229Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Program.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\Program.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Program.cs",
-              "RelativeToolTip": "Supporting_projects\\Program.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwCMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-30T10:37:53.533Z"
             }
           ]
         }

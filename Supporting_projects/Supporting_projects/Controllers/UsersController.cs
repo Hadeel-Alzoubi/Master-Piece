@@ -1,8 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using E_Commerce_Clothes.DTO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Supporting_projects.DTOs;
 using Supporting_projects.Models;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace Supporting_projects.Controllers
 {
@@ -28,32 +33,48 @@ namespace Supporting_projects.Controllers
 
         //LogIn
         [Route("UserByEmailUser")]
-        [HttpGet]
-        public IActionResult GetUser([FromQuery] string email, [FromQuery] string password)
+        [HttpPost]
+        public IActionResult GetUser([FromForm] UserResponseDto user)
         {
             // Validate that email and password are not null
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            if (user.Email == null || user.Password == null)
             {
                 return BadRequest("Email and Password cannot be null.");
             }
 
             // Retrieve the user from the database using the provided email
-            var user = db.Users.SingleOrDefault(u => u.Email == email);
+            var u = db.Users.SingleOrDefault(use => use.Email == user.Email);
 
-            if (user == null)
+            if (u == null)
             {
                 return NotFound("User not found.");
             }
-            // Check if the provided password matches the stored password
-            // Note: In a real application, ensure passwords are hashed and compared securely
-            if (user.PasswordHash == password)
+            //// Check if the provided password matches the stored password
+            //// Note: In a real application, ensure passwords are hashed and compared securely
+            if (user.Password == u.Password)
             {
+                var cart = db.Carts.SingleOrDefault(c => c.UserId == u.UserId);
+
+                if (cart == null)
+                {
+                    cart = new Cart
+                    {
+                        UserId = u.UserId,
+                    };
+                    db.Carts.Add(cart);
+                    db.SaveChanges();
+
+                }
                 return Ok("Login successful. Welcome!");
             }
             else
             {
                 return Unauthorized("Incorrect password.");
             }
+
+            
+
+
         }
 
 
@@ -61,24 +82,40 @@ namespace Supporting_projects.Controllers
         [HttpPost]
         public IActionResult Register([FromForm] UserRequestDTO userDTO)
         {
+           
             var user = db.Users.SingleOrDefault(u => u.Email == userDTO.Email);
-            if (user != null) {
+            if (user != null)
+            {
                 return Ok("Go to Login");
             }
 
+
+            if (userDTO.ConfirmPassword != null && userDTO.Password != userDTO.ConfirmPassword)
+            {
+                return BadRequest("Password and Confirm Password do not match.");
+            }
+
+            byte[] Hash, Salt;
+
+            PasswordHashDTO.CreatePasswordHash(userDTO.Password, out Hash, out Salt);
             var data = new User
             {
                 UserName = userDTO.UserName,
                 Email = userDTO.Email,
-                PasswordHash = userDTO.PasswordHash,
+                Password = userDTO.Password,
                 Phone = userDTO.Phone,
                 Address = userDTO.Address,
+                PasswordHash = Hash,
+                PasswordSalt = Salt,
             };
 
             db.Users.Add(data);
             db.SaveChanges();
             return Ok();
         }
+
+
+
 
 
         [Route("EditUser")]
@@ -89,7 +126,7 @@ namespace Supporting_projects.Controllers
 
 
             UpdateUser.UserName = userDTO.UserName;
-            UpdateUser.PasswordHash = userDTO.PasswordHash;
+            UpdateUser.Password = userDTO.Password;
             UpdateUser.Email = userDTO.Email;
             UpdateUser.Address = userDTO.Address;
             UpdateUser.Phone = userDTO.Phone;

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Admin DashBoard</title>
+    <link rel="stylesheet" href="/CaterServ-1.0.0/css/style.css">
+    <link rel="stylesheet" href="/CaterServ-1.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    
+<section>
+    <div class="DashBoard" dir="rtl">
+        <div class="sidebar ">
+        <ul>
+            <li>
+                <a href="#">المنتجات</a>
+            </li>
+            <li>
+                <a href="#">الطلبات في الموقع</a>
+            </li>
+            <li>
+                <a href="#">العملاء</a>
+            </li>
+            <li>
+                <a href="#">التجار</a>
+            </li>
+            <li>
+                <a href="#">طلبات المستخدمين الخاصة</a>
+            </li>
+            <li>
+                <a href="#">الاصناف</a>
+            </li>
+            <li>
+                <a href="#">احصائيات الموقع</a>
+            </li>
+            <!-- <li>
+                <a href="#">Settings</a>
+            </li> -->
+        </ul>
+    </div>
+    </div>
+
+    <div>
+        <section>
+            <h1>المنتجات</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>الاسم</th>
+                        <th>الوصف</th>
+                        <th>الصورة</th>
+                        <th>التكلفة</th>
+                        <th>الحالة</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>منتج 1</td>
+                        <td>وصف منتج 1</td>
+                        <td><img src="https://via.placeholder.com/150" alt="Product 1"></td>
+                        <td>$1</td>
+                        <td>متوفر</td>
+                    </tr>
+                </tbody>
+        </section>
+        <section>
+            <h1>الطلبات في الموقع</h1>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الزبون</th>
+                            <th>الموقع</th>
+                            <th>البريد الالكتروني</th>
+                            <th>رقم الهاتف</th>
+                            <th>السعر</th>
+                            <th>وصف القطعة</th>
+                            <th>التاريخ</th>
+                            <th>الحالة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>هديل</td>
+                            <td>اربد</td>
+                            <td>user@example.com</td>
+                            <td>07777777</td>
+                            <td>$10</td>
+                            <td>علم الاردن من الخرز</td>
+                            <td>2022-01-01</td>
+                            <td>تم القبول</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section>
+            <h1>التجار
+            </h1>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>اسم التاجر</th>
+                            <th>الموقع</th>
+                            <th>البريد الالكتروني</th>
+                            <th>رقم الهاتف</th>
+                            <th>الصنف</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>شريف</td>
+                            <td>اربد</td>
+                            <td>user@example.com</td>
+                            <td>07777777</td>
+                            <td>منسوجات</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+        </section>
+        <section>
+            <h1>العملاء</h1>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الاسم</th>
+                            <th>البريد الالكتروني</th>
+                            <th>رقم الهاتف</th>
+                            <th>الموقع</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>هديل</td>
+                            <td>h@gmail.com</td>
+                            <td>044444444</td>
+                            <td>اربد</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section>
+            <h1>المنتجات</h1>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المنتج</th>
+                            <th>الوصف</th>
+                            <th>الصورة</th>
+                            <th>التكلفة</th>
+                            <th>الحالة</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>لعبة صوف</td>
+                            <td>لعبة مصنوعه من الصوف</td>
+                            <td><img src="https://via.placeholder.com/150" alt="Product 1"></td>
+                            <td>$1</td>
+                            <td>متوفر</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section>
+            <button type="button" class="btn btn-primary">اضافة صنف</button>
+            <h1>الاصناف في الموقع</h1>
+            <table>
+                <thead></thead>
+                    <tr>
+                        <th>الصنف</th>
+                        <th>حذف</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>منسوجات</td>
+                        <td><a href="#">حذف</a></td>
+                    </tr>
+                    <tr>
+                        <td>خرز</td>
+                        <td><a href="#">حذف</a></td>
+                    </tr>
+                    <tr>
+                        <td>فخار</td>
+                        <td><a href="#">حذف</a></td>
+                    </tr>
+                    <tr>
+                        <td>ريزن</td>
+                        <td><a href="#">حذف</a></td>
+                    </tr>
+                    <tr>
+                        <td>شمع</td>
+                        <td><a href="#">حذف</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+                <h2>احصائيات</h2>
+
+                <div class="col-xl-6 col-md-12 col-12 mb-5">
+                    <div class="row row-cols-lg-2 row-cols-1 g-5  ">
+                     
+                      <div class="col">
+                        <div class="card h-100 card-lift">
+                          <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                              <span class="fw-semi-bold ">احصائيات بيع المنسوجات</span>
+                              <span><i data-feather="pie-chart" class="text-gray-400"></i></span>
+      
+                            </div>
+                            <div class="mt-4 mb-2 ">
+                              <h3 class="fw-bold mb-0">76.40%</h3>
+      
+                            </div>
+                            <!-- <span class=" text-success "><i class="me-1 icon-xs" data-feather="arrow-up" ></i>-2.50%</span>
+                            <small>vs 74.60(prev.)</small> -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card h-100 card-lift">
+                          <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                              <span class="fw-semi-bold ">احصائيات بيع الخرز</span>
+                              <span><i data-feather="send" class="text-gray-400"></i></span>
+      
+                            </div>
+                            <div class="mt-4 mb-2 ">
+                              <h3 class="fw-bold mb-0">35%</h3>
+      
+                            </div>
+                            <!-- <span class="text-danger "><i class="me-1 icon-xs" data-feather="arrow-down" ></i>-1.83%</span>
+                            <small>vs 2.19 (prev.)</small> -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card h-100 card-lift">
+                          <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                              <span class="fw-semi-bold ">احصائيات بيع الفخار</span>
+                              <span><i data-feather="clock" class="text-gray-400"></i></span>
+      
+                            </div>
+                            <div class="mt-4 mb-2 ">
+                              <h3 class="fw-bold mb-0">28%</h3>
+      
+                            </div>
+                            <!-- <span class="text-success "><i class="me-1 icon-xs" data-feather="arrow-up" ></i>21.50%</span>
+                            <small>vs 2.19 (prev.)</small> -->
+                          </div>
+                        </div>
+                     
+                    </div>
+                    
+                      <div class="col">
+                        <div class="card h-100 card-lift">
+                          <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                              <span class="fw-semi-bold ">احصائيات بيع الشمع</span>
+                              <span><i data-feather="activity" class="text-gray-400"></i></span>
+      
+                            </div>
+                            <div class="mt-4 mb-2 ">
+                              <h3 class="fw-bold mb-0">47.74%</h3>
+                            </div>
+                           
+                          </div>
+                        </div>
+                      </div>
+                    
+
+                    </div>
+                  </div>
+        </section>
+    </div>
+</section>
+
+</body>
+</html>

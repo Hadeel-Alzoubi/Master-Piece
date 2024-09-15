@@ -6,7 +6,9 @@
 
         public int? CartId { get; set; }
 
-        public int Quantity { get; set; }
+        public int? Quantity { get; set; }
+
+        public string? ImageUrl { get; set; }
 
         public productDTO Product { get; set; }
     }

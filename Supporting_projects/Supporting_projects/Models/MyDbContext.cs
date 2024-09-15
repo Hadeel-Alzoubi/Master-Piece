@@ -71,12 +71,7 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
-            entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.UserId).HasColumnName("UserID");
-
-            entity.HasOne(d => d.Product).WithMany(p => p.Carts)
-                .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__Cart__ProductID__534D60F1");
 
             entity.HasOne(d => d.User).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.UserId)
@@ -91,6 +86,9 @@ public partial class MyDbContext : DbContext
 
             entity.Property(e => e.CartItemId).HasColumnName("CartItemID");
             entity.Property(e => e.CartId).HasColumnName("CartID");
+            entity.Property(e => e.ImageUrl)
+                .HasMaxLength(255)
+                .IsUnicode(false);
             entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
@@ -285,7 +283,9 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.Email).HasMaxLength(255);
             entity.Property(e => e.IsAdmin).HasDefaultValue(false);
             entity.Property(e => e.IsSupplier).HasDefaultValue(false);
-            entity.Property(e => e.PasswordHash).HasMaxLength(255);
+            entity.Property(e => e.Password)
+                .HasMaxLength(255)
+                .IsUnicode(false);
             entity.Property(e => e.Phone).HasMaxLength(20);
             entity.Property(e => e.UserName).HasMaxLength(100);
         });

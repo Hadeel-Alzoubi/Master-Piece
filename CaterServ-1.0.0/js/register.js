@@ -1,6 +1,27 @@
-const url = 'https://localhost:44397/api/Users/Register';
+
+async function login(email, password) {
+  var email = document.getElementById('email');
+  var password = document.getElementById('password');
+  debugger
+  const loginUrl = 'https://localhost:7084/api/Users/UserByEmailUser'
+  const response = await fetch(loginUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ 
+      Email: email,
+      Password: password 
+    })
+  });
+  
+}
+
+
 
 async function register() {
+  const url = 'https://localhost:44397/api/Users/Register';
+
   event.preventDefault();
     var form = document.getElementById("registrationForm");
     var fromSwagger = new FormData(form);

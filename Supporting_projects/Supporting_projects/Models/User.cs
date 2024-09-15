@@ -9,8 +9,6 @@ public partial class User
 
     public string UserName { get; set; } = null!;
 
-    public string PasswordHash { get; set; } = null!;
-
     public string Email { get; set; } = null!;
 
     public string? Phone { get; set; }
@@ -22,6 +20,12 @@ public partial class User
     public bool? IsSupplier { get; set; }
 
     public DateTime? CreatedAt { get; set; }
+
+    public string? Password { get; set; }
+
+    public byte[]? PasswordHash { get; set; }
+
+    public byte[]? PasswordSalt { get; set; }
 
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 

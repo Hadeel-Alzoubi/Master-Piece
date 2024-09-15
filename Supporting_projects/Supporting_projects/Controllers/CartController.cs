@@ -16,43 +16,129 @@ namespace Supporting_projects.Controllers
             _db = db;
         }
 
-        [Route("GetToCartItem")]
-        [HttpGet]
-        public IActionResult Get()
+
+
+
+        [HttpGet("getUserCartItems/{UserId}")]
+        public IActionResult getUserCartItems(int UserId)
         {
-            var cartItem = _db.CartItems.Select(
-                x => new cartItemDTO
-                {
-                    CartItemId = x.CartItemId,
-                    CartId = x.CartId,
-                    Quantity = x.Quantity,
-                    Product = new productDTO
-                    {
-                        ProductId = x.Product.ProductId,
-                        ProductName = x.Product.ProductName,
-                        Price = x.Product.Price,
-                    }
-                }
+
+            var user = _db.Carts.FirstOrDefault(x => x.UserId == UserId);
+
+            var cartItem = _db.CartItems.Where(c => c.CartId == user.CartId).Select(
+             x => new cartItemDTO
+             {
+                 CartItemId = x.CartItemId,
+                 CartId = x.CartId,
+                 Product = new productDTO
+                 {
+                     ProductId = x.Product.ProductId,
+                     ProductName = x.Product.ProductName,
+                     Price = x.Product.Price,
+                     ImageUrl = x.Product.ImageUrl,
+                 },
+                 Quantity = x.Quantity,
+             });
 
 
 
-                );
             return Ok(cartItem);
         }
 
-        [HttpPost]
-        public IActionResult addCartItem([FromBody] addCartItemDTO cart)
+
+
+        [HttpPost("AddCartItem/{UserId}")]
+        public IActionResult AddCartItem([FromBody] cartItemDTO newItem, int UserId)
         {
-            var data = new CartItem
+            // Check if the user has a cart
+            var user = _db.Carts.FirstOrDefault(x => x.UserId == UserId);
+
+            if (user == null)
             {
-                CartId = cart.CartId,
-                Quantity = cart.Quantity,
-                ProductId = cart.ProductId,
-            };
-            _db.CartItems.Add(data);
-            _db.SaveChanges();
-            return Ok();
+                return NotFound("Cart not found for this user.");
+            }
+
+            // Check if the product is already in the user's cart
+            var checkSelectedProduct = _db.CartItems.FirstOrDefault(x => x.ProductId == newItem.Product.ProductId && x.CartId == user.CartId);
+
+            if (checkSelectedProduct == null)
+            {
+                // Add new product to cart
+                var data = new CartItem
+                {
+                    CartId = user.CartId,
+                    ProductId = newItem.Product.ProductId,
+                    Quantity = newItem.Quantity,
+                };
+
+                _db.CartItems.Add(data);
+                _db.SaveChanges();
+                return Ok("Product added to cart");
+            }
+            else
+            {
+                // Update the quantity of the existing product in the cart
+                checkSelectedProduct.Quantity += newItem.Quantity;
+
+                _db.CartItems.Update(checkSelectedProduct);
+                _db.SaveChanges();
+                return Ok("Quantity of product increased");
+            }
         }
+
+
+
+
+        //[Route("GetToCartItem")]
+        //[HttpGet]
+        //public IActionResult Get()
+        //{
+
+
+        //    var cartItem = _db.CartItems.Select(
+        //        x => new cartItemDTO
+        //        {
+        //            CartItemId = x.CartItemId,
+        //            CartId = x.CartId,
+        //            Quantity = x.Quantity,
+
+        //            Product = new productDTO
+        //            {
+        //                ProductId = x.Product.ProductId,
+        //                ProductName = x.Product.ProductName,
+        //                Price = x.Product.Price,
+        //                ImageUrl = x.Product.ImageUrl
+
+
+        //            }
+        //        }
+
+
+
+        //        );
+        //    return Ok(cartItem);
+        //}
+
+        //[HttpPost]
+        //public IActionResult addCartItem([FromBody] addCartItemDTO cart)
+        //{
+        //    var data = new CartItem
+        //    {
+        //        CartId = cart.CartId,
+        //        Quantity = cart.Quantity,
+        //        ProductId = cart.ProductId,
+
+        //        Product = new productDTO
+        //        {
+        //            ProductId = cart.ProductId,
+        //            ProductName = cart.Product.ProductName,
+
+        //        }
+        //    };
+        //    _db.CartItems.Add(data);
+        //    _db.SaveChanges();
+        //    return Ok();
+        //}
 
 
         [HttpPut("{id}")]

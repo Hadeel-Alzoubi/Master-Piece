@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-  
+
+    <head>
+        <meta charset="utf-8">
+        <title>Anamel</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">  
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,181 +27,569 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
-</head>
-<body>
-    <div id="spinner" class="spinner"></div>
-    <div class="dashboard">
-        <div class="sidebar">
-            <h2>اسم الزبون يجب ان يظهر هنا </h2>
-            <br>
-            <br>
-            <ul>
-                <li><a href="#" data-target="crud-products">المفضلة</a></li>
-                <li><a href="#" data-target="payment-method">السلة</a></li>
-                <li><a href="#" data-target="order-products">طلبات خاصة</a></li>
-                <li><a href="#" data-target="update-profile">تعديل المعلومات الشخصية</a></li>
-                
-            </ul>
-        </div>
-        <div class="main-content">
-            <section id="crud-products" class="section">
-                <h2>المفضلة</h2>
-                <!-- <button class="btn btn-primary" onclick="Go()">اضافة منتج</button> -->
-                <br>
-                <br>
-                <table id="product-Wishlist">
-                    <thead>
-                        <tr>
-                            <th>اسم المنتج</th>
-                            <th>صورة المنتج</th>
-                            <th>السعر</th>
-                            <th>كمية</th>
-                         
-                            <th>حذف من المفضلة</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Product rows will be inserted here -->
-                    </tbody>
-                </table>
-            </section>
-            <section id="order-products" class="section" style="display: none;">
-                <h2>طلبات الزبائن لقطع خاصة </h2>
-                 <!-- <button class="btn btn-success">قبول</button>
-                <button class="btn btn-danger">رفض</button>
-               <button class="btn btn-primary" onclick="Go()">اضافة منتج</button> -->
-                <br>
-                <br>
-               <p>Coming soon </p>
-               <!-- <img src="" alt="صورة للمنتج اذا احب الزبون وضع صورة تقريبية للمنتج"></img> -->
-            </section>
-            <section id="update-profile" class="section" style="display: none;">
-                <h2 style="text-align: center;">تعديل المعلومات الشخصية</h2>
-                <form id="formUser">
-                    <label for="username">الاسم</label>
-                    <input type="text" id="username" name="username" />
-                    <label for="email" >البريد الالكتروني</label>
-                    <input type="email" id="email" name="email" />
-                    <label for="number" >رقم الهاتف</label>
-                    <input type="number" id="number" name="number" />
 
-                    <label for="password" >كلمة السر القديمة</label>
-                    <input type="password" id="OldPassword" name="password" />
-                    <label for="password" >كلمة السر الجديدة</label>
-                    <input type="password" id="NewPassword" name="password" />
-                    <label for="password" >تأكيد كلمة السر</label>
-                    <input type="password" id="ConfirmPassword" name="password" />
-                    
-                    <label for="address" >الموقع</label>
-                    <input type="text" id="address" name="address" />
-                    <button type="submit" class="btn btn-primary" onclick="UpdateProfile()">حفظ التعديلات</button>
-                </form>
-            </section>
-            <section id="payment-method" class="section" style="display: none;">
-                <h2>السلة</h2>
-                <form id="cart-form">
-                    <table class="table table-bordered" id="table">
-                        <thead class="table-light">
-                            <tr>
-                                <th scope="col">اسم المنتج</th>
-                                <th scope="col">السعر</th>
-                                <th scope="col">الكمية</th>
+        <style>
+            .tab-pane {
+                display: none;
+            }
+
+            .tab-pane:target {
+                display: block;
+            }
+
+            #dashboard:target,
+            #orders:target,
+            #downloads:target,
+            #address:target,
+            #account-details:target {
+                display: block;
+            }
+
+            .userD{
+                border: 1px solid #aeaca1;
+            }
+        </style>
+
+        <!-- Style For Order Tab -->
+        <style>
+            .title{
+                color: rgb(252, 103, 49);
+                font-weight: 600;
+                margin-bottom: 2vh;
+                padding: 0 8%;
+                font-size: initial;
+            }
+            #details{
+                font-weight: 400;
+            }
+            .info{
+                padding: 5% 8%;
+            }
+            .info .col-5{
+                padding: 0;
+            }
+            #heading{
+                color: grey;
+                line-height: 6vh;
+            }
+            .pricing{
+                background-color: #ddd3;
+                padding: 2vh 8%;
+                font-weight: 400;
+                line-height: 2.5;
+            }
+            .pricing .col-3{
+                padding: 0;
+            }
+            .total{
+                padding: 2vh 8%;
+                color: rgb(252, 103, 49);
+                font-weight: bold;
+            }
+            .total .col-3{
+                padding: 0;
+            }
+            .footer{
+                padding: 0 8%;
+                font-size: x-small;
+                color: black;
+            }
+            .footer img{
+                height: 5vh;
+                opacity: 0.2;
+            }
+            .footer a{
+                color: rgb(252, 103, 49);
+            }
+            .footer .col-10, .col-2{
+                display: flex;
+                padding: 3vh 0 0;
+                align-items: center;
+            }
+            .footer .row{
+                margin: 0;
+            }
+            #progressbar {
+                margin-bottom: 3vh;
+                overflow: hidden;
+                color: rgb(252, 103, 49);
+                padding-left: 0px;
+                margin-top: 3vh
+            }
             
-                            </tr>
-                        </thead>
-                       
-                    </table>
-                    <div class="d-flex justify-content-between mt-4">
-                        <!-- <button type="button" class="btn btn-outline-danger" onclick="clearCart()">Clear Cart</button> -->
-                        <button type="submit" class="btn btn-primary">Checkout</button>
+            #progressbar li {
+                list-style-type: none;
+                font-size: x-small;
+                width: 25%;
+                float: left;
+                position: relative;
+                font-weight: 400;
+                color: rgb(160, 159, 159);
+            }
+            
+            #progressbar #step1:before {
+                content: "";
+                color: rgb(252, 103, 49);
+                width: 5px;
+                height: 5px;
+                margin-left: 0px !important;
+                /* padding-left: 11px !important */
+            }
+            
+            #progressbar #step2:before {
+                content: "";
+                color: #fff;
+                width: 5px;
+                height: 5px;
+                margin-left: 32%;
+            }
+            
+            #progressbar #step3:before {
+                content: "";
+                color: #fff;
+                width: 5px;
+                height: 5px;
+                margin-right: 32% ; 
+                /* padding-right: 11px !important */
+            }
+            
+            #progressbar #step4:before {
+                content: "";
+                color: #fff;
+                width: 5px;
+                height: 5px;
+                margin-right: 0px !important;
+                /* padding-right: 11px !important */
+            }
+            
+            #progressbar li:before {
+                line-height: 29px;
+                display: block;
+                font-size: 12px;
+                background: #ddd;
+                border-radius: 50%;
+                margin: auto;
+                z-index: -1;
+                margin-bottom: 1vh;
+            }
+            
+            #progressbar li:after {
+                content: '';
+                height: 2px;
+                background: #ddd;
+                position: absolute;
+                left: 0%;
+                right: 0%;
+                margin-bottom: 2vh;
+                top: 1px;
+                z-index: 1;
+            }
+            .progress-track{
+                padding: 0 8%;
+            }
+            #progressbar li:nth-child(2):after {
+                margin-right: auto;
+            }
+            
+            #progressbar li:nth-child(1):after {
+                margin: auto;
+            }
+            
+            #progressbar li:nth-child(3):after {
+                float: left;
+                width: 68%;
+            }
+            #progressbar li:nth-child(4):after {
+                margin-left: auto;
+                width: 132%;
+            }
+            
+            #progressbar  li.active{
+                color: black;
+            }
+            
+            #progressbar li.active:before,
+            #progressbar li.active:after {
+                background: rgb(252, 103, 49);
+            }
+            </style>
+    </head>
+
+    <body>
+
+        <!-- Navbar start -->
+        <div class="container-fluid nav-bar">
+            <div class="container">
+                <nav class="navbar navbar-light navbar-expand-lg py-4">
+                    <a href="index.html" class="navbar-brand">
+                        <!-- <h1 class="text-primary fw-bold mb-0">هون اللوغو</h1> -->
+                         <img src="img/logo1-removebg-preview.png" alt="" width="150px">
+                    </a>
+                    <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars text-primary"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav mx-auto">
+                            <a href="index.html" class="nav-item nav-link active">الرئيسية</a>
+                            <a href="Category.html" class="nav-item nav-link">الاصناف</a>
+                            <a href="about.html" class="nav-item nav-link">من نحن</a>
+                            <a href="service.html" class="nav-item nav-link">الخدمات</a>
+                            <a href="contact.html" class="nav-item nav-link">تواصل معنا</a>
+                        </div>
+                        <a href="login.html" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">تسجيل الدخول</a>
+                        <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
+
                     </div>
-                </form>
-            </section>
-            
+                </nav>
+            </div>
         </div>
-    </div>
-
-    <script>
-        document.querySelectorAll('.sidebar a').forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const targetId = this.getAttribute('data-target');
-                document.querySelectorAll('.main-content .section').forEach(section => {
-                    section.style.display = section.id === targetId ? 'block' : 'none';
-                });
-            });
-        });
-        
-      async function deleteProduct(id) {
-        debugger;
-            event.preventDefault();
-            const urlDelete = `https://localhost:44397/api/Cart/DeleteItem/${id}`;
-          await fetch(urlDelete, {
-                    method: "DELETE",
-                    
-                });
-
-                window.location.reload();
-                window.alert("هل تريد حذف المنتج");
-        }
-        function addProduct() {
-    document.getElementById('crud-products').style.display = 'none';
-    document.getElementById('add-product').style.display = 'block';
-}
-
-        // getProducts();
+        <!-- Navbar End -->
 
 
-        async function ShowCart() {
-            const url = 'https://localhost:44397/api/Cart/GetToCartItem'
-            var data = await fetch(url);
-            var response = await data.json();
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ابحث باستخام اسم المنتج</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control bg-transparent p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Search End -->
 
-            var table =  document.getElementById("table");
+    <section class="main_content_area" style="margin-top: 50px;">
+        <div class="account_dashboard">
+            <div class="row">
+                <div class="col-sm-12 col-md-3 col-lg-3">
+                    <!-- Nav tabs -->
+                    <div class="dashboard_tab_button">
+                        <ul role="tablist" class="nav flex-column dashboard-list">
 
-            response.forEach(element => {
-                table.innerHTML += `
-                <tbody>
-                    <tr >
-                       <td >${element.product.productName}</td>
-                       <td>${element.product.price}</td>
-                    
-                       <td><input id="quantity" type="number" value="${element.quantity}" class="form-input" style="width:100px"></td>
-                       <td><button type="button" class="btn btn-outline-danger" onclick="clearCart(${element.cartItemId})" >حذف المنج</button></td>
+                            <!-- <li><a href="#dashboard" data-bs-toggle="tab" class="nav-link active">Dashboard</a></li> -->
+                            <li><a href="#account-details" class="nav-link userD" >معلومات المستخدم</a></li>
+                            <li><a href="#account-passowrd" class="nav-link userD" >تعديل كلمة السر</a></li>
+                            <li><a href="#orders" class="nav-link userD">طلباتي</a></li>
+                            <li><a href="#downloads" class="nav-link userD">تحميل ملف الطلب</a></li>
+                            <!-- <li><a href="#address" class="nav-link userD">الموقع</a></li> -->
+                            <li><a href="#custom-order" class="nav-link userD">طلبات خاصة</a></li>
+                            <!-- <li><a href="#order" class="nav-link  userD">تسجيل الخروج</a></li> -->
+                            <li><a href="index.html" class="nav-link  userD">تسجيل الخروج</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-9 col-lg-9">
+                    <!-- Tab panes -->
+                    <div class="tab-content dashboard_content">
+                        <!-- <div id="dashboard" class="tab-pane">
+                            <h3>Dashboard</h3>
+                            <p>From your account dashboard, you can easily check &amp; view your <a href="#">recent orders</a>, manage your <a href="#">shipping and billing addresses</a>, and <a href="#">Edit your password and account details.</a></p>
+                        </div> -->
                        
-                    </tr>
-                    </tbody>
-                `
-            });
-        }
-        ShowCart();
+                        <div id="account-details" class="tab-pane">
+                            <h3>معلومات الحساب الشخصي</h3>
+                            <div class="login_form_container">
+                                <form action="#">
+                                    <label>الاسم</label>
+                                    <p>هديل الزعبي</p>
+                                    <label>البريد الالكتروني</label>
+                                    <p>hadeel@gmail.com</p>
+                                    <label>رقم الهاتف</label>
+                                    <p>0777777777</p>
+                                    <label>الموقع</label>
+                                    <p>اربد /الرمثا</p>
+                                    <br>
+                                </form>
+                                <br>
+                                <form action="#">
+                                    <label>الاسم</label>
+                                    <input type="text" name="first-name">
+                                    <label>البريد الالكتروني</label>
+                                    <input type="email" name="email-name" placeholder="hadeel@gmail.com" readonly>
+                                    <label>رقم الهاتف</label>
+                                    <input type="number" name="number">
+                                    <label>الموقع</label>
+                                    <input type="text" name="address"></input>
+                                    <br>
+                                    <div class="save_button primary_btn default_button">
+                                        <a href="#">حفظ التعديلات</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="account-passowrd" class="tab-pane">
+                            <h3>معلومات الحساب الشخصي</h3>
+                            <div class="login_form_container">
+                                <form action="#">
+                                  
+                                    <label>كلمة السر القديمة</label>
+                                    <input type="password" name="user-password">
+                                    <label>كلمة السر الجديدة</label>
+                                    <input type="password" name="user-password">
+                                    <label>تاكيد كلمة السر</label>
+                                    <input type="password" name="user-password">
+                                    <br>
+                                    
+                                    <div class="save_button primary_btn default_button">
+                                        <a href="#">Save</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="orders" class="tab-pane">
+                            <div class="title">معلومات الطلب</div>
+                            <div class="info">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <span id="heading">التاريخ</span><br>
+                                        <span id="details">10 October 2018</span>
+                                    </div>
+                                    <div class="col-5 pull-right">
+                                        <span id="heading">رقم الطلب</span><br>
+                                        <span id="details">012j1gvs356c</span>
+                                    </div>
+                                </div>      
+                            </div>      
+                            <div class="pricing">
+                                <div class="row">
+                                    <div class="col-9">
+                                        <span id="name">طاولة من الريزن</span>  
+                                    </div>
+                                    <div class="col-3">
+                                        <span id="price">299.99</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <span id="name">قيمة التوصيل</span>
+                                    </div>
+                                    <div class="col-3">
+                                        <span id="price">33.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="total">
+                                <div class="row">
+                                    <div class="col-9">المجموع الكلي</div>
+                                    <div class="col-3">262.99</div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="tracking">
+                                <div class="title">تتبع الطلب</div>
+                            </div>
+                            <div class="progress-track">
+                                <ul id="progressbar">
+                                    <li class="step0 active " id="step1">الطلب</li>
+                                    <li class="step0 active text-center" id="step2">تم التجهيز</li>
+                                    <li class="step0 active text-right" id="step3">في الطريق</li>
+                                    <li class="step0 text-right" id="step4">تم التوصيل</li>
+                                </ul>
+                            </div>
+                            
+                            <br>
+                        
+                            <div class="footer">
+                                <a href="/CaterServ-1.0.0/contact.html"> تواصل معنا  اذا كنت تحتاج للمساعدة لا تترد في التواصل معنا </a>
+                            </div>
+                            <!-- <h3>Orders</h3>
+                            <div class="coron_table table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Order</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Total</th>
+                                            <th>Actions</th>	 	 	 	
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>May 10, 2023</td>
+                                            <td><span class="success">Completed</span></td>
+                                            <td>$25.00 for 1 item </td>
+                                            <td><a href="cart.html" class="view">view</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>May 10, 2023</td>
+                                            <td>Processing</td>
+                                            <td>$17.00 for 1 item </td>
+                                            <td><a href="cart.html" class="view">view</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> -->
+                        </div>
+                        <div id="downloads" class="tab-pane">
+                            <h3>Downloads</h3>
+                            <div class="coron_table table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Downloads</th>
+                                            <th>Expires</th>
+                                            <th>Download</th>	 	 	 	
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Shopnovilla - Free Real Estate PSD Template</td>
+                                            <td>May 10, 2023</td>
+                                            <td><span class="danger">Expired</span></td>
+                                            <td><a href="#" class="view">Click Here To Download Your File</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Organic - ecommerce html template</td>
+                                            <td>Sep 11, 2023</td>
+                                            <td>Never</td>
+                                            <td><a href="#" class="view">Click Here To Download Your File</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="custom-order" class="tab-pane">
+                            <div class="login_form_container">
+                                <form action="#">
+                                    <div class="input-radio" style="display: flex; gap: 70px; justify-content: center;">
+                                        <span class="custom-radio"><input type="radio" value="1" name="category">خرز</span>
+                                        <span class="custom-radio"><input type="radio" value="1" name="category">منسوجات</span>
+                                        <span class="custom-radio"><input type="radio" value="1" name="category">فخار</span>
+                                        <span class="custom-radio"><input type="radio" value="1" name="category">ريزن</span>
+                                        <span class="custom-radio"><input type="radio" value="1" name="category">شمع</span>
+                                    </div> <br>
+                                    <label>الاسم</label>
+                                    <input type="text" name="first-name">
+                                    <label>البريد الالكتروني</label>
+                                    <input type="email" name="email-name">
+                                    <label>رقم الهاتف</label>
+                                    <input type="number" name="user-number">
+                                    <label>العنوان</label>
+                                    <input type="text" name="address">
+                                    <br>
+                                    <label>وصف القطعة</label>
+                                    <input type="text"></input>
+                                    
+                                    <label>هل لديك صورة تقريبية</label>
+                                    <input type="file"></input>
 
-        async function ShowFavorite() {
-            const url = 'https://localhost:44397/api/Favorite/GetToFavoritetItem'
-            var data = await fetch(url);
-            var response = await data.json();
+                                    <br>
+                                    <br>
 
-            var table =  document.getElementById("product-Wishlist");
+                                    <div class="save_button primary_btn default_button">
+                                        <a href="#" class="btn btn-primary">تاكيد طلب القطعة</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- <div id="address" class="tab-pane">
+                            <p>The following addresses will be used on the checkout page by default.</p>
+                            <h4 class="billing-address">Billing address</h4>
+                            <a href="#" class="view">Edit</a>
+                            <p><strong>Bobby Jackson</strong></p>
+                            <address>
+                                House #15<br>
+                                Road #1<br>
+                                Block #C <br>
+                                Banasree <br>
+                                Dhaka <br>
+                                1212
+                            </address>
+                            <p>Bangladesh</p>   
+                        </div> -->
 
-            response.forEach(element => {
-                table.innerHTML += `
-                <tbody>
-                    <tr >
-                       <td >${element.product.productName}</td>
-                       <td><img src="${element.product.imageUrl}"/></td>
-                       <td>${element.product.price}</td>
-                      
-                       <td><input id="quantity" type="number" value="${element.quantity}" class="form-input" style="width:100px"></td>
-                       <td><button type="button" class="btn btn-outline-danger" onclick="clearCart(${element.cartItemId})" >حذف المنج</button></td>
-                       
-                    </tr>
-                    </tbody>
-                `
-            });
-        }
-        ShowFavorite();
-    </script>
+
+                        <!-- <div id="order" class="card">
+                            <div class="title">Purchase Reciept</div>
+                            <div class="info">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <span id="heading">Date</span><br>
+                                        <span id="details">10 October 2018</span>
+                                    </div>
+                                    <div class="col-5 pull-right">
+                                        <span id="heading">Order No.</span><br>
+                                        <span id="details">012j1gvs356c</span>
+                                    </div>
+                                </div>      
+                            </div>      
+                            <div class="pricing">
+                                <div class="row">
+                                    <div class="col-9">
+                                        <span id="name">BEATS Solo 3 Wireless Headphones</span>  
+                                    </div>
+                                    <div class="col-3">
+                                        <span id="price">&pound;299.99</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-9">
+                                        <span id="name">Shipping</span>
+                                    </div>
+                                    <div class="col-3">
+                                        <span id="price">&pound;33.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="total">
+                                <div class="row">
+                                    <div class="col-9"></div>
+                                    <div class="col-3"><big>&pound;262.99</big></div>
+                                </div>
+                            </div>
+                            <div class="tracking">
+                                <div class="title">Tracking Order</div>
+                            </div>
+                            <div class="progress-track">
+                                <ul id="progressbar">
+                                    <li class="step0 active " id="step1">Ordered</li>
+                                    <li class="step0 active text-center" id="step2">Shipped</li>
+                                    <li class="step0 active text-right" id="step3">On the way</li>
+                                    <li class="step0 text-right" id="step4">Delivered</li>
+                                </ul>
+                            </div>
+                            
+                        
+                            <div class="footer">
+                                <div class="row">
+                                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/YBWc55P.png"></div>
+                                    <div class="col-10">Want any help? Please &nbsp;<a> contact us</a></div>
+                                </div>
+                                
+                               
+                            </div>
+                        </div> -->
+
+
+                    </div>
+                </div>
+            </div>
+        </div>      	
+    </section>
+
+
     <script src="js/register.js"></script>
-    <script src="js/AddProduct.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
 </body>
 </html>
