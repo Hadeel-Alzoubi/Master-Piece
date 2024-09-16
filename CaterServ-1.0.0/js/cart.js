@@ -2,7 +2,8 @@
 
 
 async function ShowCart() {
-    const url = `https://localhost:7084/api/Cart/getUserCartItems/${from-database}`
+    // const url = `https://localhost:7084/api/Cart/getUserCartItems/${from-database}`
+    const url = 'https://localhost:44397/api/Cart/GetToCartItem'
     var data = await fetch(url);
     var response = await data.json();
 

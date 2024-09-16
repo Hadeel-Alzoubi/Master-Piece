@@ -62,22 +62,23 @@ ProductDetails(id);
 //<a class="btn btn-primary" onclick="addToWishlist()"><i class="fa fa-heart"></i>اضف الى المفضلة</a>
 
 
-addToCart(id)
-{
-
-}
-
-
-
-var UserId = localStorage.getItem("UserId"); // هاي لحتى اخزن الid للمستخدم
+// var UserId = localStorage.getItem("UserId"); // هاي لحتى اخزن الid للمستخدم
 // var productId = localStorage.getItem("selectedProductId");
-async function addToCart(productId, name, price, image) {
+// var idUser =  localStorage.setItem('UserId',UserId);
+// var number = Number(localStorage.getItem('UserId'));
+
+var UserId = 1; 
+var idUser =  localStorage.setItem('UserId',UserId);
+
+async function addToCart(productId) {
+  debugger;
+
   if (UserId != null) {
-    var url = `https://localhost:44362/api/Cart/AddCartItem/${UserId}`;
+    var url = `https://localhost:44397/api/Cart?id=${UserId}`;
 
     var data = {
-      ProductId: productId,
-      Quantity: 1,
+        productId: productId,
+      quantity: 1,
     };
 
     let response = await fetch(url, {
@@ -101,9 +102,9 @@ async function addToCart(productId, name, price, image) {
     const cartItem = {
       product_id: productId,
       quantity: 1,
-      name: name,
+      productName: name,
       price: price,
-      image: image,
+      imageUrl: image,
     };
 
     // Check if there is already a cart in localStorage
