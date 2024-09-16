@@ -25,7 +25,7 @@ async function ProductDetails(id) {
                                         <div class="title"><h2>${data.productName}</h2></div>
 
                                         <div class="ratting">
-                                           هووووووووووون النجوم لازم تنحط
+****
                                         </div>
                                          <br>
 

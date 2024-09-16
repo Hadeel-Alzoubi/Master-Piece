@@ -309,8 +309,8 @@
                   <p class="mb-4">
                     بامكان المستخدم طلب قطعة خاصة به و سيتم تلقيها من قبل التاجر
                   </p>
-                  <a href="#" class="btn btn-primary px-4 py-2 rounded-pill"
-                    >اقرأ المزيد</a
+                  <button href="#" onclick="sure()" class="btn btn-primary px-4 py-2 rounded-pill"
+                    >اقرأ المزيد</button
                   >
                 </div>
               </div>
@@ -1522,6 +1522,19 @@
     <!-- Template Javascript -->
     <script src="js/register.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      function sure() {
+        debugger;
+        Swal.fire({
+          icon: "info",
+          title: "شكرا لانك مهتم بهذه الخدمة",
+          text: "يمكنك ان تقوم بطلب قطعتك الخاصة في لوحة التحكم الخاصة بك ان لم يكن لديك حساب ف عليك تسجيل الاشتراك !!",
+          footer: '<a href="register.html">تسجيل الاشتراك</a>'
+        });
+      }
+    </script>
   </body>
 </html>
 

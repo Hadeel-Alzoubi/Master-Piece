@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Orange\\Desktop\\BackUP\\BackEnd\\Supporting_projects\\Supporting_projects\\Supporting_projects.csproj": {}
+    "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Supporting_projects.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Orange\\Desktop\\BackUP\\BackEnd\\Supporting_projects\\Supporting_projects\\Supporting_projects.csproj": {
+    "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Supporting_projects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Orange\\Desktop\\BackUP\\BackEnd\\Supporting_projects\\Supporting_projects\\Supporting_projects.csproj",
+        "projectUniqueName": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Supporting_projects.csproj",
         "projectName": "Supporting_projects",
-        "projectPath": "C:\\Users\\Orange\\Desktop\\BackUP\\BackEnd\\Supporting_projects\\Supporting_projects\\Supporting_projects.csproj",
+        "projectPath": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\Supporting_projects.csproj",
         "packagesPath": "C:\\Users\\Orange\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Orange\\Desktop\\BackUP\\BackEnd\\Supporting_projects\\Supporting_projects\\obj\\",
+        "outputPath": "C:\\Users\\Orange\\Desktop\\Master-Piece\\Supporting_projects\\Supporting_projects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -42,7 +42,7 @@ async function ShowCart() {
                                 <p class="mb-0 mt-4"> مجموع السعر الكلي : ${element.product.price * element.quantity}</p>
                             </td>
                             <td>
-                                <button class="btn btn-md  bg-light border mt-4"  onclick="clearCart(${element.cartItemId})" >
+                                <button class="btn btn-md  bg-light border mt-4"  onclick="clearCart(${element.product.productId})" >
                                     <i class="fa fa-times text-danger"></i>
                                 </button>
                             </td>

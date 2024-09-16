@@ -25,16 +25,18 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="css/style.css" rel="stylesheet" />
+
     <!-- Additional styles -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
 
 </head>
 
 <style>
 
 
-html {
+/* html {
   box-sizing: border-box;
 }
 
@@ -47,7 +49,7 @@ body {
   min-block-size: 100vh;
   padding: 5vmin;
   place-items: center;
-}
+} */
 
 address {
   font-style: normal;
@@ -60,11 +62,11 @@ button {
   font: inherit;
 }
 
-fieldset {
+/* fieldset {
   border: 0;
   margin: 0;
   padding: 0;
-}
+} */
 
 h1 {
   font-size: var(--font-size-h1);
@@ -94,10 +96,10 @@ input[type="radio"] {
   accent-color: var(--color-primary);
 }
 
-table {
+/* table {
   border-collapse: collapse;
   inline-size: 100%;
-}
+} */
 
 tbody {
   color: #b4b4b4;
@@ -141,7 +143,7 @@ tfoot {
 
 .card {
   border-radius: 1em;
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
   padding: 1em;
 }
 
@@ -190,7 +192,7 @@ tfoot {
   /* background-color: #fbf6f7; */
   background-image: linear-gradient(to bottom, #fbf6f7, #fff);
   border-radius: 2em;
-  /* block-size: 812px; */
+  block-size: 812px;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.0625);
   inline-size: 375px;
   overflow: auto;
@@ -225,8 +227,8 @@ tfoot {
     </div>
 
     <!-- CheckOut Form -->
-    <div class="container" style="display: flex;justify-content: center;">
-        <div class="iphone" style="text-align: right;">
+    <div class="container" style="display: flex;justify-content: center; padding: 2em">
+        <div class="iphone" style="text-align: right; border-top-left-radius: 0px; border-bottom-left-radius: 0px;">
             <header class="header">
                 <h1>اكمال عملية الشراء</h1>
             </header>
@@ -283,16 +285,167 @@ tfoot {
                 </div>
 
                 <div>
-                    <button class="btn border-secondary rounded-pill px-4 py-3" type="submit">تأكيد الشراء</button>
+                    <button class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill" type="submit">تأكيد الشراء</button>
                 </div>
             </form>
         </div>
 
         <div class="image-container">
-            <img src="/Supporting_projects/CaterServ-1.0.0/img/checkout.png" alt="صورة توضيحية" height="700px" width="500px" style="border-bottom-left-radius: 50px;border-top-left-radius: 50px;">
+            <img src="/Supporting_projects/Supporting_projects/Uploads/checkOut.png" alt="صورة توضيحية" height="810px" width="500px" style="border-bottom-left-radius: 50px;border-top-left-radius: 50px;">
         </div>
     </div>
      
+       <!-- Footer Start -->
+   
+       <div class="container-fluid footer py-6 my-6 mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+        <div class="container">
+          
+          <div class="row">
+          
+              <div class="col-lg-3 col-md-6">
+                  <div class="footer-item">
+                      <img src="img/logo1-removebg-preview.png" width="150px">
+                  </div>
+                </div>
+            <div class="col-lg-3 col-md-6">
+  
+              <div class="footer-item">
+                <h1 class="text-primary">
+                  أنامل
+                </h1>
+                <p class="lh-lg mb-4">
+                  لنعدم مشاريع بلدنا ونقف معاً لدعم المواهب والطاقات الكامنة، لأنها مفتاح المستقبل وركيزة التنمية.
+                </p>
+                <!-- <div class="footer-icon d-flex">
+                  <a
+                    class="btn btn-primary btn-sm-square me-2 rounded-circle"
+                    href=""
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a
+                    class="btn btn-primary btn-sm-square me-2 rounded-circle"
+                    href=""
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="btn btn-primary btn-sm-square me-2 rounded-circle"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a href="#" class="btn btn-primary btn-sm-square rounded-circle"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                </div> -->
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item">
+                <h4 class="mb-4">استكشف الموقع</h4>
+                <div class="d-flex flex-column align-items-start">
+                  <a class="text-body mb-3" href="/CaterServ-1.0.0/Category.html">
+                      الاصناف <i class="fa fa-check text-primary me-2"></i></a>
+                  <a class="text-body mb-3" href="/CaterServ-1.0.0/about.html">
+                      من نحن<i class="fa fa-check text-primary me-2"></i></a>
+                  <a class="text-body mb-3" href="/CaterServ-1.0.0/service.html">
+                      الخدمات<i class="fa fa-check text-primary me-2"></i></a>
+                  <!-- <a class="text-body mb-3" href="">
+                      <i class="fa fa-check text-primary me-2"></i>SpecialSweets</a> -->
+                </div>
+              </div>
+            </div>
+           
+            
+            <div class="col-lg-3 col-md-6">
+              
+              <div class="footer-item">
+                <!-- <h4 class="mb-4">Social Gallery</h4> -->
+                <div class="row g-2">
+                  <div class="col-4">
+                    <img
+                      src="img/download (8).png"
+                      class="img-fluid rounded-circle border border-primary p-2 i"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-4">
+                    <img
+                      src="img/menu-02.jpg"
+                      class="img-fluid rounded-circle border border-primary p-2 i"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-4">
+                    <img
+                      src="img/slider-2222.jpg"
+                      class="img-fluid rounded-circle border border-primary p-2 i"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-4">
+                    <img
+                      src="img/download (21).png"
+                      class="img-fluid rounded-circle border border-primary p-2 i"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-4">
+                    <img
+                      src="img/download (7).png"
+                      class="img-fluid rounded-circle border border-primary p-2 i"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-4">
+                    <img
+                      src="img/Easter Elegance_ Candle Set Inspiration.png"
+                      class="img-fluid rounded-circle border border-primary p-2 i"
+                      alt=""
+                    />
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer End -->
+  
+      <!-- Copyright Start -->
+      <div class="container-fluid copyright bg-dark py-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              <span class="text-light"
+                ><a href="#"
+                  ><i class="fas fa-copyright text-light me-2"></i>Anamel@gmail.com </a>, All right reserved</span>
+            </div>
+           </div>
+        </div>
+      </div>
+      <!-- Copyright End -->
+  
+      <!-- Back to Top -->
+      <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"
+        ><i class="fa fa-arrow-up"></i></a>
+  
+      <!-- JavaScript Libraries -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/wow/wow.min.js"></script>
+      <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/waypoints/waypoints.min.js"></script>
+      <script src="lib/counterup/counterup.min.js"></script>
+      <script src="lib/lightbox/js/lightbox.min.js"></script>
+      <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  
+      <script src="js/category.js"></script>
+      <!-- Template Javascript -->
+      <script src="js/register.js"></script>
+      <script src="js/main.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  
 
 </body>
 
