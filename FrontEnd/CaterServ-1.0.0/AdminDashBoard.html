@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+  
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="lib/animate/animate.min.css" rel="stylesheet">
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+        <link href="lib/owlcarousel/owl.carousel.min.css" rel="stylesheet">
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="css/style.css" rel="stylesheet">
+
+        <style>
+            .tab-pane {
+                display: none;
+            }
+
+            .tab-pane:target {
+                display: block;
+            }
+
+            #dashboard:target,
+            #orders:target,
+            #downloads:target,
+            #address:target,
+            #account-details:target {
+                display: block;
+            }
+
+            .userD{
+                border: 1px solid #aeaca1;
+            }
+        </style>
+
+        <style>
+              .tab-pane {
+                display: none;
+            }
+
+            .tab-pane:target {
+                display: block;
+            }
+
+            #statistics:target,
+            #payment-method:target,
+            #update-profile:target,
+            #order-products:target,
+            #crud-products:target,
+            #statistics:target {
+                display: block;
+            }
+        </style>
+</head>
+<body>
+
+           <!-- Navbar start -->
+           <div class="container-fluid nav-bar">
+            <div class="container">
+                <nav class="navbar navbar-light navbar-expand-lg py-4">
+                    <a href="index.html" class="navbar-brand">
+                        <!-- <h1 class="text-primary fw-bold mb-0">هون اللوغو</h1> -->
+                         <img src="img/logo1-removebg-preview.png" alt="" width="150px">
+                    </a>
+                    <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="fa fa-bars text-primary"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav mx-auto">
+                            <a href="index.html" class="nav-item nav-link active">الرئيسية</a>
+                            <a href="Category.html" class="nav-item nav-link">الاصناف</a>
+                            <a href="about.html" class="nav-item nav-link">من نحن</a>
+                            <a href="service.html" class="nav-item nav-link">الخدمات</a>
+                            <a href="contact.html" class="nav-item nav-link">تواصل معنا</a>
+                        </div>
+                        <a href="login.html" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">تسجيل الدخول</a>
+                        <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
+
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+
+
+        <!-- Modal Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ابحث باستخام اسم المنتج</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control bg-transparent p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <section class="main_content_area" style="margin-top: 50px;">
+        <div class="account_dashboard">
+            <div class="row">
+                <div class="col-sm-12 col-md-3 col-lg-3">
+            <!-- Nav tabs -->
+                <div class="dashboard_tab_button">
+                    <ul role="tablist" class="nav flex-column dashboard-list">
+                        <li><a href="#crud-products"  class="nav-link userD" >ادارة المنتجات</a></li>
+                        <li><a href="#order-products"  class="nav-link userD">طلبات خاصة</a></li>
+                        <li><a href="#update-profile"  class="nav-link userD">تعديل المعلومات الشخصية</a></li>
+                        <li><a href="#payment-method"  class="nav-link userD">طرق الدفع</a></li>
+                        <li><a href="#statistics"  class="nav-link userD">احصائيات</a></li>
+                        <li><a href="index.html" class="nav-link userD">عودة للصفحة الرئيسية</a></li>
+                        <li><a href="/CaterServ-1.0.0/login.html" class="nav-link userD">تسجيل الخروج</a></li>
+                    </ul>
+                </div>
+            </div>
+        <div class="col-sm-12 col-md-9 col-lg-9">
+            <!-- Tab panes -->
+            <div class="tab-content dashboard_content">
+            <section id="crud-products"  class="tab-pane">
+                <h2>ادارة المنتجات</h2>
+                <button class="btn btn-primary" onclick="addProduct()">إضافة منتج</button>
+
+                <!-- <button class="btn btn-primary" onclick="Go()">اضافة منتج</button> -->
+                <br>
+                <br>
+                <table id="product-table">
+                    <thead>
+                        <tr>
+                            <th>اسم المنتج</th>
+                            <th>صورة المنتج</th>
+                            <th>السعر</th>
+                            <th>مخزون المنتج</th>
+                            <th>وصف كامل للمنتج</th>
+                            <th>تعديل</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Product rows will be inserted here -->
+                    </tbody>
+                </table>
+            </section>
+            <section id="order-products"   class="tab-pane">
+                <h2>طلبات الزبائن لقطع خاصة </h2>
+                <table id="product-table">
+                    <thead>
+                        <tr>
+                            <th>اسم الزبون</th>
+                            <th>البريد الالكتروني</th>
+                            <th>رقم الهاتف</th>
+                            <th>العنوان</th>
+                            <th>وصف القطعة</th>
+                            <th>صورة تقريبية للقطعه</th>
+                            <th>هل تريد العمل على هذه القطعه</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                هديل 
+                            </th>
+                            <td>
+                                hadeel@gmail.com
+                            </td>
+                            <td>
+                                0599999999
+                            </td>
+                            <td>
+                                اربد / الحصن
+                            </td>
+                            <td>
+                                اريدها على شكل علم الاردن من الخرز الحجم المتوسط
+                            </td>
+                            <td>
+                                <img src="" alt="صورة للمنتج">
+                            </td>
+                            <td>
+                                <button class="btn btn-success" onclick="submit()">قبول</button>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <!-- اذا قبل الادمن رح يبعث ايميل لليوزر بسعر القطعه -->
+                   
+                </table>
+
+            </section>
+            <section id="update-profile"   class="tab-pane">
+                <h2 style="text-align: center;">تعديل المعلومات الشخصية</h2>
+                <form id="AdminInfo">
+                    <label for="name" >الاسم الكامل</label>
+                  <p>هديل الزعبي</p>
+                    <label for="email" >البريد الالكتروني</label>
+                    <p>hadeel@gmail.com</p>
+                    <label for="number" >رقم الهاتف</label>
+                    <p>0599999999</p>
+                </form>
+    
+                <form id="formUser">
+                    <label for="username">الاسم</label>
+                    <input type="text" id="username" name="username" />
+                    <!-- <label for="email" >البريد الالكتروني</label>
+                    <input type="email" id="email" name="email" /> -->
+                    <label for="number" >رقم الهاتف</label>
+                    <input type="number" id="number" name="number" />
+
+                    <label for="password" >كلمة السر القديمة</label>
+                    <input type="password" id="OldPassword" name="password" />
+                    <label for="password" >كلمة السر الجديدة</label>
+                    <input type="password" id="NewPassword" name="password" />
+                    <label for="password" >تأكيد كلمة السر</label>
+                    <input type="password" id="ConfirmPassword" name="password" />
+                    
+                    <label for="address" >الموقع</label>
+                    <input type="text" id="address" name="address" />
+                    <button type="submit" class="btn btn-primary" onclick="UpdateProfile()">حفظ التعديلات</button>
+                </form>
+              
+            </section>
+            <section id="payment-method"   class="tab-pane"> 
+                <h2>طرق الدفع</h2>
+                <form>
+                    <div class="payment-method">
+                        <label>
+                            <input type="checkbox" name="payment-method" value="credit-card"> الدفع عن طريق الفيزا
+                        </label>
+                        <label>
+                            <input type="checkbox" name="payment-method" value="bank-transfer" checked disabled> الدفع عند الاستلام 
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">حفظ الطريقة</button>
+                </form>
+            </section>
+            <section id="statistics"   class="tab-pane">
+                <h2>احصائيات</h2>
+
+                <div class="col-xl-6 col-md-12 col-12 mb-5">
+                    <div class="row row-cols-lg-2 row-cols-1 g-5  ">
+                     
+                      <div class="col">
+                        <div class="card h-100 card-lift">
+                          <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                              <span class="fw-semi-bold ">احصائيات يومية</span>
+                              <span><i data-feather="pie-chart" class="text-gray-400"></i></span>
+      
+                            </div>
+                            <div class="mt-4 mb-2 ">
+                              <h3 class="fw-bold mb-0">76.40%</h3>
+      
+                            </div>
+                            <!-- <span class=" text-success "><i class="me-1 icon-xs" data-feather="arrow-up" ></i>-2.50%</span>
+                            <small>vs 74.60(prev.)</small> -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card h-100 card-lift">
+                          <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                              <span class="fw-semi-bold ">احصائيات اسبوعية</span>
+                              <span><i data-feather="send" class="text-gray-400"></i></span>
+      
+                            </div>
+                            <div class="mt-4 mb-2 ">
+                              <h3 class="fw-bold mb-0">35%</h3>
+      
+                            </div>
+                            <!-- <span class="text-danger "><i class="me-1 icon-xs" data-feather="arrow-down" ></i>-1.83%</span>
+                            <small>vs 2.19 (prev.)</small> -->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="card h-100 card-lift">
+                          <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                              <span class="fw-semi-bold ">احصائيات شهرية</span>
+                              <span><i data-feather="clock" class="text-gray-400"></i></span>
+      
+                            </div>
+                            <div class="mt-4 mb-2 ">
+                              <h3 class="fw-bold mb-0">28%</h3>
+      
+                            </div>
+                            <!-- <span class="text-success "><i class="me-1 icon-xs" data-feather="arrow-up" ></i>21.50%</span>
+                            <small>vs 2.19 (prev.)</small> -->
+                          </div>
+                        </div>
+                     
+                    </div>
+                    
+                      <!-- <div class="col">
+                        <div class="card h-100 card-lift">
+                          <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                              <span class="fw-semi-bold ">احصائيات ال</span>
+                              <span><i data-feather="activity" class="text-gray-400"></i></span>
+      
+                            </div>
+                            <div class="mt-4 mb-2 ">
+                              <h3 class="fw-bold mb-0">47.74%</h3>
+                            </div>
+                           
+                          </div>
+                        </div>
+                      </div> -->
+                    
+                    </div>
+                  </div>
+
+
+            </section>
+            <section id="add-product"   class="tab-pane" >
+                <h2>إضافة منتج جديد</h2>
+                <form id="formAddProduct">
+                   
+                    
+                    <label for="product-name">اسم المنتج</label>
+                    <input type="text" id="product-name" name="ProductName" />
+                    
+                    <label for="product-price">السعر</label>
+                    <input type="number" id="product-price" name="Price" />
+                    
+                    <label for="product-quantity">الكمية</label>
+                    <input type="number" id="product-quantity" name="StockQuantity" />
+                    
+                    <label for="product-description">وصف المنتج</label>
+                    <textarea id="product-description" name="Description"></textarea>
+                    
+                    <label for="product-category" >الصنف</label>
+                    <select id="product-category" name="CategoryId">
+                        <option value="1">خرز</option>
+                        <option value="2">منسوجات</option>
+                        <option value="3">ريزن</option>
+                        <option value="4">فخار</option>
+                        <option value="5">شمع</option>
+                    </select>
+
+                    <label for="product-image">صورة المنتج</label>
+                    <input type="file" id="product-image" name="ImageUrl" accept="image/*" />
+                    <button type="submit" class="btn btn-primary" onclick="AddProduct()">إضافة المنتج</button>
+                </form>
+            </section>
+            </div>
+        </div>
+      
+                </div>
+             </div>
+    </section>
+<!-- 
+    <script>
+        document.querySelectorAll('.sidebar a').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('data-target');
+                document.querySelectorAll('.main-content .section').forEach(section => {
+                    section.style.display = section.id === targetId ? 'block' : 'none';
+                });
+            });
+        });
+
+        function addProduct() {
+            window.location = 'add-product.html';
+        }
+
+        // Fetch and display products
+        async function getProducts() {
+            const response = await fetch("https://localhost:44397/api/Products/GetAllProduct");
+            const data = await response.json();
+            const tableBody = document.querySelector('#product-table tbody');
+            tableBody.innerHTML = '';
+            data.forEach(product => {
+                tableBody.innerHTML += `
+                    <tr>
+                        <td>${product.productName}</td>
+                        <td><img src="${product.imageUrl}" alt="${product.productName}" width="100px"></td>
+                        <td>${product.price}</td>
+                        <td>${product.quantity}</td>
+                        <td>${product.description}</td>
+                        <td><button class="btn btn-primary" onclick="editProduct(${product.productId})">تعديل</button>
+                            <button class="btn btn-primary" onclick="deleteProduct(${product.productId})">حذف</button></td>
+                    </tr>
+                `;
+            });
+        }
+
+        function editProduct(id) {
+            localStorage.setItem('productId', id);
+            window.location = `EditProduct.html`;
+        }
+        
+      async function deleteProduct(id) {
+        debugger;
+            event.preventDefault();
+            const urlDelete = `https://localhost:44397/api/Products/DeleteProduct?id=${id}`;
+          await fetch(urlDelete, {
+                    method: "DELETE",
+                    
+                });
+
+                window.location.reload();
+                window.alert("هل تريد حذف المنتج");
+        }
+        function addProduct() {
+    document.getElementById('crud-products').style.display = 'none';
+    document.getElementById('add-product').style.display = 'block';
+}
+
+        getProducts();
+    </script> -->
+
+    <script>
+    function submit() {
+    Swal.fire({
+        title: "ادخل سعر للمنتج بالقيمة المناسبة",
+        icon: "question",
+        iconHtml: "؟",
+        confirmButtonText: "نعم",
+        cancelButtonText: "لا",
+        showCancelButton: true,
+        showCloseButton: true,
+        input: 'number',  // إدخال رقم (السعر)
+        inputPlaceholder: 'أدخل سعر القطعة',
+        inputValidator: (value) => {
+            if (!value) {
+                return 'الرجاء إدخال السعر!';
+            }
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const price = result.value; // الحصول على السعر المدخل
+
+
+            // مثال على رسالة تأكيد بعد نجاح الإرسال
+            Swal.fire({
+                title: 'تم إرسال السعر!',
+                text: `تم إرسال السعر ${price} إلى المستخدم عبر البريد الإلكتروني.`,
+                icon: 'success'
+            });
+        }
+    });
+}
+/*
+function submit() {
+    Swal.fire({
+        title: "هل أنت متأكد من حذف المنتج؟",
+        icon: "question",
+        iconHtml: "؟",
+        confirmButtonText: "نعم",
+        cancelButtonText: "لا",
+        showCancelButton: true,
+        showCloseButton: true,
+        input: 'number',  // إدخال رقم (السعر)
+        inputPlaceholder: 'أدخل سعر القطعة',
+        inputValidator: (value) => {
+            if (!value) {
+                return 'الرجاء إدخال السعر!';
+            }
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const price = result.value; // الحصول على السعر المدخل
+            const userEmail = "user@example.com"; // استبدل هذا بالإيميل الفعلي للمستخدم
+            const productInfo = "معلومات عن القطعة"; // معلومات القطعة التي ترغب بإرسالها
+
+            // إعداد البيانات لإرسال البريد الإلكتروني
+            var emailParams = {
+                user_email: userEmail,
+                product_info: productInfo,
+                product_price: price
+            };
+
+            // إرسال البريد الإلكتروني عبر EmailJS
+            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', emailParams)
+            .then(function(response) {
+                Swal.fire({
+                    title: 'تم إرسال السعر!',
+                    text: `تم إرسال السعر ${price} ومعلومات القطعة إلى البريد الإلكتروني الخاص بالمستخدم.`,
+                    icon: 'success'
+                });
+            }, function(error) {
+                Swal.fire({
+                    title: 'خطأ!',
+                    text: 'حدث خطأ أثناء إرسال البريد الإلكتروني.',
+                    icon: 'error'
+                });
+                console.log('FAILED...', error);
+            });
+        }
+    });
+}
+
+
+*/
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/register.js"></script>
+    <script src="js/AddProduct.js"></script>
+</body>
+</html>
