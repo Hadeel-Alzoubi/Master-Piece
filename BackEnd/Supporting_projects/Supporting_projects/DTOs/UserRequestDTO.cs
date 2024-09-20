@@ -2,6 +2,7 @@
 
 namespace Supporting_projects.DTOs
 {
+    //هاي للتسجيل الاشتراك
     public class UserRequestDTO
     {
         public string UserName { get; set; } = null!;

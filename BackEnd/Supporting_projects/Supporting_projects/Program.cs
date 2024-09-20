@@ -32,7 +32,6 @@ namespace Supporting_projects
             options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
 
             var app = builder.Build();
-            app.UseCors("Development");
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
@@ -44,6 +43,8 @@ namespace Supporting_projects
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+
+            app.UseCors("Development");
 
 
             app.MapControllers();

@@ -64,11 +64,23 @@
                         <div class="navbar-nav mx-auto">
                             <a href="index.html" class="nav-item nav-link active">الرئيسية</a>
                             <a href="Category.html" class="nav-item nav-link">الاصناف</a>
+                            
+                            <!-- Super Admin -->
+                            <a href="/FrontEnd/CaterServ-1.0.0/superAdmin.html" id="profileSuperAdminLink" class="nav-item nav-link" style="display:none;">ملف الشخصي</a>
+
+                            <!-- Admin -->
+                            <a href="/FrontEnd/CaterServ-1.0.0/AdminDashBoard.html" id="profileAdminLink" class="nav-item nav-link" style="display:none;">ملف الشخصي</a>
+
+                            <!-- User -->
+                            <a href="/FrontEnd/CaterServ-1.0.0/UserDashBoard.html" id="profileUserLink" class="nav-item nav-link" style="display:none;">ملف الشخصي</a>
+
                             <a href="about.html" class="nav-item nav-link">من نحن</a>
                             <a href="service.html" class="nav-item nav-link">الخدمات</a>
                             <a href="contact.html" class="nav-item nav-link">تواصل معنا</a>
                         </div>
-                        <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">تسجيل الدخول</a>
+                        <a href="#" id="logoutLink" class="btn btn-primary py-2 px-4  rounded-pill" style="display: none;" onclick="logoutUser()">تسجيل الخروج</a>
+                        <a href="register.html" id="Login" class="btn btn-primary py-2 px-4  rounded-pill" style="display: inline-block;">تسجيل الاشتراك</a>
+
                         <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
 
                     </div>
@@ -112,13 +124,13 @@
                 <div class="col-md-6 col-lg-6">
                     <form id="LoginForm">
                        
-                        <label for="email">البريد الالكتروني</label>
-                        <input type="email" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="البريد الالكتروني" name="email" id="email" >
+                        <label for="Email">البريد الالكتروني</label>
+                        <input type="email" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="البريد الالكتروني" name="Email" id="Email" >
                        
-                        <label for="password">كلمة السر</label>
-                        <input type="password" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="كلمة السر" name="passwordHash" id="password" >
+                        <label for="Password">كلمة السر</label>
+                        <input type="password" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="كلمة السر" name="Password" id="Password" >
                        
-                        <button class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill" type="submit" onclick="login()">اشتراك</button>
+                        <button class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill" type="submit" onclick="LoginUser()">تسجيل الدخول</button>
                         <br><br>
                         <a href="register.html">ليس لديك حساب</a>
                     </form>
@@ -155,26 +167,7 @@
                 <p class="lh-lg mb-4">
                   لنعدم مشاريع بلدنا ونقف معاً لدعم المواهب والطاقات الكامنة، لأنها مفتاح المستقبل وركيزة التنمية.
                 </p>
-                <!-- <div class="footer-icon d-flex">
-                  <a
-                    class="btn btn-primary btn-sm-square me-2 rounded-circle"
-                    href=""
-                    ><i class="fab fa-facebook-f"></i
-                  ></a>
-                  <a
-                    class="btn btn-primary btn-sm-square me-2 rounded-circle"
-                    href=""
-                    ><i class="fab fa-twitter"></i
-                  ></a>
-                  <a
-                    href="#"
-                    class="btn btn-primary btn-sm-square me-2 rounded-circle"
-                    ><i class="fab fa-instagram"></i
-                  ></a>
-                  <a href="#" class="btn btn-primary btn-sm-square rounded-circle"
-                    ><i class="fab fa-linkedin-in"></i
-                  ></a>
-                </div> -->
+              
               </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -279,7 +272,7 @@
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/lightbox/js/lightbox.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-                <script>
+                <!-- <script>
                 document.getElementById('loginForm').addEventListener('submit', function(event) {
                         event.preventDefault(); // Prevent the form from submitting normally
 
@@ -323,10 +316,10 @@ debugger;
                     alert("حدث خطأ أثنا�� تسجيل الدخول.");
                 }
                 }
-                </script>
+                </script> -->
 
                 <!-- <script src="js/register.js"></script> -->
-        <script src="js/category.js"></script>
+        <script src="js/login.js"></script>
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
     </body>

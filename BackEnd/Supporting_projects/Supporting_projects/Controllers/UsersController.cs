@@ -28,28 +28,101 @@ namespace Supporting_projects.Controllers
 
 
         //LogIn
+        //[Route("UserByEmailUser")]
+        //[HttpGet]
+        //public IActionResult GetUser([FromQuery] string email, [FromQuery] string password)
+        //{
+        //    // Validate that email and password are not null
+        //    if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+        //    {
+        //        return BadRequest("Email and Password cannot be null.");
+        //    }
+
+        //    // Retrieve the user from the database using the provided email
+        //    var user = db.Users.SingleOrDefault(u => u.Email == email);
+
+        //    if (user == null)
+        //    {
+        //        return NotFound("User not found.");
+        //    }
+        //    // Check if the provided password matches the stored password
+        //    // Note: In a real application, ensure passwords are hashed and compared securely
+        //    if (user.Password == password)
+        //    {
+        //        return Ok("Login successful. Welcome!");
+        //    }
+        //    else
+        //    {
+        //        return Unauthorized("Incorrect password.");
+        //    }
+        //}
+
+
         [Route("UserByEmailUser")]
-        [HttpGet]
-        public IActionResult GetUser([FromQuery] string email, [FromQuery] string password)
+        [HttpPost]
+        public IActionResult GetUser([FromForm] UserResponseDto loginRequest)
         {
+            // يشيك اذا في item في اللوكل ستورج و بعدها ياخدهم للكارت اي دي لهاد اليوزر 
             // Validate that email and password are not null
-            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(loginRequest.Email) || string.IsNullOrEmpty(loginRequest.Password))
             {
                 return BadRequest("Email and Password cannot be null.");
             }
 
             // Retrieve the user from the database using the provided email
-            var user = db.Users.SingleOrDefault(u => u.Email == email);
+            var user = db.Users.SingleOrDefault(u => u.Email == loginRequest.Email);
 
             if (user == null)
             {
                 return NotFound("User not found.");
             }
+
             // Check if the provided password matches the stored password
-            // Note: In a real application, ensure passwords are hashed and compared securely
-            if (user.Password == password)
+            if (user.Password == loginRequest.Password)
             {
-                return Ok("Login successful. Welcome!");
+                // بناءً على الدور نرسل الرد المناسب
+                if (user.Email  == "hadeelsuperAdmin@Anamel.com")
+                {
+                    // بيانات السوبر أدمن
+                    var superAdminData = new User
+                    {
+                        UserId = user.UserId,
+                        UserName = user.UserName,
+                        Email = user.Email,
+                        IsAdmin = user.IsAdmin,
+
+                        
+                    };
+                    return Ok(superAdminData);
+                }
+                else if (user.IsAdmin == true)
+                {
+                    // بيانات الأدمن
+                    var adminData = new User
+                    {
+                        UserId = user.UserId,
+                        UserName = user.UserName,
+                        Email= user.Email,
+                        IsAdmin = user.IsAdmin
+                    };
+                    return Ok(adminData);
+                }
+                else
+                {
+                    // بيانات المستخدم العادي
+                    var userData = new User
+                    {
+                        // هل لازم يكون عندي كارت اي دي داخل تيبل اليوزر 
+                        UserId = user.UserId,
+                        UserName = user.UserName,
+                        Email = user.Email,
+                        IsAdmin = user.IsAdmin,
+                        //Carts = user.Carts
+                    };
+                    // هون بدو يشيك على الكارت 
+                    //يعبيها داتا
+                    return Ok(userData);
+                }
             }
             else
             {
@@ -58,10 +131,12 @@ namespace Supporting_projects.Controllers
         }
 
 
+
         [Route("Register")]
         [HttpPost]
         public IActionResult Register([FromForm] UserRequestDTO userDTO)
         {
+            //بدو يعمل كريت مبارشة لكارت اي دي 
             var user = db.Users.SingleOrDefault(u => u.Email == userDTO.Email);
             if (user != null) {
                 return Ok("Go to Login");

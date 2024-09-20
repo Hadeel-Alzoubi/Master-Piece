@@ -109,3 +109,32 @@
 
 })(jQuery);
 
+window.onload = function() {
+    // Check if user is logged in
+    var isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'Super') {
+        document.getElementById("profileSuperAdminLink").style.display = "inline-block";
+        document.getElementById("logoutLink").style.display = "inline-block";
+        document.getElementById("Login").style.display = "none";
+
+    }
+    else if (isLoggedIn === 'Admin') {
+        document.getElementById("profileAdminLink").style.display = "inline-block";
+        document.getElementById("logoutLink").style.display = "inline-block";
+        document.getElementById("Login").style.display = "none";
+
+    }
+    else if (isLoggedIn === 'User')
+    {
+        document.getElementById("profileUserLink").style.display = "inline";
+        document.getElementById("logoutLink").style.display = "inline-block";
+        document.getElementById("Login").style.display = "none";
+
+    }
+};
+
+function logoutUser() {
+    localStorage.removeItem('isLoggedIn');
+    // Optionally, redirect to the login page
+    window.location.href = 'index.html';
+}

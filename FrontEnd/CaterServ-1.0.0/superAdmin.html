@@ -70,12 +70,17 @@
                     <div class="navbar-nav mx-auto">
                         <a href="index.html" class="nav-item nav-link active">الرئيسية</a>
                         <a href="Category.html" class="nav-item nav-link">الاصناف</a>
+
+                          <!-- Super Admin -->
+                          <a href="/FrontEnd/CaterServ-1.0.0/superAdmin.html" id="profileSuperAdminLink" class="nav-item nav-link" style="display:none;">ملف الشخصي</a>
+
                         <a href="about.html" class="nav-item nav-link">من نحن</a>
                         <a href="service.html" class="nav-item nav-link">الخدمات</a>
                         <a href="contact.html" class="nav-item nav-link">تواصل معنا</a>
                     </div>
-                    <a href="login.html" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">تسجيل
-                        الدخول</a>
+
+                    <a href="#" id="logoutLink" class="btn btn-primary py-2 px-4  rounded-pill" style="display: inline;" onclick="logoutUser()">تسجيل الخروج</a>
+
                     <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex"
                         data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
 
@@ -393,6 +398,8 @@
         </div>
         </div>
     </section>
+    <script src="js/login.js"></script>
+    <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
