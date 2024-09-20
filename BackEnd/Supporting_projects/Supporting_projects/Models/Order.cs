@@ -19,6 +19,10 @@ public partial class Order
 
     public string? ShippingAddress { get; set; }
 
+    public int? CoponId { get; set; }
+
+    public virtual Copon? Copon { get; set; }
+
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 
     public virtual User? User { get; set; }

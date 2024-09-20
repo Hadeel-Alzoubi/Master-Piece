@@ -9,7 +9,7 @@ public partial class User
 
     public string UserName { get; set; } = null!;
 
-    public string Email { get; set; } 
+    public string Email { get; set; } = null!;
 
     public string? Phone { get; set; }
 
@@ -28,6 +28,8 @@ public partial class User
     public byte[]? PasswordSalt { get; set; }
 
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
+
+    public virtual ICollection<Copon> Copons { get; set; } = new List<Copon>();
 
     public virtual ICollection<CustomRequest> CustomRequests { get; set; } = new List<CustomRequest>();
 

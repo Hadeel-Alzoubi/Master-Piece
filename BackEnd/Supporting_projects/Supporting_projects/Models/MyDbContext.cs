@@ -25,6 +25,8 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<ContactForm> ContactForms { get; set; }
 
+    public virtual DbSet<Copon> Copons { get; set; }
+
     public virtual DbSet<CustomRequest> CustomRequests { get; set; }
 
     public virtual DbSet<Favorite> Favorites { get; set; }
@@ -34,6 +36,8 @@ public partial class MyDbContext : DbContext
     public virtual DbSet<OrderDetail> OrderDetails { get; set; }
 
     public virtual DbSet<Product> Products { get; set; }
+
+    public virtual DbSet<ProductImg> ProductImgs { get; set; }
 
     public virtual DbSet<SalesStatistic> SalesStatistics { get; set; }
 
@@ -127,6 +131,27 @@ public partial class MyDbContext : DbContext
                 .HasColumnType("datetime");
         });
 
+        modelBuilder.Entity<Copon>(entity =>
+        {
+            entity.HasKey(e => e.CoponId).HasName("PK__Copons__8A47306F0D80C5AC");
+
+            entity.Property(e => e.CoponId).HasColumnName("copon_id");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.DiscountAmount).HasColumnType("decimal(10, 2)");
+            entity.Property(e => e.ExpiryDate).HasColumnType("datetime");
+            entity.Property(e => e.IsUsed).HasDefaultValue(false);
+            entity.Property(e => e.Name)
+                .HasMaxLength(255)
+                .HasColumnName("name");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Copons)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK__Copons__user_id__1AD3FDA4");
+        });
+
         modelBuilder.Entity<CustomRequest>(entity =>
         {
             entity.HasKey(e => e.RequestId).HasName("PK__CustomRe__33A8519A3007A86B");
@@ -169,6 +194,7 @@ public partial class MyDbContext : DbContext
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF325C5A40");
 
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
+            entity.Property(e => e.CoponId).HasColumnName("copon_id");
             entity.Property(e => e.OrderDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
@@ -177,6 +203,10 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.Status).HasMaxLength(50);
             entity.Property(e => e.TotalAmount).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.UserId).HasColumnName("UserID");
+
+            entity.HasOne(d => d.Copon).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.CoponId)
+                .HasConstraintName("FK_orders_copon");
 
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
@@ -221,6 +251,20 @@ public partial class MyDbContext : DbContext
                 .HasForeignKey(d => d.CategoryId)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__Products__Catego__403A8C7D");
+        });
+
+        modelBuilder.Entity<ProductImg>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("ProductImg");
+
+            entity.Property(e => e.Img).HasColumnName("img");
+            entity.Property(e => e.ProductId).HasColumnName("product_id");
+
+            entity.HasOne(d => d.Product).WithMany()
+                .HasForeignKey(d => d.ProductId)
+                .HasConstraintName("FK_ProductImg_Products");
         });
 
         modelBuilder.Entity<SalesStatistic>(entity =>

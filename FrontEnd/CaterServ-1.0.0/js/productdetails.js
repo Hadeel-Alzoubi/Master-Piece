@@ -17,7 +17,7 @@ async function ProductDetails(id) {
                             <div class="row align-items-center">
                                 <div class="col-md-5">
                                     <div class=" normal-slider">
-                                        <img src="/Supporting_projects/Supporting_projects/Uploads/${data.imageUrl}" alt="Product Image" height="500" width="500px">
+                                        <img src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/${data.imageUrl}" alt="Product Image" height="500" width="500px">
                                     </div>
                                 </div>
                                 <div class="col-md-7" style="text-align:center;">
@@ -62,13 +62,13 @@ ProductDetails(id);
 //<a class="btn btn-primary" onclick="addToWishlist()"><i class="fa fa-heart"></i>اضف الى المفضلة</a>
 
 
-// var UserId = localStorage.getItem("UserId"); // هاي لحتى اخزن الid للمستخدم
-// var productId = localStorage.getItem("selectedProductId");
-// var idUser =  localStorage.setItem('UserId',UserId);
-// var number = Number(localStorage.getItem('UserId'));
-
-var UserId = 1; 
+var UserId = localStorage.getItem("UserId");
 var idUser =  localStorage.setItem('UserId',UserId);
+
+var CartId = localStorage.getItem("CartId");
+
+// حفظ CartId في localStorage بعد الحصول عليه من الاستجابة
+localStorage.setItem('CartId', CartId);
 
 async function addToCart(productId) {
   debugger;
@@ -78,6 +78,7 @@ async function addToCart(productId) {
 
     var data = {
         productId: productId,
+        // CartId: CartId, 
       quantity: 1,
     };
 
@@ -101,7 +102,9 @@ async function addToCart(productId) {
 
     const cartItem = {
       product_id: productId,
+      // cartId: CartId, 
       quantity: 1,
+
       productName: name,
       price: price,
       imageUrl: image,

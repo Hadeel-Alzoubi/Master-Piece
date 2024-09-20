@@ -273,3 +273,7 @@ C:\Users\Orange\Desktop\Master-Piece\BackEnd\Supporting_projects\Supporting_proj
 C:\Users\Orange\Desktop\Master-Piece\BackEnd\Supporting_projects\Supporting_projects\obj\Debug\net8.0\Supporting_projects.pdb
 C:\Users\Orange\Desktop\Master-Piece\BackEnd\Supporting_projects\Supporting_projects\obj\Debug\net8.0\Supporting_projects.genruntimeconfig.cache
 C:\Users\Orange\Desktop\Master-Piece\BackEnd\Supporting_projects\Supporting_projects\obj\Debug\net8.0\ref\Supporting_projects.dll
+C:\Users\Orange\Desktop\Master-Piece\BackEnd\Supporting_projects\Supporting_projects\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\Orange\Desktop\Master-Piece\BackEnd\Supporting_projects\Supporting_projects\bin\Debug\net8.0\MailKit.dll
+C:\Users\Orange\Desktop\Master-Piece\BackEnd\Supporting_projects\Supporting_projects\bin\Debug\net8.0\MimeKit.dll
+C:\Users\Orange\Desktop\Master-Piece\BackEnd\Supporting_projects\Supporting_projects\bin\Debug\net8.0\System.Formats.Asn1.dll

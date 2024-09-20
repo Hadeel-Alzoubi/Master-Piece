@@ -13,7 +13,7 @@ async function GetProduct() {
       `  <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.1s">
               <div class="team-item rounded">
                   <a href="#" onclick="store(${element.productId}); return false;">
-                  <img class="img-fluid rounded-top " src="/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}" alt="" name="ImageUrl" width="500px" height="500px"></a>
+                  <img class="img-fluid rounded-top " src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}" alt="" name="ImageUrl" width="500px" height="500px"></a>
                   <div class="team-content text-center py-3 bg-dark rounded-bottom">
                       <h4 class="text-primary" name="ProductName">${element.productName}</h4>
                       <p class="text-light" name="Price">${element.price}</p>
@@ -37,8 +37,9 @@ function store(id) {
   
 }
 
-var UserId = 1; 
+var UserId = localStorage.getItem("UserId");
 var idUser =  localStorage.setItem('UserId',UserId);
+var cartid =  localStorage.setItem('cartId',cartId);
 
 // var UserId = localStorage.getItem("UserId"); // هاي لحتى اخزن الid للمستخدم
 // var productId = localStorage.getItem("selectedProductId");
@@ -50,6 +51,7 @@ async function addToCart(productId) {
 
     var data = {
         productId: productId,
+        // cartId: CartId, 
       quantity: 1,
     };
 
@@ -73,6 +75,7 @@ async function addToCart(productId) {
 
     const cartItem = {
       product_id: productId,
+      // cartId: CartId, 
       quantity: 1,
       productName: name,
       price: price,

@@ -27,35 +27,30 @@ namespace Supporting_projects.Controllers
         }
 
 
-        //LogIn
-        //[Route("UserByEmailUser")]
-        //[HttpGet]
-        //public IActionResult GetUser([FromQuery] string email, [FromQuery] string password)
-        //{
-        //    // Validate that email and password are not null
-        //    if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
-        //    {
-        //        return BadRequest("Email and Password cannot be null.");
-        //    }
+        [HttpGet("GetUserByID")]
+        public IActionResult GetUserByID(int id)
+        {
+            // ابحث عن المستخدم بواسطة معرف المستخدم (UserId)
+            var user = db.Users.FirstOrDefault(x => x.UserId == id);
 
-        //    // Retrieve the user from the database using the provided email
-        //    var user = db.Users.SingleOrDefault(u => u.Email == email);
+            // إذا لم يتم العثور على المستخدم، قم بإرجاع رسالة خطأ
+            if (user == null)
+            {
+                return NotFound("User not found");
+            }
 
-        //    if (user == null)
-        //    {
-        //        return NotFound("User not found.");
-        //    }
-        //    // Check if the provided password matches the stored password
-        //    // Note: In a real application, ensure passwords are hashed and compared securely
-        //    if (user.Password == password)
-        //    {
-        //        return Ok("Login successful. Welcome!");
-        //    }
-        //    else
-        //    {
-        //        return Unauthorized("Incorrect password.");
-        //    }
-        //}
+            // قم بإنشاء كائن CheckOutDTO واملأه بمعلومات المستخدم
+            var data = new CheckOutDTO
+            {
+                Address = user.Address,
+                UserName = user.UserName,
+                Phone = user.Phone
+            };
+
+            // أعد البيانات التي تحتوي على معلومات المستخدم
+            return Ok(data);
+        }
+
 
 
         [Route("UserByEmailUser")]
@@ -137,10 +132,7 @@ namespace Supporting_projects.Controllers
         public IActionResult Register([FromForm] UserRequestDTO userDTO)
         {
             //بدو يعمل كريت مبارشة لكارت اي دي 
-            var user = db.Users.SingleOrDefault(u => u.Email == userDTO.Email);
-            if (user != null) {
-                return Ok("Go to Login");
-            }
+          
             var u = db.Users.SingleOrDefault(u => u.Email == userDTO.Email);
             if (u != null)
             {
@@ -166,9 +158,17 @@ namespace Supporting_projects.Controllers
                 PasswordHash = Hash,
                 PasswordSalt = Salt,
             };
-
             db.Users.Add(data);
             db.SaveChanges();
+
+            //create cart for new user
+            var createCart = new Cart
+            {
+                UserId = data.UserId,
+            };
+            db.Carts.Add(createCart);
+            db.SaveChanges();
+      
             return Ok();
         }
 

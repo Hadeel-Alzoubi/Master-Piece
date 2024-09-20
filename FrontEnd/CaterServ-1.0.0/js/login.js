@@ -67,6 +67,7 @@ async function LoginUser() {
 
       }
       else if (data.userId && !data.isAdmin) {
+        debugger;
         // Store userId and isAdmin in localStorage
         localStorage.setItem("UserId", data.userId);
         localStorage.setItem("UserisAdmin", data.isAdmin); // Store isAdmin

@@ -1,6 +1,7 @@
 ﻿using E_Commerce_Clothes.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Supporting_projects.DTOs;
 using Supporting_projects.Models;
 
 namespace Supporting_projects.Controllers
@@ -41,21 +42,47 @@ namespace Supporting_projects.Controllers
             return Ok(cartItem);
         }
 
-        //[HttpPost]
-        //public IActionResult addCartItem([FromBody] addCartItemRequestDTO cart)
-        //{
-        //    //لما اجي اعمل ادد للكارت لاوم اجيب من تيبل الكارت ال اي دي لليوزر 
+        [HttpGet("GetCartByUserID")]
+        public IActionResult GetCartById(int id)
+        {
 
-        //    var data = new CartItem
-        //    {
-        //        //CartId = cart.CartId,
-        //        Quantity = (cart.Quantity == null || cart.Quantity == 0) ? 1 : cart.Quantity ,
-        //        ProductId = cart.ProductId,
-        //    };
-        //    _db.CartItems.Add(data);
-        //    _db.SaveChanges();
-        //    return Ok();
-        //}
+            var getCart = _db.CartItems.Where(x => x.Cart.UserId == id).Select(
+              x => new cartItemResponseDTO
+              {
+                  CartItemId = x.CartItemId,
+                  CartId = x.CartId,
+                  Quantity = x.Quantity,
+                  Product = new productDTO
+                  {
+                      ProductId = x.Product.ProductId,
+                      ProductName = x.Product.ProductName,
+                      Price = x.Product.Price,
+                      ImageUrl = x.Product.ImageUrl,
+                  }
+              }).ToList();
+            
+            return Ok(getCart);
+        }
+
+
+        [HttpPost("changeQuantity")]
+        public IActionResult changeQuantity([FromBody] QuantityDTO update)
+        {
+            var item = _db.CartItems.Find(update.CartItemId);
+
+            if (update.Quantity == 0)
+            {
+                _db.Remove(item);
+                _db.SaveChanges(true);
+                return Ok("item was deleted");
+            }
+
+            item.Quantity = update.Quantity;
+            _db.SaveChanges();
+            return Ok();
+        }
+
+
 
         [HttpPost]
         public IActionResult addCartItem([FromBody] addCartItemRequestDTO cart , int id)
@@ -79,7 +106,7 @@ namespace Supporting_projects.Controllers
                 _db.SaveChanges(); // Save so that the CartId gets generated.
             }
 
-            var newproduct = _db.CartItems.FirstOrDefault(x => x.ProductId == cart.ProductId && x.CartId == cart.CartId);
+            var newproduct = _db.CartItems.FirstOrDefault(x => x.ProductId == cart.ProductId);
             // Add the item to the existing or newly created cart.
             if (newproduct == null)
             {

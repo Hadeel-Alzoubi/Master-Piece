@@ -25,16 +25,18 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="css/style.css" rel="stylesheet" />
+
     <!-- Additional styles -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"> -->
 
 </head>
 
 <style>
 
 
-html {
+/* html {
   box-sizing: border-box;
 }
 
@@ -47,7 +49,7 @@ body {
   min-block-size: 100vh;
   padding: 5vmin;
   place-items: center;
-}
+} */
 
 address {
   font-style: normal;
@@ -60,11 +62,11 @@ button {
   font: inherit;
 }
 
-fieldset {
+/* fieldset {
   border: 0;
   margin: 0;
   padding: 0;
-}
+} */
 
 h1 {
   font-size: var(--font-size-h1);
@@ -94,10 +96,10 @@ input[type="radio"] {
   accent-color: var(--color-primary);
 }
 
-table {
+/* table {
   border-collapse: collapse;
   inline-size: 100%;
-}
+} */
 
 tbody {
   color: #b4b4b4;
@@ -141,7 +143,7 @@ tfoot {
 
 .card {
   border-radius: 1em;
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
   padding: 1em;
 }
 
@@ -190,7 +192,7 @@ tfoot {
   /* background-color: #fbf6f7; */
   background-image: linear-gradient(to bottom, #fbf6f7, #fff);
   border-radius: 2em;
-  /* block-size: 812px; */
+  block-size: 812px;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.0625);
   inline-size: 375px;
   overflow: auto;
@@ -214,16 +216,6 @@ tfoot {
                     <div class="navbar-nav mx-auto">
                         <a href="index.html" class="nav-item nav-link active">الرئيسية</a>
                         <a href="Category.html" class="nav-item nav-link">الاصناف</a>
-
-                          <!-- Super Admin -->
-                          <a href="/FrontEnd/CaterServ-1.0.0/superAdmin.html" id="profileSuperAdminLink" class="nav-item nav-link" style="display:none;">ملف الشخصي</a>
-
-                          <!-- Admin -->
-                          <a href="/FrontEnd/CaterServ-1.0.0/AdminDashBoard.html" id="profileAdminLink" class="nav-item nav-link" style="display:none;">ملف الشخصي</a>
-
-                          <!-- User -->
-                          <a href="/FrontEnd/CaterServ-1.0.0/UserDashBoard.html" id="profileUserLink" class="nav-item nav-link" style="display:none;">ملف الشخصي</a>
-
                         <a href="about.html" class="nav-item nav-link">من نحن</a>
                         <a href="service.html" class="nav-item nav-link">الخدمات</a>
                         <a href="contact.html" class="nav-item nav-link">تواصل معنا</a>
@@ -235,31 +227,41 @@ tfoot {
     </div>
 
     <!-- CheckOut Form -->
-    <div class="container" style="display: flex;justify-content: center;">
-        <div class="iphone" style="text-align: right;">
+    <div class="container" style="display: flex;justify-content: center; padding: 2em">
+        <div class="iphone" style="text-align: right; border-top-left-radius: 0px; border-bottom-left-radius: 0px;">
             <header class="header">
                 <h1>اكمال عملية الشراء</h1>
             </header>
 
-            <form action="https://httpbin.org/post" class="form" method="POST">
+            <form class="form" >
+               
+              <!-- هاي المعلومات من اليوزر تيبل  -->
                 <div>
                     <h2>معلومات التوصيل</h2>
 
-                    <div class="card">
-                        <address>
+                    <div class="card"  id="UserInfo">
+                        <!-- <address>
                             هديل الزعبي<br />
                             اربد/ شارع الحصن<br />
-                        </address>
+                        </address> -->
                     </div>
                 </div>
 
-                <fieldset>
+                <!-- اذا اختار دفع فيزا لازم يحط بيانات  -->
+                <fieldset >
                     <legend>طرق الدفع</legend>
 
                     <div class="form__radios">
-                        <div class="form__radio">
+                        <!-- <div class="form__radio">
                             <label for="visa">الدفع من خلال الفيزا</label>
                             <input checked id="visa" name="payment-method" type="radio" />
+                        </div> -->
+
+                        
+                          <div id="smart-button-container">
+                            <div style="text-align: center;">
+                                <div id="paypal-button-container"></div>
+                            </div>
                         </div>
 
                         <div class="form__radio">
@@ -269,41 +271,213 @@ tfoot {
                     </div>
                 </fieldset>
 
-                <div>
+                <!-- هاي من الكارت لازم اخزن المجموع الكلي بلوكل ستورج عشان احطه هون  -->
+                <div id="TotalPrice">
                     <h2>الفاتورة</h2>
 
                     <table>
                         <tbody>
-                            <tr>
+                            <!-- <tr>
                                 <td>التوصيل</td>
                                 <td>$5.43</td>
                             </tr>
                             <tr>
                                 <td>الخصم 10%</td>
                                 <td>-$1.89</td>
-                            </tr>
+                            </tr> -->
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <td>المجموع</td>
-                                <td>$88.36</td>
-                            </tr>
+                        <tfoot id="Pay">
+                            <!-- <tr>
+                                <td>  88.36 دينار</td>
+                            </tr> -->
                         </tfoot>
                     </table>
                 </div>
 
+                <!-- رسالة شكر على اتمام العملية بنجاح -->
                 <div>
-                    <button class="btn border-secondary rounded-pill px-4 py-3" type="submit">تأكيد الشراء</button>
+                    <a href="/FrontEnd/CaterServ-1.0.0/ThankYou.html" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill" >تأكيد الشراء</a>
                 </div>
             </form>
         </div>
-
+        
         <div class="image-container">
-            <img src="/Supporting_projects/CaterServ-1.0.0/img/checkout.png" alt="صورة توضيحية" height="700px" width="500px" style="border-bottom-left-radius: 50px;border-top-left-radius: 50px;">
+            <img src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/checkOut.png" alt="صورة توضيحية" height="810px" width="500px" style="border-bottom-left-radius: 50px;border-top-left-radius: 50px;">
         </div>
     </div>
      
-
+       <!-- Footer Start -->
+   
+       <div class="container-fluid footer py-6 my-6 mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+        <div class="container">
+          
+          <div class="row">
+          
+              <div class="col-lg-3 col-md-6">
+                  <div class="footer-item">
+                      <img src="img/logo1-removebg-preview.png" width="150px">
+                  </div>
+                </div>
+            <div class="col-lg-3 col-md-6">
+  
+              <div class="footer-item">
+                <h1 class="text-primary">
+                  أنامل
+                </h1>
+                <p class="lh-lg mb-4">
+                  لنعدم مشاريع بلدنا ونقف معاً لدعم المواهب والطاقات الكامنة، لأنها مفتاح المستقبل وركيزة التنمية.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item">
+                <h4 class="mb-4">استكشف الموقع</h4>
+                <div class="d-flex flex-column align-items-start">
+                  <a class="text-body mb-3" href="/CaterServ-1.0.0/Category.html">
+                      الاصناف <i class="fa fa-check text-primary me-2"></i></a>
+                  <a class="text-body mb-3" href="/CaterServ-1.0.0/about.html">
+                      من نحن<i class="fa fa-check text-primary me-2"></i></a>
+                  <a class="text-body mb-3" href="/CaterServ-1.0.0/service.html">
+                      الخدمات<i class="fa fa-check text-primary me-2"></i></a>
+                  <!-- <a class="text-body mb-3" href="">
+                      <i class="fa fa-check text-primary me-2"></i>SpecialSweets</a> -->
+                </div>
+              </div>
+            </div>
+           
+            
+            <div class="col-lg-3 col-md-6">
+              
+              <div class="footer-item">
+                <!-- <h4 class="mb-4">Social Gallery</h4> -->
+                <div class="row g-2">
+                  <div class="col-4">
+                    <img
+                      src="img/download (8).png"
+                      class="img-fluid rounded-circle border border-primary p-2 i"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-4">
+                    <img
+                      src="img/menu-02.jpg"
+                      class="img-fluid rounded-circle border border-primary p-2 i"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-4">
+                    <img
+                      src="img/slider-2222.jpg"
+                      class="img-fluid rounded-circle border border-primary p-2 i"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-4">
+                    <img
+                      src="img/download (21).png"
+                      class="img-fluid rounded-circle border border-primary p-2 i"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-4">
+                    <img
+                      src="img/download (7).png"
+                      class="img-fluid rounded-circle border border-primary p-2 i"
+                      alt=""
+                    />
+                  </div>
+                  <div class="col-4">
+                    <img
+                      src="img/Easter Elegance_ Candle Set Inspiration.png"
+                      class="img-fluid rounded-circle border border-primary p-2 i"
+                      alt=""
+                    />
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Footer End -->
+  
+      <!-- Copyright Start -->
+      <div class="container-fluid copyright bg-dark py-4">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              <span class="text-light"
+                ><a href="#"
+                  ><i class="fas fa-copyright text-light me-2"></i>Anamel@gmail.com </a>, All right reserved</span>
+            </div>
+           </div>
+        </div>
+      </div>
+      <!-- Copyright End -->
+  
+      <!-- Back to Top -->
+      <a href="#" class="btn btn-md-square btn-primary rounded-circle back-to-top"
+        ><i class="fa fa-arrow-up"></i></a>
+  
+      <!-- JavaScript Libraries -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="lib/wow/wow.min.js"></script>
+      <script src="lib/easing/easing.min.js"></script>
+      <script src="lib/waypoints/waypoints.min.js"></script>
+      <script src="lib/counterup/counterup.min.js"></script>
+      <script src="lib/lightbox/js/lightbox.min.js"></script>
+      <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  
+      <script src="js/category.js"></script>
+      <!-- Template Javascript -->
+      <script src="js/register.js"></script>
+      <script src="js/main.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+      <script src="js/CheckOut.js"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+    <script>
+        function initPayPalButton() {
+            paypal.Buttons({
+                style: {
+                    shape: 'rect',
+                    color: 'gold',
+                    layout: 'vertical',
+                    label: 'paypal',
+                },
+    
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{"amount":{"currency_code": "USD", "value": 0.99}}]
+                    });
+                },
+    
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(orderData) {
+    
+                        // Full available details
+                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+    
+                        // Show a success message within this page, for example:
+                        const element = document.getElementById('paypal-button-container');
+                        element.innerHTML = '';
+                        element.innerHTML = '<h3>Thank you for your payment!</h3>';
+    
+                        // Or go to another URL:  actions.redirect('thank_you.html');
+    
+                    });
+                },
+    
+                onError: function(err) {
+                    console.log(err);
+                }
+            }).render('#paypal-button-container');
+        }
+        initPayPalButton();
+    </script>
+  
 </body>
 
 </html>
