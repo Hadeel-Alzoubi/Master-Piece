@@ -44,7 +44,10 @@ namespace Supporting_projects.Controllers
             {
                 Address = user.Address,
                 UserName = user.UserName,
-                Phone = user.Phone
+                Phone = user.Phone,
+                Email = user.Email,
+
+                
             };
 
             // أعد البيانات التي تحتوي على معلومات المستخدم
@@ -98,7 +101,8 @@ namespace Supporting_projects.Controllers
                         UserId = user.UserId,
                         UserName = user.UserName,
                         Email= user.Email,
-                        IsAdmin = user.IsAdmin
+                        IsAdmin = user.IsAdmin,
+                        AdminCategory = user.AdminCategory,
                     };
                     return Ok(adminData);
                 }
@@ -129,7 +133,7 @@ namespace Supporting_projects.Controllers
 
         [Route("Register")]
         [HttpPost]
-        public IActionResult Register([FromForm] UserRequestDTO userDTO)
+        public IActionResult Register([FromForm] UserRigesterDTO userDTO)
         {
             //بدو يعمل كريت مبارشة لكارت اي دي 
           
@@ -180,14 +184,38 @@ namespace Supporting_projects.Controllers
             var UpdateUser = db.Users.FirstOrDefault(p => p.UserId == id);
 
 
-            UpdateUser.UserName = userDTO.UserName;
-            UpdateUser.Password = userDTO.Password;
-            UpdateUser.Email = userDTO.Email;
-            UpdateUser.Address = userDTO.Address;
-            UpdateUser.Phone = userDTO.Phone;
+            UpdateUser.UserName = userDTO.UserName ?? UpdateUser.UserName;
+            UpdateUser.Address = userDTO.Address ?? UpdateUser.Address;
+            UpdateUser.Phone = userDTO.Phone ?? UpdateUser.Phone;
 
             db.SaveChanges();
             return Ok(userDTO);
+        }
+
+        [Route("EditUserPassword")]
+        [HttpPut]
+        public IActionResult EditUserPassword(int id, [FromForm] UserPassowrdDTO userDTO)
+        {
+            var UpdateUser = db.Users.FirstOrDefault(p => p.UserId == id);
+
+
+            if (UpdateUser.Password != userDTO.OldPassword)
+            {
+                return BadRequest("كلمة السر غير صحيحة");
+            }
+
+            if (userDTO.ConfirmPassword != userDTO.Password)
+            {
+                return BadRequest("كلمة السر غير متطابقة");
+            }
+
+           
+            else
+            {
+                UpdateUser.Password = userDTO.Password ?? UpdateUser.Password;
+                db.SaveChanges();
+                return Ok();
+            }
         }
 
 

@@ -27,6 +27,8 @@ public partial class User
 
     public byte[]? PasswordSalt { get; set; }
 
+    public int? AdminCategory { get; set; }
+
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
     public virtual ICollection<Copon> Copons { get; set; } = new List<Copon>();

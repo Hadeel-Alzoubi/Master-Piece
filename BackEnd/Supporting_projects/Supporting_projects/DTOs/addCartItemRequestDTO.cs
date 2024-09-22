@@ -1,4 +1,4 @@
-﻿namespace E_Commerce_Clothes.DTO
+﻿namespace Supporting_projects.DTO
 {
     public class addCartItemRequestDTO
     {

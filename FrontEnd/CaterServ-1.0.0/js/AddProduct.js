@@ -1,26 +1,51 @@
 let n = Number(localStorage.getItem("productId"))
 
 
-const AddProductURL = "https://localhost:44397/api/Products/AddProduct"
+// const AddProductURL = "https://localhost:44397/api/Products/AddProduct"
 const EditProductURL = `https://localhost:44397/api/Products/EditProduct?id=${n}`
 
-var form = document.getElementById("formAddProduct")
+// async function addProduct() {
+//     debugger;
+//     const AddProductURL = 'https://localhost:44397/api/Products/AddProductByCategoryID';
+//     let categoryId = localStorage.getItem("categoryId");
+  
+//     var form = document.getElementById("formAddProduct");
+//     var data = FormData(form);
+  
+//     var response = await fetch(AddProductURL,{
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body:data
+//     });
+//     if(response.ok)
+//     {
+//         alert("تمت اضافة المنتج بنجاح")
+//     }   
+//   }
 
-async function AddProduct() {
+
+
+
+// var form = document.getElementById("formAddProduct")
+
+// async function AddProduct() {
     
-    var fromSwagger = new FormData(form);
-    event.preventDefault();
-    let response = await fetch(AddProductURL,
-        {
-            method: 'POST',
-            body: fromSwagger,
-        });
-}
+//     var fromSwagger = new FormData(form);
+//     event.preventDefault();
+//     let response = await fetch(AddProductURL,
+//         {
+//             method: 'POST',
+//             body: fromSwagger,
+//         });
+// }
 
 
 window.onload = async function() {
+    debugger;
     let n = Number(localStorage.getItem("productId"));
-    const GetProductURL = `https://localhost:44397/api/Products/GetProductById?id=${n}`;
+    const GetProductURL = `https://localhost:44397/api/Products/GetProductByCategoryId?id=${n}`;
     
     // Fetch the product data
     let response = await fetch(GetProductURL);

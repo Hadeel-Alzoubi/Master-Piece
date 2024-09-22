@@ -35,22 +35,6 @@
 
 <style>
 
-
-/* html {
-  box-sizing: border-box;
-}
-
-body {
-  background-color: var(--color-background);
-  display: grid;
-  font-family: var(--font-family-base);
-  line-height: 1.5;
-  margin: 0;
-  min-block-size: 100vh;
-  padding: 5vmin;
-  place-items: center;
-} */
-
 address {
   font-style: normal;
 }
@@ -96,11 +80,6 @@ input[type="radio"] {
   accent-color: var(--color-primary);
 }
 
-/* table {
-  border-collapse: collapse;
-  inline-size: 100%;
-} */
-
 tbody {
   color: #b4b4b4;
 }
@@ -119,23 +98,6 @@ tfoot {
   place-items: center;
 }
 
-/* .button {
-  align-items: center;
-  background-color: var(--color-primary);
-  border-radius: 999em;
-  color: #fff;
-  display: flex;
-  gap: 0.5em;
-  justify-content: center;
-  padding-block: 0.75em;
-  padding-inline: 1em;
-  transition: 0.3s;
-} */
-
-/* .button:focus,
-.button:hover {
-  background-color: #e96363;
-} */
 
 .button--full {
   inline-size: 100%;
@@ -233,30 +195,21 @@ tfoot {
                 <h1>اكمال عملية الشراء</h1>
             </header>
 
-            <form class="form" >
+            <form class="form" id="form">
                
               <!-- هاي المعلومات من اليوزر تيبل  -->
                 <div>
                     <h2>معلومات التوصيل</h2>
 
                     <div class="card"  id="UserInfo">
-                        <!-- <address>
-                            هديل الزعبي<br />
-                            اربد/ شارع الحصن<br />
-                        </address> -->
+                     
                     </div>
                 </div>
 
-                <!-- اذا اختار دفع فيزا لازم يحط بيانات  -->
                 <fieldset >
                     <legend>طرق الدفع</legend>
 
                     <div class="form__radios">
-                        <!-- <div class="form__radio">
-                            <label for="visa">الدفع من خلال الفيزا</label>
-                            <input checked id="visa" name="payment-method" type="radio" />
-                        </div> -->
-
                         
                           <div id="smart-button-container">
                             <div style="text-align: center;">
@@ -277,26 +230,17 @@ tfoot {
 
                     <table>
                         <tbody>
-                            <!-- <tr>
-                                <td>التوصيل</td>
-                                <td>$5.43</td>
-                            </tr>
-                            <tr>
-                                <td>الخصم 10%</td>
-                                <td>-$1.89</td>
-                            </tr> -->
+                           
                         </tbody>
                         <tfoot id="Pay">
-                            <!-- <tr>
-                                <td>  88.36 دينار</td>
-                            </tr> -->
+                            
                         </tfoot>
                     </table>
                 </div>
 
                 <!-- رسالة شكر على اتمام العملية بنجاح -->
                 <div>
-                    <a href="/FrontEnd/CaterServ-1.0.0/ThankYou.html" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill" >تأكيد الشراء</a>
+                    <button type="submit" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill" onclick="Order()" >تأكيد الشراء</button>
                 </div>
             </form>
         </div>
@@ -430,7 +374,7 @@ tfoot {
       <script src="lib/lightbox/js/lightbox.min.js"></script>
       <script src="lib/owlcarousel/owl.carousel.min.js"></script>
   
-      <script src="js/category.js"></script>
+      <!-- <script src="js/category.js"></script> -->
       <!-- Template Javascript -->
       <script src="js/register.js"></script>
       <script src="js/main.js"></script>

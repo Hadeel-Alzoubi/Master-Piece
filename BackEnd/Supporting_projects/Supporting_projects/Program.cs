@@ -1,4 +1,3 @@
-
 using Microsoft.EntityFrameworkCore;
 using Supporting_projects.Models;
 
@@ -12,24 +11,29 @@ namespace Supporting_projects
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            builder.Services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+                });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Configure CORS policy
             builder.Services.AddCors(options =>
+                options.AddPolicy("Development", corsBuilder =>
+                {
+                    corsBuilder.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                })
+            );
 
-          options.AddPolicy("Development", builder =>
-          {
-              builder.AllowAnyOrigin();
-              builder.AllowAnyMethod();
-              builder.AllowAnyHeader();
-          })
-
-
-          );
+            // Configure the DbContext with the connection string
             builder.Services.AddDbContext<MyDbContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString"))); // Replace 'YourConnectionString' with the actual name from appsettings.json
 
             var app = builder.Build();
 
@@ -44,8 +48,8 @@ namespace Supporting_projects
 
             app.UseAuthorization();
 
+            // Use CORS policy
             app.UseCors("Development");
-
 
             app.MapControllers();
 

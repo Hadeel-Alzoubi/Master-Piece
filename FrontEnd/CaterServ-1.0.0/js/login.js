@@ -42,15 +42,13 @@ async function LoginUser() {
             document.getElementById("Login").style.display = "none";
             window.location.href = "index.html";
 
-          
-
-          
           }
 
           else {
 
             localStorage.setItem("UserId", data.userId);
             localStorage.setItem("UserisAdmin", data.isAdmin); // Store isAdmin
+            localStorage.setItem("categoryId", data.adminCategory);
 
             // Alert for successful login
             alert("Login successfully");
@@ -104,7 +102,9 @@ async function LoginUser() {
         localStorage.removeItem("cartItems");
 
         localStorage.setItem('isLoggedIn', 'User');
+
         alert("Login successfully");
+
 
         document.getElementById("profileUserLink").style.display = "inline";
         window.location.href = "index.html";
@@ -125,11 +125,6 @@ async function LoginUser() {
     alert("An error occurred during login. Please try again.");
   }
 }
-
-async function Register() {
-  
-}
-
 
 
 function logoutUser() {

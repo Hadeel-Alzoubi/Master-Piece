@@ -14,7 +14,9 @@ async function ShowCart() {
 
     var TotalPrice = 0;
   
-    response.forEach(element => {
+    if (response.$values && Array.isArray(response.$values)) {
+      response.$values.forEach(element => {
+    // response.forEach(element => {
         table.innerHTML += `
                              <tr>
                             <th scope="row">
@@ -133,7 +135,7 @@ else {
 //   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 //   window.location.reload(); // Reload to refresh the cart
 // }
-
+}
 
 function clearCart(id) {
     debugger;
@@ -204,7 +206,4 @@ debugger;
 
 window.location.reload();
 }
-
-// for the checkout function
-// var SumPrice = localStorage.setItem("TotalPrice",TotalPrice)
 ShowCart();

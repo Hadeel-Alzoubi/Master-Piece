@@ -20,6 +20,7 @@ async function login(email, password) {
 
 
 async function register() {
+  debugger;
   const url = 'https://localhost:44397/api/Users/Register';
 
   event.preventDefault();
@@ -31,43 +32,47 @@ async function register() {
         body : fromSwagger,
     }
   )  
+
+  alert("لقد قمت بتسجيل الاشتراك اهلا بك في موقع انامل ")
+
+  window.location.href ="login.html"
 }
 
 
 /*   For Udate Profile*/
-window.onload = async function() {
-  let n = Number(localStorage.getItem("userId"));
-  const GetUsertURL = `https://localhost:44397/api/Users/EditUser?id=${n}`;
+// window.onload = async function() {
+//   let n = Number(localStorage.getItem("userId"));
+//   const GetUsertURL = `https://localhost:44397/api/Users/EditUser?id=${n}`;
   
-  // Fetch the user data
-  let response = await fetch(GetUsertURL);
-  let user = await response.json();
+//   // Fetch the user data
+//   let response = await fetch(GetUsertURL);
+//   let user = await response.json();
 
-  document.getElementById("user-name").value = user.UserName ;
-  document.getElementById("user-Email").value = user.Email ;
-  document.getElementById("user-Phone").value = user.Phone ;
-  document.getElementById("user-PasswordHash").value = user.PasswordHash;
-  document.getElementById("user-Address").value = user.Address;
+//   document.getElementById("user-name").value = user.UserName ;
+//   document.getElementById("user-Email").value = user.Email ;
+//   document.getElementById("user-Phone").value = user.Phone ;
+//   document.getElementById("user-PasswordHash").value = user.PasswordHash;
+//   document.getElementById("user-Address").value = user.Address;
  
-}
+// }
 
-async function UpdateProfile() {
-  /*هون السبب انو الكود مش عارف مين هاد اليوزر ف لازم اصلا في تسجيل دخول لحتى يكون في سشن لليوزر */
-  var form = document.getElementById("formUser");
-  var fromSwagger = new FormData(form);
-  event.preventDefault();
+// async function UpdateProfile() {
+//   /*هون السبب انو الكود مش عارف مين هاد اليوزر ف لازم اصلا في تسجيل دخول لحتى يكون في سشن لليوزر */
+//   var form = document.getElementById("formUser");
+//   var fromSwagger = new FormData(form);
+//   event.preventDefault();
   
-  let response = await fetch(GetUsertURL,
-  {
-      method: 'PUT',
-      body: fromSwagger,
-  });
+//   let response = await fetch(GetUsertURL,
+//   {
+//       method: 'PUT',
+//       body: fromSwagger,
+//   });
 
-  if (response.ok) {
-      alert("تم التعديل على المعلومات بنجاح");
-      window.location = "AdminDashBoard.html";
-  } else {
-      alert("حدث خطأ أثناء تعديل المعلومات.");
-  }
-}
+//   if (response.ok) {
+//       alert("تم التعديل على المعلومات بنجاح");
+//       window.location = "AdminDashBoard.html";
+//   } else {
+//       alert("حدث خطأ أثناء تعديل المعلومات.");
+//   }
+// }
 

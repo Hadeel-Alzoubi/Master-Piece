@@ -2,11 +2,14 @@
 {
     public class CheckOutDTO
     {
-        public string UserName { get; set; } = null!;
+        public string? UserName { get; set; }
 
         public string? Address { get; set; }
 
         public string? Phone { get; set; }
+
+        public string? Email { get; set; }
+
 
     }
 }

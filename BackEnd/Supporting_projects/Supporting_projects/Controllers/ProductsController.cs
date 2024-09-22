@@ -97,7 +97,9 @@ namespace Supporting_projects.Controllers
             return Ok(product);
         }
 
-        [Route("AddProduct")]
+
+        
+        [Route("AddProductByCategoryID")]
         [HttpPost]
         public IActionResult AddProduct([FromForm] ProductRequestDTO productDTO)
         {
@@ -108,10 +110,11 @@ namespace Supporting_projects.Controllers
                 Directory.CreateDirectory(uploadImageFolder);
             }
             var imageFile = Path.Combine(uploadImageFolder, productDTO.ImageUrl.FileName);
-            using (var stream = new FileStream(imageFile, FileMode.Create))
-            {
-                productDTO.ImageUrl.CopyToAsync(stream);
-            }
+            //using (var stream = new FileStream(imageFile, FileMode.Create))
+            //{
+            //    productDTO.ImageUrl.CopyToAsync(stream);
+            //}
+        
 
             var data = new Product
             {
@@ -177,6 +180,15 @@ namespace Supporting_projects.Controllers
             return Ok("Product deleted successfully.");
         }
 
-
+        [HttpGet("GetProductByAdminId")]
+        public IActionResult GetProductByAdminId(int id)
+        {
+            var adminProduct = _db.Products.Where(x => x.AdminProduct == id).ToList();
+            if (adminProduct == null)
+            {
+                return BadRequest();
+            }
+            return Ok(adminProduct);
+        }
     }
 }

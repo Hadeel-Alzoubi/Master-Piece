@@ -1,42 +1,3 @@
-// async function CheckOut() {
-
-//     let UserId = localStorage.getItem('UserId');
-//     let userInfo = document.getElementById('UserInfo');
-
-//     const urlUserInfo = `https://localhost:44397/api/Users/GetUserByID?id=${UserId}`
-//     const response = await fetch(urlUserInfo)
-//     const data = await response.json()
-
-//     data.forEach(element => {
-//         userInfo.innerHTML =
-//         `
-//             <address>
-//                 ${element.userName}<br />
-                
-//                 ${element.address}<br />
-
-//                 ${element.phone}<br />
-
-//             </address>
-
-//         `
-//     });
-// }
-
-// async function payInfo() {
-//     var SumPrice = localStorage.getItem('TotalPrice');
-//     let payInfo = document.getElementById('Pay');
-
-//     payInfo.innerHTML =
-//         `
-//           <tr>
-//             <td>  ${SumPrice} دينار</td>
-//           </tr>
-//             `
-// }
-
-// CheckOut();
-// payInfo();
 
 async function CheckOut() {
     let UserId = localStorage.getItem('UserId');
@@ -64,7 +25,10 @@ async function CheckOut() {
 
     // حساب مجموع السعر الكلي للسلة
     let totalPrice = 0;
-    cartData.forEach(element => {
+    if (cartData.$values && Array.isArray(cartData.$values)) {
+        cartData.$values.forEach(element => 
+    // cartData.forEach(element =>
+         {
         totalPrice += element.product.price * element.quantity;
     });
 
@@ -78,6 +42,63 @@ async function CheckOut() {
     // حفظ السعر الكامل في localStorage إذا كنت بحاجة لذلك في المستقبل
     localStorage.setItem('TotalPrice', totalPrice);
 }
+}
+// async function Order() {
+//     const UserId = localStorage.getItem('UserId');
+//     debugger;
+//     event.preventDefault();
+//     const orderURL = `https://localhost:44397/api/Order/SetOrderByUserID?id=${UserId}`
+//     // لازم يتعدل الفورم الاسماء الي فيه لحتى نقدر نعمل بوست 
+//     var data = document.getElementById('form');
+//     var form = new FormData(data);
+//     let response = await fetch(orderURL,
+//         {
+//             method: 'POST',
+//             body: form,
+//         });
+    
+//     window.location.href = 'FrontEnd/CaterServ-1.0.0/ThankYou.html';
+// }
 
 // استدعاء الدوال لعرض البيانات عند تحميل الصفحة
+
+async function Order() {
+    try {
+        debugger;
+        event.preventDefault();
+
+        // استرجاع UserId من localStorage أو أي مكان آخر
+        const UserId = localStorage.getItem('UserId');  // تأكد أن UserId مخزن بشكل صحيح في localStorage
+
+        if (!UserId) {
+            throw new Error("UserId is not defined. Please check if the user is logged in.");
+        }
+
+        // بناء URL الطلب مع UserId
+        const orderURL = `https://localhost:44397/api/Order/SetOrderByUserID?id=${UserId}`;
+
+        // جلب بيانات النموذج
+        var data = document.getElementById('form');
+        var form = new FormData(data);
+
+        // إرسال الطلب إلى الخادم
+        let response = await fetch(orderURL, {
+            method: 'POST',
+            body: form,
+        });
+
+        // التحقق من حالة الاستجابة من الخادم
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        // توجيه المستخدم إلى صفحة "Thank You" بعد إكمال الطلب
+        window.location.href = 'ThankYou.html';
+    } catch (error) {
+        console.error("Error placing order:", error);
+    }
+}
+
+
 CheckOut();
+

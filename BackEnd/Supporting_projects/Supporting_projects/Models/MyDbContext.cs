@@ -194,19 +194,13 @@ public partial class MyDbContext : DbContext
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF325C5A40");
 
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
-            entity.Property(e => e.CoponId).HasColumnName("copon_id");
             entity.Property(e => e.OrderDate)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
             entity.Property(e => e.PaymentMethod).HasMaxLength(50);
             entity.Property(e => e.ShippingAddress).HasMaxLength(255);
             entity.Property(e => e.Status).HasMaxLength(50);
-            entity.Property(e => e.TotalAmount).HasColumnType("decimal(18, 2)");
             entity.Property(e => e.UserId).HasColumnName("UserID");
-
-            entity.HasOne(d => d.Copon).WithMany(p => p.Orders)
-                .HasForeignKey(d => d.CoponId)
-                .HasConstraintName("FK_orders_copon");
 
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)

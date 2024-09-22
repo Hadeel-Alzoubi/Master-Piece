@@ -141,6 +141,14 @@ h4, h5, h6, .h4, .h5, .h6 {
     }
 }
 
+
+@media (max-width: 425px) {
+    .account_dashboard {
+        padding: 10px;
+    }
+}
+
+
 .dropdown .dropdown-menu a:hover {
     background: var(--bs-primary);
     color: var(--bs-white);

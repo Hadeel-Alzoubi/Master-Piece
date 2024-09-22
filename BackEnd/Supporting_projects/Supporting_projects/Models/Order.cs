@@ -11,7 +11,7 @@ public partial class Order
 
     public DateTime? OrderDate { get; set; }
 
-    public decimal TotalAmount { get; set; }
+    public double? TotalAmount { get; set; }
 
     public string? PaymentMethod { get; set; }
 
@@ -19,9 +19,11 @@ public partial class Order
 
     public string? ShippingAddress { get; set; }
 
-    public int? CoponId { get; set; }
+    public int? ProductId { get; set; }
 
-    public virtual Copon? Copon { get; set; }
+    public int? Quantity { get; set; }
+
+    public double? TotalPrice { get; set; }
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
 

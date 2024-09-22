@@ -274,15 +274,15 @@
     <section class="main_content_area" style="margin-top: 50px;">
         <div class="account_dashboard">
             <div class="row">
-                <div class="col-sm-12 col-md-3 col-lg-3">
+                <div class="col-sm-12 col-md-3 col-lg-3 login_form_container">
                     <!-- Nav tabs -->
                     <div class="dashboard_tab_button">
-                        <ul role="tablist" class="nav flex-column dashboard-list">
+                        <ul role="tablist" class="flex-column dashboard-list">
 
                             <!-- <li><a href="#dashboard" data-bs-toggle="tab" class="nav-link active">Dashboard</a></li> -->
                             <li><a href="#account-details" class="nav-link userD" >معلومات المستخدم</a></li>
                             <li><a href="#account-passowrd" class="nav-link userD" >تعديل كلمة السر</a></li>
-                            <li><a href="#orders" class="nav-link userD">طلباتي</a></li>
+                            <li><a href="#orders" class="nav-link userD" onclick="OrderDetails()">طلباتي</a></li>
                             <li><a href="#downloads" class="nav-link userD">تحميل ملف الطلب</a></li>
                             <!-- <li><a href="#address" class="nav-link userD">الموقع</a></li> -->
                             <li><a href="#custom-order" class="nav-link userD">طلبات خاصة</a></li>
@@ -300,141 +300,66 @@
                         </div> -->
                        
                         <div id="account-details" class="tab-pane">
-                            <h3>معلومات الحساب الشخصي</h3>
+                            
                             <div class="login_form_container">
-                                <form action="#">
-                                    <label>الاسم</label>
-                                    <p>هديل الزعبي</p>
-                                    <label>البريد الالكتروني</label>
-                                    <p>hadeel@gmail.com</p>
-                                    <label>رقم الهاتف</label>
-                                    <p>0777777777</p>
-                                    <label>الموقع</label>
-                                    <p>اربد /الرمثا</p>
-                                    <br>
+                                <!-- <h3 style="display: flex;justify-content: center;">معلومات الحساب الشخصي</h3> -->
+                                <form id="info" >
                                 </form>
+
                                 <br>
-                                <form action="#">
+                                
+                                <form id="updateInfo" >
                                     <label>الاسم</label>
-                                    <input type="text" name="first-name">
-                                    <label>البريد الالكتروني</label>
-                                    <input type="email" name="email-name" placeholder="hadeel@gmail.com" readonly>
+                                    <input type="text" name="UserName"></input>
+                                    <!-- <label>البريد الالكتروني</label>
+                                    <input type="email" name="email-name" placeholder="" readonly> -->
                                     <label>رقم الهاتف</label>
-                                    <input type="number" name="number">
+                                    <input type="number" name="Phone"></input>
                                     <label>الموقع</label>
-                                    <input type="text" name="address"></input>
+                                    <input type="text" name="Address"></input>
                                     <br>
                                     <div class="save_button primary_btn default_button">
-                                        <a href="#">حفظ التعديلات</a>
+                                        <button class="btn-primary" type="submit" onclick="UpdateInfo()">حفظ التعديلات</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
                         <div id="account-passowrd" class="tab-pane">
-                            <h3>معلومات الحساب الشخصي</h3>
+                            <!-- <h3>تغيير كلمة السر</h3> -->
                             <div class="login_form_container">
-                                <form action="#">
+                                <form id="UpdatePassowrd">
                                   
                                     <label>كلمة السر القديمة</label>
-                                    <input type="password" name="user-password">
+                                    <input type="password" name="OldPassword">
                                     <label>كلمة السر الجديدة</label>
-                                    <input type="password" name="user-password">
+                                    <input type="password" name="Password">
                                     <label>تاكيد كلمة السر</label>
-                                    <input type="password" name="user-password">
+                                    <input type="password" name="ConfirmPassword">
                                     <br>
                                     
                                     <div class="save_button primary_btn default_button">
-                                        <a href="#">Save</a>
+                                        <button type="submit" class="btn-primary" onclick="UpdatePassowrd()">حفظ التعديلات</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div id="orders" class="tab-pane">
-                            <div class="title">معلومات الطلب</div>
-                            <div class="info">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <span id="heading">التاريخ</span><br>
-                                        <span id="details">10 October 2018</span>
-                                    </div>
-                                    <div class="col-5 pull-right">
-                                        <span id="heading">رقم الطلب</span><br>
-                                        <span id="details">012j1gvs356c</span>
-                                    </div>
-                                </div>      
-                            </div>      
-                            <div class="pricing">
-                                <div class="row">
-                                    <div class="col-9">
-                                        <span id="name">طاولة من الريزن</span>  
-                                    </div>
-                                    <div class="col-3">
-                                        <span id="price">299.99</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-9">
-                                        <span id="name">قيمة التوصيل</span>
-                                    </div>
-                                    <div class="col-3">
-                                        <span id="price">33.00</span>
-                                    </div>
-                                </div>
+                        <div class="tab-pane" id="orders">
+                            <div class="title" id="orderD" >معلومات الطلب
+
+
+
+
+
+                                
                             </div>
-                            <div class="total">
-                                <div class="row">
-                                    <div class="col-9">المجموع الكلي</div>
-                                    <div class="col-3">262.99</div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="tracking">
-                                <div class="title">تتبع الطلب</div>
-                            </div>
-                            <div class="progress-track">
-                                <ul id="progressbar">
-                                    <li class="step0 active " id="step1">الطلب</li>
-                                    <li class="step0 active text-center" id="step2">تم التجهيز</li>
-                                    <li class="step0 active text-right" id="step3">في الطريق</li>
-                                    <li class="step0 text-right" id="step4">تم التوصيل</li>
-                                </ul>
-                            </div>
-                            
+                          
+                  
                             <br>
                         
                             <div class="footer">
-                                <a href="/CaterServ-1.0.0/contact.html"> تواصل معنا  اذا كنت تحتاج للمساعدة لا تترد في التواصل معنا </a>
+                                <a href="/CaterServ-1.0.0/contact.html"> تواصل معنا  اذا كنت تحتاج للمساعدة </a>
                             </div>
-                            <!-- <h3>Orders</h3>
-                            <div class="coron_table table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Order</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>Total</th>
-                                            <th>Actions</th>	 	 	 	
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>May 10, 2023</td>
-                                            <td><span class="success">Completed</span></td>
-                                            <td>$25.00 for 1 item </td>
-                                            <td><a href="cart.html" class="view">view</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>May 10, 2023</td>
-                                            <td>Processing</td>
-                                            <td>$17.00 for 1 item </td>
-                                            <td><a href="cart.html" class="view">view</a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div> -->
+                       
                         </div>
                         <div id="downloads" class="tab-pane">
                             <!-- <h3></h3> -->
@@ -467,126 +392,49 @@
                         </div>
                         <div id="custom-order" class="tab-pane">
                             <div class="login_form_container">
-                                <form action="#">
-                                    <div class="input-radio" style="display: flex; gap: 70px; justify-content: center;">
-                                        <span class="custom-radio"><input type="radio" value="1" name="category">خرز</span>
-                                        <span class="custom-radio"><input type="radio" value="1" name="category">منسوجات</span>
-                                        <span class="custom-radio"><input type="radio" value="1" name="category">فخار</span>
-                                        <span class="custom-radio"><input type="radio" value="1" name="category">ريزن</span>
-                                        <span class="custom-radio"><input type="radio" value="1" name="category">شمع</span>
-                                    </div> <br>
-                                    <label>الاسم</label>
-                                    <input type="text" name="first-name">
-                                    <label>البريد الالكتروني</label>
-                                    <input type="email" name="email-name">
-                                    <label>رقم الهاتف</label>
-                                    <input type="number" name="user-number">
-                                    <label>العنوان</label>
-                                    <input type="text" name="address">
+                                <form id="formCustom">
+                                    <select name="categoryid" id="batool">
+                                        <!-- <option value="0">اختر الصنف</option>
+                                        <option value="1">قطعة خرز</option>
+                                        <option value="2">قطعة منسوجات</option>
+                                        <option value="3">قطعة فخار</option>
+                                        <option value="4">قطعة ريزن</option>
+                                        <option value="5">قطعة شمع</option> -->
+                                    </select>
                                     <br>
+                                    <!-- <label>الاسم</label>
+                                    <input type="text" name="userName" id="name"></input> -->
+                                    <!-- <label>البريد الالكتروني</label>
+                                    <input type="email" name="email" id="email"></input>
+                                    <label>رقم الهاتف</label>
+                                    <input type="number" name="phone" id="phone"></input>
+                                    <label>العنوان</label>
+                                    <input type="text" name="address" id="address"></input>
+                                    <br> -->
                                     <label>وصف القطعة</label>
-                                    <input type="text"></input>
+                                    <input type="text" name="ProductDescription" id="ProductDescription"></input>
                                     
                                     <label>هل لديك صورة تقريبية</label>
-                                    <input type="file"></input>
+                                    <input type="file" name="Img" id="img"></input>
 
                                     <br>
                                     <br>
 
                                     <div class="save_button primary_btn default_button">
-                                        <a href="#" class="btn btn-primary">تاكيد طلب القطعة</a>
+                                        <button type="submit" class="btn btn-primary" onclick="OrderCustom()">تاكيد طلب القطعة</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <!-- <div id="address" class="tab-pane">
-                            <p>The following addresses will be used on the checkout page by default.</p>
-                            <h4 class="billing-address">Billing address</h4>
-                            <a href="#" class="view">Edit</a>
-                            <p><strong>Bobby Jackson</strong></p>
-                            <address>
-                                House #15<br>
-                                Road #1<br>
-                                Block #C <br>
-                                Banasree <br>
-                                Dhaka <br>
-                                1212
-                            </address>
-                            <p>Bangladesh</p>   
-                        </div> -->
-
-
-                        <!-- <div id="order" class="card">
-                            <div class="title">Purchase Reciept</div>
-                            <div class="info">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <span id="heading">Date</span><br>
-                                        <span id="details">10 October 2018</span>
-                                    </div>
-                                    <div class="col-5 pull-right">
-                                        <span id="heading">Order No.</span><br>
-                                        <span id="details">012j1gvs356c</span>
-                                    </div>
-                                </div>      
-                            </div>      
-                            <div class="pricing">
-                                <div class="row">
-                                    <div class="col-9">
-                                        <span id="name">BEATS Solo 3 Wireless Headphones</span>  
-                                    </div>
-                                    <div class="col-3">
-                                        <span id="price">&pound;299.99</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-9">
-                                        <span id="name">Shipping</span>
-                                    </div>
-                                    <div class="col-3">
-                                        <span id="price">&pound;33.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="total">
-                                <div class="row">
-                                    <div class="col-9"></div>
-                                    <div class="col-3"><big>&pound;262.99</big></div>
-                                </div>
-                            </div>
-                            <div class="tracking">
-                                <div class="title">Tracking Order</div>
-                            </div>
-                            <div class="progress-track">
-                                <ul id="progressbar">
-                                    <li class="step0 active " id="step1">Ordered</li>
-                                    <li class="step0 active text-center" id="step2">Shipped</li>
-                                    <li class="step0 active text-right" id="step3">On the way</li>
-                                    <li class="step0 text-right" id="step4">Delivered</li>
-                                </ul>
-                            </div>
-                            
-                        
-                            <div class="footer">
-                                <div class="row">
-                                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/YBWc55P.png"></div>
-                                    <div class="col-10">Want any help? Please &nbsp;<a> contact us</a></div>
-                                </div>
-                                
-                               
-                            </div>
-                        </div> -->
-
-
                     </div>
                 </div>
             </div>
         </div>      	
     </section>
 
-
-    <script src="js/register.js"></script>
-    <script src="js/login.js"></script>
+    <script src="js/userdashboard.js"></script>
+    <!-- <script src="js/register.js"></script> -->
+    <!-- <script src="js/login.js"></script> -->
     <script src="js/main.js"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

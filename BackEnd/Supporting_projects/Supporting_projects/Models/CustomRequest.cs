@@ -15,5 +15,7 @@ public partial class CustomRequest
 
     public DateTime? CreatedAt { get; set; }
 
+    public string? Img { get; set; }
+
     public virtual User? User { get; set; }
 }

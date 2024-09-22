@@ -61,7 +61,9 @@
             #update-profile:target,
             #order-products:target,
             #crud-products:target,
-            #statistics:target {
+            #statistics:target,
+            #addProduct:target,
+            #account-passowrd:target {
                 display: block;
             }
         </style>
@@ -127,10 +129,11 @@
                 <div class="col-sm-12 col-md-3 col-lg-3">
             <!-- Nav tabs -->
                 <div class="dashboard_tab_button">
-                    <ul role="tablist" class="nav flex-column dashboard-list">
+                    <ul role="tablist" class="flex-column dashboard-list">
                         <li><a href="#crud-products"  class="nav-link userD" >ادارة المنتجات</a></li>
                         <li><a href="#order-products"  class="nav-link userD">طلبات خاصة</a></li>
                         <li><a href="#update-profile"  class="nav-link userD">تعديل المعلومات الشخصية</a></li>
+                        <li><a href="#account-passowrd"  class="nav-link userD">تعديل كلمة السر</a></li>
                         <li><a href="#payment-method"  class="nav-link userD">طرق الدفع</a></li>
                         <li><a href="#statistics"  class="nav-link userD">احصائيات</a></li>
                         <li><a href="index.html" class="nav-link userD">عودة للصفحة الرئيسية</a></li>
@@ -143,26 +146,12 @@
             <div class="tab-content dashboard_content">
             <section id="crud-products"  class="tab-pane">
                 <h2>ادارة المنتجات</h2>
-                <button class="btn btn-primary" onclick="addProduct()">إضافة منتج</button>
-
-                <!-- <button class="btn btn-primary" onclick="Go()">اضافة منتج</button> -->
+                <a href="#addProduct" class="btn btn-primary">إضافة منتج</a>
                 <br>
                 <br>
-                <table id="product-table">
-                    <thead>
-                        <tr>
-                            <th>اسم المنتج</th>
-                            <th>صورة المنتج</th>
-                            <th>السعر</th>
-                            <th>مخزون المنتج</th>
-                            <th>وصف كامل للمنتج</th>
-                            <th>تعديل</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Product rows will be inserted here -->
-                    </tbody>
-                </table>
+                    <div class="row row-cols-1 row-cols-md-2 g-4" id="tableProduct">
+                         
+                      </div>
             </section>
             <section id="order-products"   class="tab-pane">
                 <h2>طلبات الزبائن لقطع خاصة </h2>
@@ -210,36 +199,42 @@
 
             </section>
             <section id="update-profile"   class="tab-pane">
-                <h2 style="text-align: center;">تعديل المعلومات الشخصية</h2>
+                <!-- <h2 style="text-align: center;">تعديل المعلومات الشخصية</h2> -->
                 <form id="AdminInfo">
-                    <label for="name" >الاسم الكامل</label>
-                  <p>هديل الزعبي</p>
-                    <label for="email" >البريد الالكتروني</label>
-                    <p>hadeel@gmail.com</p>
-                    <label for="number" >رقم الهاتف</label>
-                    <p>0599999999</p>
+             
                 </form>
     
-                <form id="formUser">
+                <form id="updateInfo">
                     <label for="username">الاسم</label>
-                    <input type="text" id="username" name="username" />
-                    <!-- <label for="email" >البريد الالكتروني</label>
-                    <input type="email" id="email" name="email" /> -->
-                    <label for="number" >رقم الهاتف</label>
-                    <input type="number" id="number" name="number" />
-
-                    <label for="password" >كلمة السر القديمة</label>
-                    <input type="password" id="OldPassword" name="password" />
-                    <label for="password" >كلمة السر الجديدة</label>
-                    <input type="password" id="NewPassword" name="password" />
-                    <label for="password" >تأكيد كلمة السر</label>
-                    <input type="password" id="ConfirmPassword" name="password" />
+                    <input type="text" id="username" name="UserName" />
                     
+                    <label for="number" >رقم الهاتف</label>
+                    <input type="number" id="number" name="Phone" />
+
                     <label for="address" >الموقع</label>
-                    <input type="text" id="address" name="address" />
-                    <button type="submit" class="btn btn-primary" onclick="UpdateProfile()">حفظ التعديلات</button>
+                    <input type="text" id="address" name="Address" />
+                    <button type="submit" class="btn btn-primary" onclick="UpdateInfo()">حفظ التعديلات</button>
                 </form>
               
+            </section>
+            <section id="account-passowrd" class="tab-pane">
+                <!-- <h3>تغيير كلمة السر</h3> -->
+                <div class="login_form_container">
+                    <form id="UpdatePassowrd">
+                      
+                        <label>كلمة السر القديمة</label>
+                        <input type="password" name="OldPassword">
+                        <label>كلمة السر الجديدة</label>
+                        <input type="password" name="Password">
+                        <label>تاكيد كلمة السر</label>
+                        <input type="password" name="ConfirmPassword">
+                        <br>
+                        
+                        <div class="save_button primary_btn default_button">
+                            <button type="submit" class="btn-primary" onclick="UpdatePassowrd()">حفظ التعديلات</button>
+                        </div>
+                    </form>
+                </div>
             </section>
             <section id="payment-method"   class="tab-pane"> 
                 <h2>طرق الدفع</h2>
@@ -336,13 +331,11 @@
 
 
             </section>
-            <section id="add-product"   class="tab-pane" >
+            <section id="addProduct"   class="tab-pane" >
                 <h2>إضافة منتج جديد</h2>
-                <form id="formAddProduct">
-                   
-                    
+                <form id="formAddProduct">   
                     <label for="product-name">اسم المنتج</label>
-                    <input type="text" id="product-name" name="ProductName" />
+                    <input type="text"  name="ProductName" />
                     
                     <label for="product-price">السعر</label>
                     <input type="number" id="product-price" name="Price" />
@@ -351,20 +344,11 @@
                     <input type="number" id="product-quantity" name="StockQuantity" />
                     
                     <label for="product-description">وصف المنتج</label>
-                    <textarea id="product-description" name="Description"></textarea>
-                    
-                    <label for="product-category" >الصنف</label>
-                    <select id="product-category" name="CategoryId">
-                        <option value="1">خرز</option>
-                        <option value="2">منسوجات</option>
-                        <option value="3">ريزن</option>
-                        <option value="4">فخار</option>
-                        <option value="5">شمع</option>
-                    </select>
-
+                    <textarea class="form-control"  name="Description"></textarea>
+                
                     <label for="product-image">صورة المنتج</label>
-                    <input type="file" id="product-image" name="ImageUrl" accept="image/*" />
-                    <button type="submit" class="btn btn-primary" onclick="AddProduct()">إضافة المنتج</button>
+                    <input type="file" id="product-image" name="ImageUrl"  />
+                    <button type="submit" class="btn btn-primary" onclick="addProduct()">إضافة المنتج</button>
                 </form>
             </section>
             </div>
@@ -373,68 +357,8 @@
                 </div>
              </div>
     </section>
-<!-- 
-    <script>
-        document.querySelectorAll('.sidebar a').forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const targetId = this.getAttribute('data-target');
-                document.querySelectorAll('.main-content .section').forEach(section => {
-                    section.style.display = section.id === targetId ? 'block' : 'none';
-                });
-            });
-        });
 
-        function addProduct() {
-            window.location = 'add-product.html';
-        }
-
-        // Fetch and display products
-        async function getProducts() {
-            const response = await fetch("https://localhost:44397/api/Products/GetAllProduct");
-            const data = await response.json();
-            const tableBody = document.querySelector('#product-table tbody');
-            tableBody.innerHTML = '';
-            data.forEach(product => {
-                tableBody.innerHTML += `
-                    <tr>
-                        <td>${product.productName}</td>
-                        <td><img src="${product.imageUrl}" alt="${product.productName}" width="100px"></td>
-                        <td>${product.price}</td>
-                        <td>${product.quantity}</td>
-                        <td>${product.description}</td>
-                        <td><button class="btn btn-primary" onclick="editProduct(${product.productId})">تعديل</button>
-                            <button class="btn btn-primary" onclick="deleteProduct(${product.productId})">حذف</button></td>
-                    </tr>
-                `;
-            });
-        }
-
-        function editProduct(id) {
-            localStorage.setItem('productId', id);
-            window.location = `EditProduct.html`;
-        }
-        
-      async function deleteProduct(id) {
-        debugger;
-            event.preventDefault();
-            const urlDelete = `https://localhost:44397/api/Products/DeleteProduct?id=${id}`;
-          await fetch(urlDelete, {
-                    method: "DELETE",
-                    
-                });
-
-                window.location.reload();
-                window.alert("هل تريد حذف المنتج");
-        }
-        function addProduct() {
-    document.getElementById('crud-products').style.display = 'none';
-    document.getElementById('add-product').style.display = 'block';
-}
-
-        getProducts();
-    </script> -->
-
+    
     <script>
     function submit() {
     Swal.fire({
@@ -520,11 +444,13 @@ function submit() {
 */
 </script>
 
+<script src="js/adminProductAdd.js"></script>
     <script src="js/login.js"></script>
     <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/register.js"></script>
-    <script src="js/AddProduct.js"></script>
+    <!-- <script src="js/AddProduct.js"></script> -->
     <script src="js/main.js"></script>
+    <!-- <script src="js/product.js"></script> -->
 </body>
 </html>
