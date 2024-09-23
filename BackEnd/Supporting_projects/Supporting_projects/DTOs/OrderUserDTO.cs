@@ -2,18 +2,17 @@
 
 namespace Supporting_projects.DTOs
 {
-    public class OrderDTO
+    public class OrderUserDTO
     {
-        public int? UserId { get; set; }
+        public int OrderId { get; set; }
 
-        public double? TotalPrice { get; set; }
-
-        public string? PaymentMethod { get; set; }
+        public DateTime? OrderDate { get; set; }
 
         public string? Status { get; set; }
 
         public string? ShippingAddress { get; set; }
 
+        public double? TotalPrice { get; set; }
 
 
     }

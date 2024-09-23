@@ -123,42 +123,30 @@ async function OrderDetails() {
         const OrderDetailsURL = `https://localhost:44397/api/Order/getOrderByUserID?id=${UserId}`;
         
         const response = await fetch(OrderDetailsURL);
-        
-        // if (!response.ok) {
-        //     console.error("Failed to fetch order details", response.status);
-        //     return;
-        // }
 
         const data = await response.json();
         console.log(data);  // Debug to ensure correct data structure
 
         let details = document.getElementById('orderD');
-        if (details) {
-            details.innerHTML = `
+        data.forEach(element =>
+            details.innerHTML += `
                 <div class="info">
                     <div class="row">
                         <div class="col-7">
                             <span id="heading">التاريخ</span><br>
-                            <span id="details">${data.orderDate || 'N/A'}</span>
+                            <span id="details">${element.orderDate}</span>
                         </div>
                         <div class="col-5 pull-right">
                             <span id="heading">رقم الطلب</span><br>
-                            <span id="details">${data.orderId || 'N/A'}</span>
+                            <span id="details">${element.orderId}</span>
                         </div>
                     </div>      
                 </div>      
                 <div class="pricing">
+                   
                     <div class="row">
                         <div class="col-9">
-                            <span id="name">طاولة من الريزن</span>  
-                        </div>
-                        <div class="col-3">
-                            <span id="price">299.99</span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-9">
-                            <span id="name">قيمة التوصيل</span>
+                            <span id="name">التوصيل الى ${element.shippingAddress}</span>
                         </div>
                         <div class="col-3">
                             <span id="price">1 دينار</span>
@@ -168,20 +156,18 @@ async function OrderDetails() {
                 <div class="total">
                     <div class="row">
                         <div class="col-9">المجموع الكلي</div>
-                        <div class="col-3">${data.totalAmount || 'N/A'}</div>
+                        <div class="col-3">${element.totalPrice}</div>
                     </div>
                 </div>
                 <br>
                 <div class="total">
                     <div class="row">
                         <div class="col-9">تتبع الطلب</div>
-                        <div class="col-3">${data.status || 'N/A'}</div>
+                        <div class="col-3">${element.status}</div>
                     </div>
                 </div>
-            `;
-        } else {
-            console.error('Div with id "orders" not found');
-        }
+            `);
+        
     } catch (error) {
         console.error('Error fetching order details:', error);
     }

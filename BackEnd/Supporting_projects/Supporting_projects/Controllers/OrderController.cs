@@ -28,7 +28,20 @@ namespace Supporting_projects.Controllers
         [HttpGet("getOrderByUserID")]
         public IActionResult getOrderByID(int id)
         {
-            var order = _db.Orders.Where(x => x.UserId == id).ToList();
+            var order = _db.Orders.Where(x => x.UserId == id).Select(
+                x => new OrderUserDTO
+                {
+                    OrderId = x.OrderId,
+                    OrderDate = x.OrderDate,
+                    TotalPrice = x.TotalPrice,
+                    ShippingAddress = x.ShippingAddress,
+                    Status = x.Status,
+                });
+            if (order == null)
+            {
+                return NotFound();
+            }
+
             return Ok(order);
         }
 
@@ -44,7 +57,7 @@ namespace Supporting_projects.Controllers
             var data = new Order
             {
                 UserId = order.UserId,
-                TotalAmount = order.TotalAmount,
+                TotalPrice = order.TotalPrice,
                 PaymentMethod = order.PaymentMethod,
                 Status = order.Status,
                 ShippingAddress = order.ShippingAddress,
