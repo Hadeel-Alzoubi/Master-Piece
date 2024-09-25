@@ -1,3 +1,5 @@
+
+
 async function ShowCart() {
     
     var UserId = localStorage.getItem("UserId");
@@ -78,7 +80,7 @@ async function ShowCart() {
                             <h5 class="mb-0 ps-4 me-4">المجموع الكلي :</h5>
                             <p class="mb-0" >${TotalPrice + 1}</p>
                         </div>
-                        <a class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4"  href="CheckOut.html">اكمال عملية الشراء</a>
+                        <a class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" style="border: 1px solid" href= "CheckOut.html">اكمال عملية الشراء</a>
                     </div>
     `
     });
@@ -207,3 +209,47 @@ debugger;
 window.location.reload();
 }
 ShowCart();
+
+
+
+
+
+
+
+//هاااااااااااااااااد لازم يكون من فورم جاي و هاد الفورم موجود بال شو كارت كييييييييف اهندل هاد الاشي 
+  // async function SetOrder(id) {
+  //   try {
+  //       debugger;
+  //       event.preventDefault();
+
+  //       // استرجاع UserId من localStorage أو أي مكان آخر
+  //       const UserId = localStorage.getItem('UserId');  // تأكد أن UserId مخزن بشكل صحيح في localStorage
+
+  //       if (!UserId) {
+  //           throw new Error("UserId is not defined. Please check if the user is logged in.");
+  //       }
+
+  //       // بناء URL الطلب مع UserId
+  //       const orderURL = `https://localhost:44397/api/Order/SetOrderByUserID?id=${id}`;
+
+  //       // جلب بيانات النموذج
+  //       var data = document.getElementById('Maintable');
+  //       var form = new FormData(data);
+
+  //       // إرسال الطلب إلى الخادم
+  //       let response = await fetch(orderURL, {
+  //           method: 'POST',
+  //           body: form,
+  //       });
+
+  //       // التحقق من حالة الاستجابة من الخادم
+  //       if (!response.ok) {
+  //           throw new Error(`HTTP error! status: ${response.status}`);
+  //       }
+
+  //       // توجيه المستخدم إلى صفحة "Thank You" بعد إكمال الطلب
+  //       window.location.href = 'ThankYou.html';
+  //   } catch (error) {
+  //       console.error("Error placing order:", error);
+  //   }
+  // }

@@ -8,6 +8,8 @@ namespace Supporting_projects.DTOs
         public int? UserId { get; set; }
         public string? ProductDescription { get; set; } = null!;
         public IFormFile? Img { get; set; }
+        public int? CategoryId { get; set; }
+
 
 
     }

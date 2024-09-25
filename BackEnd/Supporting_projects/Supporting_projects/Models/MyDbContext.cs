@@ -41,10 +41,6 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<SalesStatistic> SalesStatistics { get; set; }
 
-    public virtual DbSet<Supplier> Suppliers { get; set; }
-
-    public virtual DbSet<SupplierProduct> SupplierProducts { get; set; }
-
     public virtual DbSet<User> Users { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -79,6 +75,7 @@ public partial class MyDbContext : DbContext
 
             entity.HasOne(d => d.User).WithMany(p => p.Carts)
                 .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__Cart__UserID__52593CB8");
         });
 
@@ -102,6 +99,7 @@ public partial class MyDbContext : DbContext
 
             entity.HasOne(d => d.Product).WithMany(p => p.CartItems)
                 .HasForeignKey(d => d.ProductId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__CartItem__Produc__70DDC3D8");
         });
 
@@ -149,6 +147,7 @@ public partial class MyDbContext : DbContext
 
             entity.HasOne(d => d.User).WithMany(p => p.Copons)
                 .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__Copons__user_id__1AD3FDA4");
         });
 
@@ -166,6 +165,7 @@ public partial class MyDbContext : DbContext
 
             entity.HasOne(d => d.User).WithMany(p => p.CustomRequests)
                 .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__CustomReq__UserI__571DF1D5");
         });
 
@@ -180,49 +180,49 @@ public partial class MyDbContext : DbContext
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.UserId).HasColumnName("UserID");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.Favorites)
-                .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__Favorites__Produ__4E88ABD4");
-
             entity.HasOne(d => d.User).WithMany(p => p.Favorites)
                 .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__Favorites__UserI__4D94879B");
         });
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF325C5A40");
+            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF5D192ACB");
 
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
-            entity.Property(e => e.OrderDate)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
-            entity.Property(e => e.PaymentMethod).HasMaxLength(50);
-            entity.Property(e => e.ShippingAddress).HasMaxLength(255);
-            entity.Property(e => e.Status).HasMaxLength(50);
-            entity.Property(e => e.UserId).HasColumnName("UserID");
+            entity.Property(e => e.OrderDate).HasColumnType("datetime");
+            entity.Property(e => e.Status).HasMaxLength(255);
+            entity.Property(e => e.UserId).HasColumnName("User_ID");
 
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__Orders__UserID__440B1D61");
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK__Orders__User_ID__2A164134");
         });
 
         modelBuilder.Entity<OrderDetail>(entity =>
         {
-            entity.HasKey(e => e.OrderDetailId).HasName("PK__OrderDet__D3B9D30C3ECE12A6");
+            entity.HasKey(e => e.OrderId).HasName("PK__OrderDet__C3905BAFC4A244C1");
 
-            entity.Property(e => e.OrderDetailId).HasColumnName("OrderDetailID");
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
-            entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
-            entity.Property(e => e.ProductId).HasColumnName("ProductID");
+            entity.Property(e => e.OrderIdFk).HasColumnName("OrderID_FK");
+            entity.Property(e => e.ProductIdFk).HasColumnName("ProductID_FK");
+            entity.Property(e => e.UserIdFk).HasColumnName("UserID_FK");
 
-            entity.HasOne(d => d.Order).WithMany(p => p.OrderDetails)
-                .HasForeignKey(d => d.OrderId)
-                .HasConstraintName("FK__OrderDeta__Order__49C3F6B7");
+            entity.HasOne(d => d.OrderIdFkNavigation).WithMany(p => p.OrderDetails)
+                .HasForeignKey(d => d.OrderIdFk)
+                .HasConstraintName("FK__OrderDeta__Order__2CF2ADDF");
 
-            entity.HasOne(d => d.Product).WithMany(p => p.OrderDetails)
-                .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__OrderDeta__Produ__4AB81AF0");
+            entity.HasOne(d => d.ProductIdFkNavigation).WithMany(p => p.OrderDetails)
+                .HasForeignKey(d => d.ProductIdFk)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK__OrderDeta__Produ__2DE6D218");
+
+            entity.HasOne(d => d.UserIdFkNavigation).WithMany(p => p.OrderDetails)
+                .HasForeignKey(d => d.UserIdFk)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("FK__OrderDeta__UserI__2EDAF651");
         });
 
         modelBuilder.Entity<Product>(entity =>
@@ -258,6 +258,7 @@ public partial class MyDbContext : DbContext
 
             entity.HasOne(d => d.Product).WithMany()
                 .HasForeignKey(d => d.ProductId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_ProductImg_Products");
         });
 
@@ -272,40 +273,8 @@ public partial class MyDbContext : DbContext
 
             entity.HasOne(d => d.Admin).WithMany(p => p.SalesStatistics)
                 .HasForeignKey(d => d.AdminId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK__SalesStat__Admin__628FA481");
-        });
-
-        modelBuilder.Entity<Supplier>(entity =>
-        {
-            entity.HasKey(e => e.SupplierId).HasName("PK__Supplier__4BE666948A8BA5F2");
-
-            entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
-            entity.Property(e => e.Address).HasMaxLength(255);
-            entity.Property(e => e.ContactName).HasMaxLength(100);
-            entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime");
-            entity.Property(e => e.Email).HasMaxLength(255);
-            entity.Property(e => e.Phone).HasMaxLength(20);
-            entity.Property(e => e.SupplierName).HasMaxLength(100);
-        });
-
-        modelBuilder.Entity<SupplierProduct>(entity =>
-        {
-            entity.HasKey(e => e.SupplierProductId).HasName("PK__Supplier__8FA6ECDE923C7E95");
-
-            entity.Property(e => e.SupplierProductId).HasColumnName("SupplierProductID");
-            entity.Property(e => e.ProductId).HasColumnName("ProductID");
-            entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
-            entity.Property(e => e.SupplyPrice).HasColumnType("decimal(18, 2)");
-
-            entity.HasOne(d => d.Product).WithMany(p => p.SupplierProducts)
-                .HasForeignKey(d => d.ProductId)
-                .HasConstraintName("FK__SupplierP__Produ__5FB337D6");
-
-            entity.HasOne(d => d.Supplier).WithMany(p => p.SupplierProducts)
-                .HasForeignKey(d => d.SupplierId)
-                .HasConstraintName("FK__SupplierP__Suppl__5EBF139D");
         });
 
         modelBuilder.Entity<User>(entity =>

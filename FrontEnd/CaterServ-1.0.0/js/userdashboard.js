@@ -97,7 +97,7 @@ async function OrderCustom() {
 
     const CustomURL = `https://localhost:44397/api/CustomOrder/OrderCustomPiece/${UserId}`;
 
-
+    // form.appendChild("CategoryID",categoryId);
     // Make the POST request
     const response = await fetch(CustomURL, {
         method: 'POST',
@@ -112,7 +112,6 @@ async function OrderCustom() {
         console.error('Error submitting the order:', response.statusText);
     }
 }
-
 
 
 async function OrderDetails() {
@@ -166,9 +165,51 @@ async function OrderDetails() {
                         <div class="col-3">${element.status}</div>
                     </div>
                 </div>
+                -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             `);
         
     } catch (error) {
         console.error('Error fetching order details:', error);
     }
+}
+
+async function OrderDownload() {
+debugger;
+ const OrderDetailsURL = `https://localhost:44397/api/Order/getOrderByUserID?id=${UserId}`;
+ const response = await fetch(OrderDetailsURL);
+
+ const data = await response.json();
+ console.log(data);  // Debug to ensure correct data structure
+
+ let details = document.getElementById('orderDownload');
+
+ data.forEach(element => {
+     details.innerHTML += 
+            `
+    <div class="col">
+    <div class="card h-100" >
+       <div class="card-body" >
+           <h5 class="card-title">تاريخ الطلب : ${element.orderDate}</h5>
+           <p class="card-text"> حالة الطلب : ${element.status}</p>
+           <p class="card-text"> الموقع : ${element.shippingAddress}</p>
+           <p class="card-text"> المجموع الكلي : ${element.totalPrice} دينار</p>
+           <button onclick="Download(${element.orderId})" class="view">تحميل الملف</button>
+       </div>
+    </div>
+   </div>
+   `});
+}
+async function Download(id) {
+    debugger;
+    const DownloadURL = `https://localhost:44397/api/Order/GenerateInvoice?orderId=${id}`
+    // const response = await fetch(DownloadURL);
+    // const data = await response.json();
+
+    const link = document.createElement("a");
+    link.href = DownloadURL;
+    link.download = `${id}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
 }

@@ -22,33 +22,62 @@ namespace Supporting_projects.Controllers
             return Ok(custom);
         }
 
+
+
+
         [HttpGet("GetCustomOrder")]
-        public IActionResult GetCustomOrder(int id)
+        public IActionResult GetCustomOrder(int id, int categoryId) // Adding categoryId as a parameter
         {
-            var user = _db.CustomRequests.Where(x => x.UserId == id).Select(
-                c => new CustomOrderDTO
+            var user = _db.CustomRequests
+                .Where(x => x.UserId == id && x.CategoryId == categoryId) // Filter by UserId and CategoryId
+                .Select(c => new CustomOrderDTO
                 {
-                    //RequestId = c.RequestId,
                     ProductDescription = c.ProductDescription,
-                    Status  = c.Status,
+                    Status = c.Status,
+                    Img = c.Img,
                     User = new UserDTO
                     {
                         UserName = c.User.UserName,
                         Email = c.User.Email,
                         Phone = c.User.Phone,
                         Address = c.User.Address,
-
                     }
-
-                });
+                }).ToList(); // Ensure to materialize the query
 
             return Ok(user);
         }
 
 
+        //[HttpGet("GetCustomOrder")]
+        //public IActionResult GetCustomOrder(int id)
+        //{
+        //    // لازم اضيف عليها هاي لاي كاتيغوري لحتى تظهر عند الادمن بس الي بخصهم هاد الكاتيغوري 
+
+        //    var user = _db.CustomRequests.Where(x => x.UserId == id).Select(
+        //        c => new CustomOrderDTO
+        //        {
+        //            //RequestId = c.RequestId,
+        //            ProductDescription = c.ProductDescription,
+        //            Status  = c.Status,
+        //            User = new UserDTO
+        //            {
+        //                UserName = c.User.UserName,
+        //                Email = c.User.Email,
+        //                Phone = c.User.Phone,
+        //                Address = c.User.Address,
+
+        //            }
+
+        //        });
+
+        //    return Ok(user);
+        //}
+
+
         [HttpPost("OrderCustomPiece/{id}")]
         public IActionResult SetOrder(int id, [FromForm] OrederCustomDTO order)
         {
+
             var user = _db.Users.FirstOrDefault(x => x.UserId == id);
             if (user == null)
             {
@@ -56,7 +85,7 @@ namespace Supporting_projects.Controllers
             }
             var data = new CustomRequest
             {
-                UserId = user.UserId,
+                CategoryId = order.CategoryId,
                 ProductDescription = order.ProductDescription,
                 Img = order.Img.FileName,
             };

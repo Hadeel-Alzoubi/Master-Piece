@@ -131,10 +131,10 @@
                 <div class="dashboard_tab_button">
                     <ul role="tablist" class="flex-column dashboard-list">
                         <li><a href="#crud-products"  class="nav-link userD" >ادارة المنتجات</a></li>
-                        <li><a href="#order-products"  class="nav-link userD">طلبات خاصة</a></li>
+                        <li><a href="#order-products"  class="nav-link userD" onclick="fetchCustomOrders()">طلبات خاصة</a></li>
                         <li><a href="#update-profile"  class="nav-link userD">تعديل المعلومات الشخصية</a></li>
                         <li><a href="#account-passowrd"  class="nav-link userD">تعديل كلمة السر</a></li>
-                        <li><a href="#payment-method"  class="nav-link userD">طرق الدفع</a></li>
+                        <!-- <li><a href="#payment-method"  class="nav-link userD">طرق الدفع</a></li> -->
                         <li><a href="#statistics"  class="nav-link userD">احصائيات</a></li>
                         <li><a href="index.html" class="nav-link userD">عودة للصفحة الرئيسية</a></li>
                         <li><a href="/CaterServ-1.0.0/login.html" class="nav-link userD">تسجيل الخروج</a></li>
@@ -155,7 +155,12 @@
             </section>
             <section id="order-products"   class="tab-pane">
                 <h2>طلبات الزبائن لقطع خاصة </h2>
-                <table id="product-table">
+                <form id="AccepOrder">
+                <div class="row row-cols-1 row-cols-md-2 g-4" id="CustomShow">
+
+                </div>
+            </form>
+                <!-- <table id="product-table">
                     <thead>
                         <tr>
                             <th>اسم الزبون</th>
@@ -193,9 +198,8 @@
                         </tr>
                     </tbody>
 
-                    <!-- اذا قبل الادمن رح يبعث ايميل لليوزر بسعر القطعه -->
                    
-                </table>
+                </table> -->
 
             </section>
             <section id="update-profile"   class="tab-pane">
@@ -236,7 +240,7 @@
                     </form>
                 </div>
             </section>
-            <section id="payment-method"   class="tab-pane"> 
+            <!-- <section id="payment-method"   class="tab-pane"> 
                 <h2>طرق الدفع</h2>
                 <form>
                     <div class="payment-method">
@@ -250,7 +254,7 @@
                     
                     <button type="submit" class="btn btn-primary">حفظ الطريقة</button>
                 </form>
-            </section>
+            </section> -->
             <section id="statistics"   class="tab-pane">
                 <h2>احصائيات</h2>
 
@@ -334,6 +338,8 @@
             <section id="addProduct"   class="tab-pane" >
                 <h2>إضافة منتج جديد</h2>
                 <form id="formAddProduct">   
+
+                    <input type="number" id="AdminProduct" name="AdminProduct" disabled />
                     <label for="product-name">اسم المنتج</label>
                     <input type="text"  name="ProductName" />
                     
@@ -348,7 +354,9 @@
                 
                     <label for="product-image">صورة المنتج</label>
                     <input type="file" id="product-image" name="ImageUrl"  />
+
                     <button type="submit" class="btn btn-primary" onclick="addProduct()">إضافة المنتج</button>
+
                 </form>
             </section>
             </div>
@@ -390,58 +398,7 @@
         }
     });
 }
-/*
-function submit() {
-    Swal.fire({
-        title: "هل أنت متأكد من حذف المنتج؟",
-        icon: "question",
-        iconHtml: "؟",
-        confirmButtonText: "نعم",
-        cancelButtonText: "لا",
-        showCancelButton: true,
-        showCloseButton: true,
-        input: 'number',  // إدخال رقم (السعر)
-        inputPlaceholder: 'أدخل سعر القطعة',
-        inputValidator: (value) => {
-            if (!value) {
-                return 'الرجاء إدخال السعر!';
-            }
-        }
-    }).then((result) => {
-        if (result.isConfirmed) {
-            const price = result.value; // الحصول على السعر المدخل
-            const userEmail = "user@example.com"; // استبدل هذا بالإيميل الفعلي للمستخدم
-            const productInfo = "معلومات عن القطعة"; // معلومات القطعة التي ترغب بإرسالها
 
-            // إعداد البيانات لإرسال البريد الإلكتروني
-            var emailParams = {
-                user_email: userEmail,
-                product_info: productInfo,
-                product_price: price
-            };
-
-            // إرسال البريد الإلكتروني عبر EmailJS
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', emailParams)
-            .then(function(response) {
-                Swal.fire({
-                    title: 'تم إرسال السعر!',
-                    text: `تم إرسال السعر ${price} ومعلومات القطعة إلى البريد الإلكتروني الخاص بالمستخدم.`,
-                    icon: 'success'
-                });
-            }, function(error) {
-                Swal.fire({
-                    title: 'خطأ!',
-                    text: 'حدث خطأ أثناء إرسال البريد الإلكتروني.',
-                    icon: 'error'
-                });
-                console.log('FAILED...', error);
-            });
-        }
-    });
-}
-
-
-*/
 </script>
 
 <script src="js/adminProductAdd.js"></script>

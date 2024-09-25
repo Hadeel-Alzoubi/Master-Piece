@@ -17,5 +17,7 @@ public partial class CustomRequest
 
     public string? Img { get; set; }
 
+    public int? CategoryId { get; set; }
+
     public virtual User? User { get; set; }
 }

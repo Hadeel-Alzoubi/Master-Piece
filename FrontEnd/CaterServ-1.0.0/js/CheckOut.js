@@ -12,9 +12,9 @@ async function CheckOut() {
     // عرض معلومات المستخدم
     userInfo.innerHTML = `
         <address>
-            ${userData.userName}<br />
-            ${userData.address}<br />
-            ${userData.phone}<br />
+          <div>  ${userData.userName}<br /></div>
+          <div">   ${userData.address}<br />
+           <div>  ${userData.phone}<br />
         </address>
     `;
 
@@ -35,7 +35,7 @@ async function CheckOut() {
     // عرض معلومات الدفع
     payInfo.innerHTML = `
         <tr>
-            <td> ${totalPrice} دينار</td>
+            <td name="TotalPrice"> ${totalPrice} دينار</td>
         </tr>
     `;
 

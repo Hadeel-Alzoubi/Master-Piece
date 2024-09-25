@@ -10,9 +10,7 @@ namespace Supporting_projects.DTOs
 
         public string? Status { get; set; }
 
-        public string? ShippingAddress { get; set; }
-
-        public double? TotalPrice { get; set; }
+        public double? TotalAmount { get; set; }
 
 
     }

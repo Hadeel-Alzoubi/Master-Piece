@@ -4,6 +4,7 @@ namespace Supporting_projects.DTOs
 {
     public class ProductRequestDTO
     {
+        public int? AdminProduct { get; set; }
 
         public string ProductName { get; set; } = null!;
 
@@ -17,5 +18,13 @@ namespace Supporting_projects.DTOs
 
         public IFormFile? ImageUrl { get; set; }
 
+
+
     }
+
+    //public class user
+    //{
+    //    public int? Id { get; set; }
+    //}
+
 }

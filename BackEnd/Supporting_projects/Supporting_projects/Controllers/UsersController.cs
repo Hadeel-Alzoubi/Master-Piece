@@ -22,8 +22,18 @@ namespace Supporting_projects.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var user = db.Users.ToList();
+            
+            var user = db.Users.Where(x => x.IsAdmin == false).ToList();
             return Ok(user);
+        }
+
+        [Route("GetAllAdmin")]
+        [HttpGet]
+        public IActionResult GetAllAdmin()
+        {
+
+            var isadmin = db.Users.Where(x => x.IsAdmin == true).ToList();
+            return Ok(isadmin);
         }
 
 

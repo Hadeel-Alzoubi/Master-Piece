@@ -3,7 +3,7 @@ async function addProduct() {
     
     // Get categoryId from localStorage
     let categoryId = localStorage.getItem("categoryId");
-  
+    let adminProduct = localStorage.getItem("UserId");
     if (!categoryId) {
         alert("Category ID not found in localStorage.");
         return; // Exit the function
@@ -11,7 +11,8 @@ async function addProduct() {
 
     var form = new FormData(document.getElementById("formAddProduct"));
     form.append("CategoryId", categoryId);  // Add CategoryId to the data
-  
+    form.append("AdminProduct", adminProduct); // Add UserId to the data
+
     try {
         var response = await fetch(AddProductURL, {
             method: 'POST',
@@ -33,7 +34,7 @@ async function addProduct() {
 // Add this event listener to prevent form submission
 document.getElementById("formAddProduct").addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
-    addProduct();
+    // addProduct();
 });
 
 
@@ -124,11 +125,58 @@ debugger;
                     <p class="card-text">${element.description}</p>
                     <img src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}" alt="" width="100px" height="100px"> 
                 </div>
-                </div>
-                </div>
+             </div>
+            </div>
             `
         });
     }
+}
+
+
+async function fetchCustomOrders() {
+
+    debugger;
+    let categoryId = localStorage.getItem("categoryId");
+
+    const showProductURL = `https://localhost:44397/api/CustomOrder/GetCustomOrder?id=${UserId}&categoryId=${categoryId}`
+    const response = await fetch(showProductURL)
+    const data = await response.json()
+    let product = document.getElementById('CustomShow');
+    if (data.$values && Array.isArray(data.$values)) {
+        data.$values.forEach(element => {
+            product.innerHTML += 
+            `
+            <div class="col">
+             <div class="card h-100" >
+                <div class="card-body">
+                    <h5 class="card-title"> وصف المنتج : ${element.productDescription}</h5>
+                    <p class="card-text"> اسم الزبون : ${element.user.userName}</p>
+                    <p class="card-text"> البريد الالكتروني : ${element.user.email}</p>
+                    <p class="card-text"> رقم الهاتف : ${element.user.phone}</p>
+                    <p>صورة تقريبية للمنتج :</p>
+                    <img src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.img}" alt="" width="100px" height="100px"> 
+                </div>
+                <p>
+                عند قبولك لهذه القطعة فان التواصل يكون بينك و بين الزبون بشكل مباشرة
+                </p>
+                    <button type="submit" class="btn btn-primary" >قبول طلب هذه القطعة</button>
+             </div>
+             
+            </div>
+            `
+        });
+    }
+}
+// Call the function to fetch custom orders when needed
+// fetchCustomOrders();
+
+
+
+//هاي احتماااااال اتخلص منها خلاص
+async function Accept() {
+    const acceptURL = `https://localhost:44397/api/CustomOrder/OrderCustomPiece/${UserId}`
+    event.preventDefault();
+    
 }
 showProduct()
 UserInfo();

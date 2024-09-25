@@ -101,7 +101,9 @@ namespace Supporting_projects.Controllers
         
         [Route("AddProductByCategoryID")]
         [HttpPost]
-        public IActionResult AddProduct([FromForm] ProductRequestDTO productDTO)
+
+        // the id here is for userID
+        public IActionResult AddProduct(int id ,[FromForm] ProductRequestDTO productDTO)
         {
 
             var uploadImageFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
@@ -114,10 +116,12 @@ namespace Supporting_projects.Controllers
             //{
             //    productDTO.ImageUrl.CopyToAsync(stream);
             //}
+
         
 
             var data = new Product
             {
+                AdminProduct = productDTO.AdminProduct,
                 ProductName = productDTO.ProductName,
                 Price = productDTO.Price,
                 Description = productDTO.Description,
@@ -171,10 +175,7 @@ namespace Supporting_projects.Controllers
                 return NotFound("Product not found.");
             }
 
-            // Remove the product from the database
             _db.Products.Remove(product);
-
-            // Save changes to the database
             _db.SaveChanges();
 
             return Ok("Product deleted successfully.");

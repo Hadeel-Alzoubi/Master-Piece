@@ -55,14 +55,29 @@ namespace Supporting_projects.Controllers
         [HttpPut]
         public  IActionResult EditCategory(int id, [FromForm] CategoryRequestDTO categoryDTO)
         {
+            var uploadImageFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+            if (!Directory.Exists(uploadImageFolder))
+            {
+                Directory.CreateDirectory(uploadImageFolder);
+            }
+            var imageFile = Path.Combine(uploadImageFolder, categoryDTO.CategoryImg.FileName);
+
             var category = _db.Categories.FirstOrDefault(c => c.CategoryId == id);
 
             category.CategoryName = categoryDTO.CategoryName;
             category.Description = categoryDTO.Description;
-
+            category.CategoryImg = categoryDTO.CategoryImg.FileName;
             _db.SaveChanges();
             return Ok();
         }
 
+        [HttpDelete("DeleteCategory")]
+        public IActionResult DeleteCategory(int id)
+        {
+            var category = _db.Categories.FirstOrDefault(x => x.CategoryId == id);
+            _db.Categories.Remove(category);
+            _db.SaveChanges();
+            return Ok();
+        }
     }
 }

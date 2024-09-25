@@ -41,7 +41,9 @@
         #products:target,
         #users:target,
         #vendors:target,
-        #order-products:target {
+        #order-products:target,
+        #EditProduct:target,
+        #EditUser:target {
             display: block;
         }
 
@@ -118,64 +120,37 @@
                     <div class="dashboard_tab_button">
                         <ul role="tablist" class="flex-column dashboard-list">
                             <li>
-                                <a href="#crud-products" class="nav-link userD">المنتجات</a>
+                                <a href="#crud-products" class="nav-link userD" onclick="showProduct()" >المنتجات</a>
                             </li>
                             <li>
                                 <a href="#order-products" class="nav-link userD">طلبات المستخدمين الخاصة</a>
                             </li>
                             <li>
-                                <a href="#users" class="nav-link userD">العملاء</a>
+                                <a href="#users" class="nav-link userD" onclick="ShowCustomer()">العملاء</a>
                             </li>
                             <li>
-                                <a href="#vendors" class="nav-link userD">التجار</a>
+                                <a href="#vendors" class="nav-link userD" onclick="ShowAdmin()">التجار</a>
                             </li>
                             <li>
                                 <a href="#products" class="nav-link userD">الطلبات في الموقع</a>
                             </li>
                             <li>
-                                <a href="#categories" class="nav-link userD">الاصناف</a>
+                                <a href="#categories" class="nav-link userD" onclick="ShowCategory()">الاصناف</a>
                             </li>
                             <li>
                                 <a href="#statistics" class="nav-link userD">احصائيات الموقع</a>
                             </li>
-                            <!-- <li>
-                <a href="#">Settings</a>
-            </li> -->
                         </ul>
                     </div>
                 </div>
-            
-
-
             <div class="col-sm-12 col-md-9 col-lg-9">
                 <!-- Tab panes -->
                 <div class="tab-content dashboard_content">
-                    <section id="crud-products" class="tab-pane">
-                        <h1>المنتجات</h1>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>الاسم</th>
-                                    <th>الوصف</th>
-                                    <th>الصورة</th>
-                                    <th>التكلفة</th>
-                                    <th>الحالة</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>منتج 1</td>
-                                    <td>وصف منتج 1</td>
-                                    <td><img src="https://via.placeholder.com/150" alt="Product 1"></td>
-                                    <td>$1</td>
-                                    <td>متوفر</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <section id="crud-products" class="tab-pane" >
+                        <div class="row row-cols-1 row-cols-md-2 g-4" id="tableProduct">                 
+                        </div> 
                     </section>
+
                     <section id="order-products" class="tab-pane">
                         <h1>طلبات المستخدمين الخاصة</h1>
                         <div>
@@ -207,6 +182,7 @@
                             </table>
                         </div>
                     </section>
+
                     <section id="vendors" class="tab-pane">
                         <h1>التجار
                         </h1>
@@ -220,40 +196,32 @@
                                         <th>الصنف</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>شريف</td>
-                                        <td>اربد</td>
-                                        <td>user@example.com</td>
-                                        <td>07777777</td>
-                                        <td>منسوجات</td>
-                                    </tr>
+                                <tbody  id="AdminTable">
+                                  
                                 </tbody>
                             </table>
                     </section>
+
                     <section id="users" class="tab-pane">
                         <h1>العملاء</h1>
                         <div>
-                            <table class="table">
+                            <table class="table" >
                                 <thead>
                                     <tr>
                                         <th>الاسم</th>
                                         <th>البريد الالكتروني</th>
                                         <th>رقم الهاتف</th>
                                         <th>الموقع</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>هديل</td>
-                                        <td>h@gmail.com</td>
-                                        <td>044444444</td>
-                                        <td>اربد</td>
-                                    </tr>
+                                <tbody id="CustomerTable">
+                                    
                                 </tbody>
                             </table>
                         </div>
                     </section>
+
                     <section id="products" class="tab-pane">
                         <h1>المنتجات</h1>
                         <div>
@@ -280,8 +248,9 @@
                             </table>
                         </div>
                     </section>
+
                     <section id="categories" class="tab-pane">
-                        <button type="button" class="btn btn-primary">اضافة صنف</button>
+                        <a href="#AddCategory" class="btn btn-primary">اضافة صنف</a>
                         <h1>الاصناف في الموقع</h1>
                         <table>
                             <thead></thead>
@@ -290,8 +259,8 @@
                                 <th>حذف</th>
                             </tr>
                             </thead>
-                            <tbody>
-                                <tr>
+                            <tbody id="CategoryTable">
+                                <!-- <tr>
                                     <td>منسوجات</td>
                                     <td><a href="#">حذف</a></td>
                                 </tr>
@@ -310,10 +279,11 @@
                                 <tr>
                                     <td>شمع</td>
                                     <td><a href="#">حذف</a></td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                         </table>
                     </section>
+
                     <section id="statistics" class="tab-pane">
                         <h2>احصائيات</h2>
 
@@ -393,11 +363,111 @@
                             </div>
                         </div>
                     </section>
+  
+                    <section id="EditProduct" class="tab-pane">
+                        <form id="editProductForm">
+                            <div class="mb-3">
+                                <label for="ProductName" class="form-label">اسم المنتج</label>
+                                <input type="text" class="form-control" id="ProductName" name="ProductName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Description" class="form-label">وصف المنتج</label>
+                                <input type="text" class="form-control" id="Description" name="Description">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Price" class="form-label">السعر</label>
+                                <input type="text" class="form-control" id="Price" name="Price">
+                            </div>
+                            <div class="mb-3">
+                                <label for="StockQuantity" class="form-label">الكمية لدى التاجر</label>
+                                <input type="number" class="form-control" id="StockQuantity" name="StockQuantity">
+                            </div>
+                            <div class="mb-3">
+                                <label for="ImageUrl" class="form-label">الصورة</label>
+                                <input type="file" class="form-control" id="ImageUrl" name="ImageUrl">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="EditProduct()">حفظ التعديلات</button>
+                        </form>
+                    </section>
+
+                    <section id="EditUser" class="tab-pane">
+                        <form id="editUserForm">
+
+                            <div class="mb-3">
+                                <label for="UserName" class="form-label">اسم المستخدم</label>
+                                <input type="text" class="form-control" id="UserName" name="UserName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Phone" class="form-label">رقم الهاتف</label>
+                                <input type="text" class="form-control" id="Phone" name="Phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Address" class="form-label">الموقع</label>
+                                <input type="text" class="form-control" id="Address" name="Address">
+                            </div>
+
+                            <button type="button" class="btn btn-primary" onclick="EditUser()">حفظ التعديلات</button>
+                        
+                        </form>
+                    </section>
+                    
+                    <section id="EditAdmin" class="tab-pane">
+                        <form id="editAdminForm">
+                            
+                            <div class="mb-3">
+                                <label for="UserName" class="form-label">اسم المستخدم</label>
+                                <input type="text" class="form-control" id="UserName" name="UserName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Phone" class="form-label">رقم الهاتف</label>
+                                <input type="text" class="form-control" id="Phone" name="Phone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Address" class="form-label">الموقع</label>
+                                <input type="text" class="form-control" id="Address" name="Address">
+                            </div>
+
+                            <button type="button" class="btn btn-primary" onclick="EditAdmin()">حفظ التعديلات</button>
+                        
+                        </form>
+                    </section>
+
+                    <section id="AddCategory" class="tab-pane">
+                        <form id="addcategory">
+                           <div class="container">
+                            <div class="mb-3">
+                                <label for="CategoryName" class="form-label">اسم الصنف</label>
+                                <input type="text" class="form-control" id="CategoryName" name="CategoryName">
+                            </div>
+                           
+                            <div class="mb-3">
+                                <label for="Description" class="form-label">وصف عن هذا الصنف</label>
+                                <input type="text" class="form-control" id="Description" name="Description">
+                            </div>
+
+                            <div class="mb-3"></div>
+                                <label for="CategoryImg" class="form-label">صورة تعبيرية لهذا الصنف</label>
+                                <input type="file" class="form-control" id="CategoryImg" name="CategoryImg">
+                            </div>
+                            <button type="button" class="btn btn-primary" onclick="AddCategory()">حفظ </button>
+
+                        </div>
+                        </form>
+                    </section>
+
                 </div>
             </div>
         </div>
         </div>
     </section>
+
+    <!-- SweetAlert2 CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+<!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="js/superAdmin.js"></script>
     <script src="js/login.js"></script>
     <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

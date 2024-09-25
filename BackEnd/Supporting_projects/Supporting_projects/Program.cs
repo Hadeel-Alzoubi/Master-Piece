@@ -1,3 +1,5 @@
+using DinkToPdf.Contracts;
+using DinkToPdf;
 using Microsoft.EntityFrameworkCore;
 using Supporting_projects.Models;
 
@@ -34,6 +36,9 @@ namespace Supporting_projects
             // Configure the DbContext with the connection string
             builder.Services.AddDbContext<MyDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionString"))); // Replace 'YourConnectionString' with the actual name from appsettings.json
+
+            builder.Services.AddSingleton<IConverter, SynchronizedConverter>(provider =>
+            new SynchronizedConverter(new PdfTools()));
 
             var app = builder.Build();
 

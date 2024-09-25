@@ -97,7 +97,9 @@ async function addToCart(productId) {
       let error = await response.text();
       console.error("Error:", error);
     }
-  } else {
+  } 
+  
+  else {
     debugger;
 
     const cartItem = {

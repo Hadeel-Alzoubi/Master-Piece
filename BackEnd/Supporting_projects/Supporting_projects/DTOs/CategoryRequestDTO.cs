@@ -9,5 +9,8 @@ namespace Supporting_projects.DTOs
 
         public string? Description { get; set; }
 
+        public IFormFile? CategoryImg { get; set; }
+
+
     }
 }

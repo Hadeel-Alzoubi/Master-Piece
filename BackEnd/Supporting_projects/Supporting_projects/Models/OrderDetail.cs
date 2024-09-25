@@ -5,17 +5,21 @@ namespace Supporting_projects.Models;
 
 public partial class OrderDetail
 {
-    public int OrderDetailId { get; set; }
+    public int OrderId { get; set; }
 
-    public int? OrderId { get; set; }
+    public int? Quantity { get; set; }
 
-    public int? ProductId { get; set; }
+    public int? OrderIdFk { get; set; }
 
-    public int Quantity { get; set; }
+    public int? ProductIdFk { get; set; }
 
-    public decimal Price { get; set; }
+    public int? UserIdFk { get; set; }
 
-    public virtual Order? Order { get; set; }
+    public double? TotalAmount { get; set; }
 
-    public virtual Product? Product { get; set; }
+    public virtual Order? OrderIdFkNavigation { get; set; }
+
+    public virtual Product? ProductIdFkNavigation { get; set; }
+
+    public virtual User? UserIdFkNavigation { get; set; }
 }

@@ -5,6 +5,7 @@ namespace Supporting_projects.DTOs
     public class CustomOrderDTO
     {
         //public int RequestId { get; set; }
+        public string? Img { get; set; }
 
         public string ProductDescription { get; set; } = null!;
 
