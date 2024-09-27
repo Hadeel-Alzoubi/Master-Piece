@@ -284,30 +284,20 @@
                             <li><a href="#account-passowrd" class="nav-link userD" >تعديل كلمة السر</a></li>
                             <li><a href="#orders" class="nav-link userD" onclick="OrderDetails()">طلباتي</a></li>
                             <li><a href="#downloads" class="nav-link userD" onclick="OrderDownload()">تحميل ملف الطلب</a></li>
-                            <!-- <li><a href="#address" class="nav-link userD">الموقع</a></li> -->
-                            <li><a href="#custom-order" class="nav-link userD">طلبات خاصة</a></li>
-                            <!-- <li><a href="#order" class="nav-link  userD">تسجيل الخروج</a></li> -->
+                            <!-- <li><a href="#custom-order" class="nav-link userD">طلبات خاصة</a></li> -->
+
                             <li><a href="index.html" class="nav-link  userD" onclick="logoutUser()">تسجيل الخروج</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-9 col-lg-9">
                     <!-- Tab panes -->
-                    <div class="tab-content dashboard_content">
-                        <!-- <div id="dashboard" class="tab-pane">
-                            <h3>Dashboard</h3>
-                            <p>From your account dashboard, you can easily check &amp; view your <a href="#">recent orders</a>, manage your <a href="#">shipping and billing addresses</a>, and <a href="#">Edit your password and account details.</a></p>
-                        </div> -->
-                       
+                    <div class="tab-content dashboard_content">                       
                         <div id="account-details" class="tab-pane">
-                            
                             <div class="login_form_container">
-                                <!-- <h3 style="display: flex;justify-content: center;">معلومات الحساب الشخصي</h3> -->
                                 <form id="info" >
                                 </form>
-
                                 <br>
-                                
                                 <form id="updateInfo" >
                                     <label>الاسم</label>
                                     <input type="text" name="UserName"></input>
@@ -320,6 +310,7 @@
                                     <br>
                                     <div class="save_button primary_btn default_button">
                                         <button class="btn-primary" type="submit" onclick="UpdateInfo()">حفظ التعديلات</button>
+                                        <!-- <button class="btn-primary" type="submit" onclick="DeleteAccount()">هل تريد حذ الحساب</button> -->
                                     </div>
                                 </form>
                             </div>
@@ -389,27 +380,15 @@
                                 </table>
                             </div> -->
                         </div>
-                        <div id="custom-order" class="tab-pane">
+                        
+                        <!-- <div id="custom-order" class="tab-pane">
                             <div class="login_form_container">
                                 <form id="formCustom">
                                     <select name="categoryid" id="batool">
-                                        <!-- <option value="0">اختر الصنف</option>
-                                        <option value="1">قطعة خرز</option>
-                                        <option value="2">قطعة منسوجات</option>
-                                        <option value="3">قطعة فخار</option>
-                                        <option value="4">قطعة ريزن</option>
-                                        <option value="5">قطعة شمع</option> -->
+                                        
                                     </select>
                                     <br>
-                                    <!-- <label>الاسم</label>
-                                    <input type="text" name="userName" id="name"></input> -->
-                                    <!-- <label>البريد الالكتروني</label>
-                                    <input type="email" name="email" id="email"></input>
-                                    <label>رقم الهاتف</label>
-                                    <input type="number" name="phone" id="phone"></input>
-                                    <label>العنوان</label>
-                                    <input type="text" name="address" id="address"></input>
-                                    <br> -->
+                                  
                                     <label>وصف القطعة</label>
                                     <input type="text" name="ProductDescription" id="ProductDescription"></input>
                                     
@@ -424,7 +403,7 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

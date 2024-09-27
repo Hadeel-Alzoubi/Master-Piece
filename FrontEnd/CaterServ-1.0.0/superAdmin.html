@@ -27,6 +27,15 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <style>
+
+        #vendorO,#crud
+        {
+            width: fit-content;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
         .tab-pane {
             display: none;
         }
@@ -43,7 +52,9 @@
         #vendors:target,
         #order-products:target,
         #EditProduct:target,
-        #EditUser:target {
+        #EditUser:target,
+        #contact:target,
+        #vendorRequest:target{
             display: block;
         }
 
@@ -122,11 +133,14 @@
                             <li>
                                 <a href="#crud-products" class="nav-link userD" onclick="showProduct()" >المنتجات</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="#order-products" class="nav-link userD">طلبات المستخدمين الخاصة</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="#users" class="nav-link userD" onclick="ShowCustomer()">العملاء</a>
+                            </li> 
+                            <li>
+                                <a href="#vendorRequest" class="nav-link userD" onclick="showVendor()">طلب تاجر للتسجيل</a>
                             </li>
                             <li>
                                 <a href="#vendors" class="nav-link userD" onclick="ShowAdmin()">التجار</a>
@@ -134,12 +148,16 @@
                             <li>
                                 <a href="#products" class="nav-link userD">الطلبات في الموقع</a>
                             </li>
+                           
                             <li>
                                 <a href="#categories" class="nav-link userD" onclick="ShowCategory()">الاصناف</a>
                             </li>
                             <li>
-                                <a href="#statistics" class="nav-link userD">احصائيات الموقع</a>
+                                <a href="#contact" class="nav-link userD" onclick="ShowMessage()">تواصل معنا</a>
                             </li>
+                            <!-- <li>
+                                <a href="#statistics" class="nav-link userD">احصائيات الموقع</a>
+                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -450,10 +468,34 @@
                                 <input type="file" class="form-control" id="CategoryImg" name="CategoryImg">
                             </div>
                             <button type="button" class="btn btn-primary" onclick="AddCategory()">حفظ </button>
-
-                        </div>
-                        </form>
+                         </form>
                     </section>
+
+                    <section id="contact" class="tab-pane">
+                        <div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>الاسم</th>
+                                        <th>البريد الالكتروني</th>
+                                        <th>الرسالة</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ContactTable">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <section id="vendorRequest" class="tab-pane" >
+                        <div class="row row-cols-1 row-cols-md-2 g-4" id="vendorOrder">                 
+                        </div> 
+                    </section>
+                </div>
+                       
+                   
+
 
                 </div>
             </div>

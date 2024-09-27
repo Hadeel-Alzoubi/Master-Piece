@@ -8,7 +8,7 @@ async function showProduct() {
     let product = document.getElementById('tableProduct');
     if (data.$values && Array.isArray(data.$values)) {
         data.$values.forEach(element => {
-            let imageUrl = element.imageUrl ? `/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}` : 'path/to/default/image.png';
+            // let imageUrl = element.imageUrl ? `/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}` : 'path/to/default/image.png';
 
             product.innerHTML += `
             <div class="col">
@@ -20,9 +20,12 @@ async function showProduct() {
                         <p class="card-text"> وصف المنتج : ${element.description}</p>
                         <p class="card-text">صورة المنتج :</p>
                         <img src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}" alt="" width="100px" height="100px">
+                        <br><br>
+                          <a class="btn btn-warning" href="#EditProduct" onclick="storeProductId(${element.productId})"> تعديل
+ </a>
+                    <button class="btn btn-danger" onclick="DeleteProduct(${element.productId})"> <i class="fa fa-times" aria-hidden="true"></i> </button>
                     </div>
-                    <a class="btn btn-warning" href="#EditProduct" onclick="storeProductId(${element.productId})">تعديل المنتج</a>
-                    <button class="btn btn-danger" onclick="DeleteProduct(${element.productId})">حذف المنتج</button>
+                  
                 </div>
             </div>
             `;
@@ -88,7 +91,7 @@ async function ShowCustomer() {
             <td>
                 <a href="#EditUser" onclick="storeUserId(${element.userId})">تعديل</a>
                 
-            <a href="#" onclick="DeleteUser(${element.userId})">حذف</a>
+            <a href="#" onclick="DeleteUser(${element.userId})"><i class="fa fa-times" aria-hidden="true"></i></a>
             </td>
         </tr>
         
@@ -163,7 +166,7 @@ async function ShowAdmin() {
             <td>
                 <a href="#EditAdmin" onclick="storeAdminId(${element.userId})">تعديل</a>
                 
-            <a href="#" onclick="DeleteِAdmin(${element.userId})">حذف</a>
+            <a href="#" onclick="DeleteِAdmin(${element.userId})"><i class="fa fa-times" aria-hidden="true"></i></a>
             </td>
         </tr>
         
@@ -228,7 +231,7 @@ async function ShowCategory() {
         category.innerHTML += `
         <tr>
             <td>${element.categoryName}</td>
-            <td><a href="#" onclick="DeleteCategory(${element.categoryId})">هل تريد حذف هذا الصنف من الموقع</a></td>
+            <td><a href="#" onclick="DeleteCategory(${element.categoryId})"> <i class="fa fa-times" aria-hidden="true"></i> </a></td>
         </tr>
             `)
 }
@@ -262,3 +265,135 @@ async function DeleteCategory(cid) {
         console.log("تم الغاء الحذف");
     }
 }
+
+
+//For Contact Us
+async function ShowMessage() {
+    const messageshowURL = 'https://localhost:44397/api/ContactUs';
+    const response = await fetch(messageshowURL);
+    const data = await response.json();
+    let contact = document.getElementById("ContactTable");
+
+    data.$values.forEach(element =>
+        contact.innerHTML += `
+        <tr>
+            <td>${element.name}</td>
+            <td>${element.email}</td>   
+            <td>${element.message}</td>
+        </tr>`);
+}
+
+
+// //For Vendor 
+// async function showVendor() {
+//     debugger;
+//     const showVendorURL = 'https://localhost:44397/api/Vendor';
+//     const response = await fetch(showVendorURL);
+//     const data = await response.json();
+
+//     let Vendor = document.getElementById('vendorOrder');
+    
+//         data.$values.forEach(element => {
+
+//             Vendor.innerHTML += `
+//             <div class="col" >
+//                 <div class="card h-100">
+//                     <div class="card-body">
+//                         <h5 class="card-title"> الاسم : ${element.vendorName}</h5>
+//                         <p class="card-text"> رقم الهاتف : ${element.phone}</p>
+//                         <p class="card-text">الموقع : ${element.address}</p>
+//                         <p class="card-text">البريد الالكتروني : ${element.email}</p>
+//                         <p class="card-text">الصنف : ${element.category}</p>
+//                         <button class="btn btn-warning" onclick="ApprovVendore()"> <i class="fa fa-check" aria-hidden="true"></i> </button>
+//                         <button class="btn btn-danger" onclick="DeleteVendor(${element.vendorid})"><i class="fa fa-times" aria-hidden="true"></i></button>
+//                     </div>
+//                 </div>
+//             </div>
+//             `;
+//         });
+    
+// }
+// async function ApprovVendore() {
+//     debugger;
+//     const ApproveVendorURL = 'https://localhost:44397/api/Vendor/approved';
+//     var form = document.getElementById('vendorOrder');
+//     var fromSwagger = new FormData(form);
+//     var Approve = await fetch(ApproveVendorURL,
+//         {
+//             method: 'POST',
+//             body:fromSwagger
+//         });
+//     alert("تمت الموافقة على هذاالتاجر");
+// }
+async function showVendor() {
+    const showVendorURL = 'https://localhost:44397/api/Vendor';
+    const response = await fetch(showVendorURL);
+    const data = await response.json();
+
+    let Vendor = document.getElementById('vendorOrder');
+    
+    data.$values.forEach(element => {
+        Vendor.innerHTML += `
+        <div class="col" >
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title"> الاسم : ${element.vendorName}</h5>
+                    <p class="card-text"> رقم الهاتف : ${element.phone}</p>
+                    <p class="card-text">الموقع : ${element.address}</p>
+                    <p class="card-text">البريد الالكتروني : ${element.email}</p>
+                    <p class="card-text">الصنف : ${element.category}</p>
+                    <button class="btn btn-warning" onclick="ApprovVendore(${element.vendorid}, '${element.vendorName}', '${element.phone}', '${element.address}', '${element.email}', '${element.category}')"> 
+                        <i class="fa fa-check" aria-hidden="true"></i> 
+                    </button>
+                    <button class="btn btn-danger" onclick="DeleteVendor(${element.vendorid})">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        `;
+    });
+}
+
+async function ApprovVendore(vendorid, vendorName, phone, address, email, category) {
+
+    debugger
+    const ApproveVendorURL = 'https://localhost:44397/api/Vendor/approved';
+
+    const formData = new FormData();
+    formData.append('vendorid', vendorid);
+    formData.append('vendorName', vendorName);
+    formData.append('phone', phone);
+    formData.append('address', address);
+    formData.append('email', email);
+    formData.append('category', category);
+
+    try {
+        const response = await fetch(ApproveVendorURL, {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            document.getElementById(`vendor-${vendorid}`).remove();
+            alert("تمت الموافقة على هذا التاجر");
+            window.location.reload();
+
+        } else {
+            alert("حدث خطأ أثناء الموافقة على التاجر");
+        }
+    } catch (error) {
+        console.error('حدث خطأ أثناء الإرسال:', error);
+        alert('حدث خطأ أثناء الإرسال');
+    }
+}
+
+async function DeleteVendor(id) {
+    const deletevendorURL = `https://localhost:44397/api/Vendor?id=${id}`;
+    var del = await fetch(deletevendorURL,{
+        method: 'DELETE'
+    });
+}
+
+
+//For Oder In Anamel

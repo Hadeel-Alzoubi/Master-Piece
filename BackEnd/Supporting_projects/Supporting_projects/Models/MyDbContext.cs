@@ -41,7 +41,11 @@ public partial class MyDbContext : DbContext
 
     public virtual DbSet<SalesStatistic> SalesStatistics { get; set; }
 
+    public virtual DbSet<Trainee> Trainees { get; set; }
+
     public virtual DbSet<User> Users { get; set; }
+
+    public virtual DbSet<VendorForm> VendorForms { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -277,6 +281,25 @@ public partial class MyDbContext : DbContext
                 .HasConstraintName("FK__SalesStat__Admin__628FA481");
         });
 
+        modelBuilder.Entity<Trainee>(entity =>
+        {
+            entity.HasKey(e => e.TraineeId).HasName("PK__Trainee__2F00493335344A5A");
+
+            entity.Property(e => e.TraineeId).HasColumnName("traineeId");
+            entity.Property(e => e.Course).HasColumnName("course");
+            entity.Property(e => e.Email)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("email");
+            entity.Property(e => e.Name)
+                .HasMaxLength(255)
+                .HasColumnName("name");
+            entity.Property(e => e.Phone)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("phone");
+        });
+
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCAC704EBAD8");
@@ -296,6 +319,30 @@ public partial class MyDbContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.Phone).HasMaxLength(20);
             entity.Property(e => e.UserName).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<VendorForm>(entity =>
+        {
+            entity.HasKey(e => e.Vendorid).HasName("PK__vendorFo__EC64C0BB668245B7");
+
+            entity.ToTable("vendorForm");
+
+            entity.Property(e => e.Vendorid).HasColumnName("vendorid");
+            entity.Property(e => e.Address)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("address");
+            entity.Property(e => e.Category).HasColumnName("category");
+            entity.Property(e => e.Email)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("email");
+            entity.Property(e => e.Phone)
+                .HasMaxLength(50)
+                .HasColumnName("phone");
+            entity.Property(e => e.VendorName)
+                .HasMaxLength(255)
+                .HasColumnName("vendorName");
         });
 
         OnModelCreatingPartial(modelBuilder);

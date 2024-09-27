@@ -138,3 +138,15 @@ function logoutUser() {
     // Optionally, redirect to the login page
     window.location.href = 'index.html';
 }
+
+async function SendMessage(){
+    const messageSendURL = 'https://localhost:44397/api/ContactUs';
+    event.preventDefault();
+    var form = document.getElementById("ContactForm");
+    var fromSwagger = new FormData(form);
+    let response = await fetch(messageSendURL, {
+        method: 'POST',
+        body: fromSwagger,
+    });
+    alert("شكرا لك على تواصلك معنا تم ارسال  رسالتك بنجاح")
+}

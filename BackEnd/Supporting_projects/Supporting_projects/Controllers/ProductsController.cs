@@ -191,5 +191,12 @@ namespace Supporting_projects.Controllers
             }
             return Ok(adminProduct);
         }
+
+        [HttpGet("sortbycategoryID")]
+        public IActionResult sortbycategoryID(int id)
+        {
+            var category = _db.Products.Where(x => x.CategoryId == id).ToList();
+            return Ok(category);
+        }
     }
 }

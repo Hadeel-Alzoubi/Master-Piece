@@ -81,7 +81,7 @@ debugger;
 }
 batool();
 
-// هاي ما اشتغلت 
+// هاي حذفتها مبدئيا 
 async function OrderCustom() {
     debugger;
     
@@ -202,8 +202,6 @@ debugger;
 async function Download(id) {
     debugger;
     const DownloadURL = `https://localhost:44397/api/Order/GenerateInvoice?orderId=${id}`
-    // const response = await fetch(DownloadURL);
-    // const data = await response.json();
 
     const link = document.createElement("a");
     link.href = DownloadURL;
@@ -212,4 +210,21 @@ async function Download(id) {
     link.click();
     document.body.removeChild(link);
 
+}
+
+// هل في الها داعي ؟؟
+async function DeleteAccount() {
+    const deleteaccountURL = `https://localhost:44397/api/Users/DeleteUser?id=${UserId}`
+    const response = await fetch(deleteaccountURL, {
+        method: 'DELETE',
+    });
+
+    if(confirm(response.status))
+    {
+        alert("هل انت متاكد من انك تريد حذ الحساب");
+    }
+    else
+    {   
+        alert("تم الغاء العملية");
+    }
 }

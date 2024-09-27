@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>CaterServ - Catering Services Website Template</title>
+        <title>Vindor Form</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -110,30 +110,30 @@
             <div class="row g-4"   style=" display: flex; flex-direction: column; align-items: center;">
                 <div class="col-6">
                     <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">انضم لعائلة أنامل</small>
-                    <h1 class="display-5 mb-0">تسجيل الاشتراك</h1>
+                    <h1 class="display-5 mb-0">تسجيل اتشراك التاجر</h1>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <form id="registrationForm">
                         <label for="name">الاسم</label>
-                        <input type="text" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="الاسم" name="UserName" id="name">
+                        <input type="text" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="الاسم" name="vendorName" id="vendorName">
                         <label for="email">البريد الالكتروني</label>
-                        <input type="email" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="البريد الالكتروني" name="Email" id="email">
+                        <input type="email" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="البريد الالكتروني" name="email" id="email">
                         <label for="phone">رقم الهاتف</label>
-                        <input type="number" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="رقم الهاتف" name="Phone" id="phone">
+                        <input type="number" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="رقم الهاتف" name="phone" id="phone">
                         
                         <label for="address">الموقع</label>
-                        <input type="text" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="الموقع" name="Address" id="address">
-                        <label for="password">كلمة السر</label>
-                        <input type="password" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="كلمة السر" name="Password" id="password">
-                        <label for="pass">تاكيد كلمة السر</label>
-                        <input type="password" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="تاكيد كلمة السر" name="ConfirmPassword
-                        " id="pass">
+                        <input type="text" class="w-100 form-control p-3 mb-4 border-primary bg-light" placeholder="الموقع" name="address" id="address">
 
-                        <button class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill" type="submit" onclick="register()">اشتراك</button>
+                        <label for="categories">الصنف </label>
+
+                        <select name="category" id="categories">
+                        </select>
+                        
+                        
+                        <button class="w-100 btn btn-primary form-control p-3 border-primary bg-primary rounded-pill" type="submit" onclick="vendorRegister()">اشتراك</button>
                         <br><br>
                         <a href="login.html">لدي حساب بالفعل</a>
-                        <br>
-                        <a href="vendorForm.html">هل انت تاجر و تريد التسجيل في المنصة</a>
+                        <!-- <a href="vindoeForm.html">هل انت تاجر و تريد التسجيل في المنصة</a> -->
 
                     </form>
                 </div>
@@ -276,6 +276,7 @@
   
   
 <!-- Rigester End -->
-<script src="js/register.js"></script>
-    </body>
+
+<script src="js/vendorForm.js"></script>
+</body>
 </html>
