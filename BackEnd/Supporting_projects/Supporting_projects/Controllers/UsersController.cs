@@ -37,6 +37,7 @@ namespace Supporting_projects.Controllers
         }
 
 
+        //هاي في صفحة ال جيك اوت بجيب معلومات اليوزر بس لحتى اعرضها
         [HttpGet("GetUserByID")]
         public IActionResult GetUserByID(int id)
         {
@@ -57,7 +58,7 @@ namespace Supporting_projects.Controllers
                 Phone = user.Phone,
                 Email = user.Email,
 
-                
+
             };
 
             // أعد البيانات التي تحتوي على معلومات المستخدم

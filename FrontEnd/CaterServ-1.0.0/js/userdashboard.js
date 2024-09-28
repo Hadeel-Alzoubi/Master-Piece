@@ -165,6 +165,7 @@ async function OrderDetails() {
                         <div class="col-3">${element.status}</div>
                     </div>
                 </div>
+                <button onclick="GetOrderDetails(${element.orderId})">تفاصيل الطلب</button>
                 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
             `);
         
@@ -172,6 +173,33 @@ async function OrderDetails() {
         console.error('Error fetching order details:', error);
     }
 }
+async function GetOrderDetails(id) {
+    debugger;
+    const GetOrderDetailsURL = `https://localhost:44397/api/Order/GetOrderDetails?id=${id}`;
+    const response = await fetch(GetOrderDetailsURL);
+    const data = await response.json();
+    let content = document.createElement("div");
+    //هون رح يعرض المعلومات ب صفحة لحال 
+   
+        // Prepare content for SweetAlert
+        content.innerHTML += `
+            <p>المنتج: ${data.productName}</p><br>
+            <p>السعر: </p>${data.price}<br>
+            <p>وصف المنتج: </p>${data.description}<br>
+           
+        `
+        console.log(content);
+        // Display SweetAlert with order details
+        swal({
+            title: "تفاصيل الطلب",
+            html: content,
+            icon: "info",
+            button: "إغلاق"
+        });
+
+}
+
+
 
 async function OrderDownload() {
 debugger;

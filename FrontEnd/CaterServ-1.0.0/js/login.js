@@ -19,7 +19,6 @@ async function LoginUser() {
     if (response.ok) {
       var data = await response.json();
 
-
       // السوبر ادمن و الادمن بنفس الكوندشن لازم اهندلهم
       // Check that the response contains the required propertie
       if (data.userId && data.isAdmin) {
@@ -90,6 +89,7 @@ async function LoginUser() {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify(cartData),
+              
             });
 
             if (!cartResponse.ok) {

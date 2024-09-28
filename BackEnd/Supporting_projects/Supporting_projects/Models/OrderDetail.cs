@@ -15,8 +15,6 @@ public partial class OrderDetail
 
     public int? UserIdFk { get; set; }
 
-    public double? TotalAmount { get; set; }
-
     public virtual Order? OrderIdFkNavigation { get; set; }
 
     public virtual Product? ProductIdFkNavigation { get; set; }

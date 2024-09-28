@@ -1,104 +1,210 @@
 
+// async function CheckOut() {
+//     debugger
+//     let UserId = localStorage.getItem('UserId');
+//     let userInfo = document.getElementById('UserInfo');
+//     let payInfo = document.getElementById('Pay');
+
+//     // استرجاع معلومات المستخدم بناءً على UserId
+//     const urlUserInfo = `https://localhost:44397/api/Users/GetUserByID?id=${UserId}`;
+//     const responseUser = await fetch(urlUserInfo);
+//     const userData = await responseUser.json();
+
+//     // عرض معلومات المستخدم
+//     userInfo.innerHTML = `
+//         <address>
+//           <div>  ${userData.userName}<br /></div>
+//           <div">   ${userData.address}<br />
+//            <div>  ${userData.phone}<br />
+//         </address>
+//     `;
+
+//     // استرجاع السلة بناءً على UserId
+//     const urlCartInfo = `https://localhost:44397/api/Cart/GetCartByUserID?id=${UserId}`;
+//     const responseCart = await fetch(urlCartInfo);
+//     const cartData = await responseCart.json();
+
+//     // حساب مجموع السعر الكلي للسلة
+//     let cartId = cartData.cartId;
+
+//     // Calculate total price and quantity
+//     let totalPrice = 0;
+//     let totalQuantity = 0;
+
+//         cartData.$values.forEach(element => 
+//     // cartData.forEach(element =>
+//          {
+//         totalPrice += element.product.price * element.quantity;
+//     });
+
+
+//     localStorage.setItem('cartId', cartId);
+//     localStorage.setItem('totalAmount', totalPrice);
+//     localStorage.setItem('quantity', totalQuantity);
+
+
+//     // عرض معلومات الدفع
+//     payInfo.innerHTML = `
+//         <tr>
+//             <td name="TotalPrice"> ${totalPrice} دينار</td>
+//         </tr>
+//         <div>
+//             <button type="submit" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill" onclick="Order()" >تأكيد الشراء</button>
+//         </div>
+//     `;
+
+//     // حفظ السعر الكامل في localStorage إذا كنت بحاجة لذلك في المستقبل
+//     localStorage.setItem('TotalPrice', totalPrice);
+
+// }
+
+// async function Order() {
+// debugger
+//         const cartId = localStorage.getItem('cartId');
+//         const userId = localStorage.getItem('UserId');
+//         const totalAmount = localStorage.getItem('totalAmount');
+//         const quantity = localStorage.getItem('quantity');
+
+//     try {
+//         debugger;
+//         event.preventDefault();
+
+//         // استرجاع UserId من localStorage أو أي مكان آخر
+//         const UserId = localStorage.getItem('UserId');  // تأكد أن UserId مخزن بشكل صحيح في localStorage
+
+//         if (!UserId) {
+//             throw new Error("UserId is not defined. Please check if the user is logged in.");
+//         }
+
+//         // بناء URL الطلب مع UserId
+//         const orderURL = 'https://localhost:44397/api/Order/CreateOrder';
+
+//         // جلب بيانات النموذج
+//         // var data = document.getElementById('form');
+//         // var form = new FormData(data);
+
+//         // إرسال الطلب إلى الخادم
+//         let response = await fetch(orderURL, {
+//             method: 'POST',
+//             body: {
+//                 cartId: cartId,
+//                 userId: userId,
+//                 totalAmount: totalAmount,
+//                 quantity: quantity
+//               },
+//         });
+
+//         // التحقق من حالة الاستجابة من الخادم
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+
+//         // توجيه المستخدم إلى صفحة "Thank You" بعد إكمال الطلب
+//         window.location.href = 'ThankYou.html';
+//     } catch (error) {
+//         console.error("Error placing order:", error);
+//     }
+// }
+// CheckOut();
+
 async function CheckOut() {
+    debugger;
     let UserId = localStorage.getItem('UserId');
     let userInfo = document.getElementById('UserInfo');
     let payInfo = document.getElementById('Pay');
 
-    // استرجاع معلومات المستخدم بناءً على UserId
+    // Retrieve user information based on UserId
     const urlUserInfo = `https://localhost:44397/api/Users/GetUserByID?id=${UserId}`;
     const responseUser = await fetch(urlUserInfo);
     const userData = await responseUser.json();
 
-    // عرض معلومات المستخدم
+    // Display user information
     userInfo.innerHTML = `
         <address>
-          <div>  ${userData.userName}<br /></div>
-          <div">   ${userData.address}<br />
-           <div>  ${userData.phone}<br />
+            <div>${userData.userName}<br /></div>
+            <div>${userData.address}<br /></div>
+            <div>${userData.phone}<br /></div>
         </address>
     `;
 
-    // استرجاع السلة بناءً على UserId
+    // Retrieve cart based on UserId
     const urlCartInfo = `https://localhost:44397/api/Cart/GetCartByUserID?id=${UserId}`;
     const responseCart = await fetch(urlCartInfo);
     const cartData = await responseCart.json();
 
-    // حساب مجموع السعر الكلي للسلة
+    // Calculate total price and quantity
+    let cartId = cartData.cartId;
     let totalPrice = 0;
-    if (cartData.$values && Array.isArray(cartData.$values)) {
-        cartData.$values.forEach(element => 
-    // cartData.forEach(element =>
-         {
+    let totalQuantity = 0;
+
+    cartData.$values.forEach(element => {
         totalPrice += element.product.price * element.quantity;
+        totalQuantity += element.quantity; // Calculate total quantity
     });
 
-    // عرض معلومات الدفع
+    // localStorage.setItem('cartId', cartId);
+    localStorage.setItem('totalAmount', totalPrice);
+    localStorage.setItem('quantity', totalQuantity);
+
+    // Display payment information
     payInfo.innerHTML = `
         <tr>
-            <td name="TotalPrice"> ${totalPrice} دينار</td>
+            <td name="TotalPrice">${totalPrice} دينار</td>
         </tr>
+        <div>
+            <button type="button" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill" onclick="Order()">تأكيد الشراء</button>
+        </div>
     `;
 
-    // حفظ السعر الكامل في localStorage إذا كنت بحاجة لذلك في المستقبل
+    // Save total price in localStorage if needed for future
     localStorage.setItem('TotalPrice', totalPrice);
 }
-}
-// async function Order() {
-//     const UserId = localStorage.getItem('UserId');
-//     debugger;
-//     event.preventDefault();
-//     const orderURL = `https://localhost:44397/api/Order/SetOrderByUserID?id=${UserId}`
-//     // لازم يتعدل الفورم الاسماء الي فيه لحتى نقدر نعمل بوست 
-//     var data = document.getElementById('form');
-//     var form = new FormData(data);
-//     let response = await fetch(orderURL,
-//         {
-//             method: 'POST',
-//             body: form,
-//         });
-    
-//     window.location.href = 'FrontEnd/CaterServ-1.0.0/ThankYou.html';
-// }
-
-// استدعاء الدوال لعرض البيانات عند تحميل الصفحة
 
 async function Order() {
+    debugger;
+    // event.preventDefault(); // Prevent default form submission behavior
+
+    const cartId = localStorage.getItem('id');
+    const userId = localStorage.getItem('UserId');
+    const totalAmount = localStorage.getItem('totalAmount');
+    const quantity = localStorage.getItem('quantity');
+
     try {
-        debugger;
-        event.preventDefault();
-
-        // استرجاع UserId من localStorage أو أي مكان آخر
-        const UserId = localStorage.getItem('UserId');  // تأكد أن UserId مخزن بشكل صحيح في localStorage
-
-        if (!UserId) {
+        if (!userId) {
             throw new Error("UserId is not defined. Please check if the user is logged in.");
         }
 
-        // بناء URL الطلب مع UserId
-        const orderURL = `https://localhost:44397/api/Order/SetOrderByUserID?id=${UserId}`;
+        // Build order URL
+        const orderURL = 'https://localhost:44397/api/Order/CreateOrder';
 
-        // جلب بيانات النموذج
-        var data = document.getElementById('form');
-        var form = new FormData(data);
+        // Create order data
+        const orderData = {
+            cartId: cartId,
+            userId: userId,
+            totalAmount: totalAmount,
+            quantity: quantity
+        };
 
-        // إرسال الطلب إلى الخادم
+        // Send request to server
         let response = await fetch(orderURL, {
             method: 'POST',
-            body: form,
+            headers: {
+                'Content-Type': 'application/json' // Specify content type
+            },
+            body: JSON.stringify(orderData) // Convert data to JSON
         });
 
-        // التحقق من حالة الاستجابة من الخادم
+        // Check response status
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        // توجيه المستخدم إلى صفحة "Thank You" بعد إكمال الطلب
+        // Redirect to "Thank You" page after completing the order
         window.location.href = 'ThankYou.html';
     } catch (error) {
         console.error("Error placing order:", error);
     }
 }
 
-
+// Call CheckOut function to initialize
 CheckOut();
-

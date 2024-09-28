@@ -1,4 +1,30 @@
 //For Product
+
+async function batool(){
+    debugger;
+        const batoolURL = `https://localhost:44397/api/Categories/GetAllCategory`
+        const response = await fetch(batoolURL)
+        const data = await response.json()
+        debugger
+        var batool = document.getElementById('sortproduct');
+        data.$values.forEach(element => {
+            batool.innerHTML += `<option value="${element.categoryId}"> ${element.categoryName}</option>
+            
+            `
+    
+        });
+    }
+    batool();
+
+    async function sortproduct() {
+        var categoryId = document.getElementById("batool")?.value || '';
+        var hadeel = localStorage.setItem("hadeel", categoryId)
+    
+        const SortProductURL = `https://localhost:44397/api/Products/sortbycategoryID?id=${categoryId}`;
+        const response = await fetch(SortProductURL);
+        const data = await response.json();
+        
+    }
 async function showProduct() {
     debugger;
     const showProductURL = 'https://localhost:44397/api/Products/GetAllProduct';
@@ -11,6 +37,7 @@ async function showProduct() {
             // let imageUrl = element.imageUrl ? `/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}` : 'path/to/default/image.png';
 
             product.innerHTML += `
+            <>
             <div class="col">
                 <div class="card h-100">
                     <div class="card-body">
@@ -21,8 +48,7 @@ async function showProduct() {
                         <p class="card-text">صورة المنتج :</p>
                         <img src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}" alt="" width="100px" height="100px">
                         <br><br>
-                          <a class="btn btn-warning" href="#EditProduct" onclick="storeProductId(${element.productId})"> تعديل
- </a>
+                          <a class="btn btn-warning" href="#EditProduct" onclick="storeProductId(${element.productId})"> تعديل</a>
                     <button class="btn btn-danger" onclick="DeleteProduct(${element.productId})"> <i class="fa fa-times" aria-hidden="true"></i> </button>
                     </div>
                   

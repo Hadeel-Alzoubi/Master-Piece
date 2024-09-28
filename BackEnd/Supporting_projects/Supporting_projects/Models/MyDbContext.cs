@@ -195,9 +195,14 @@ public partial class MyDbContext : DbContext
             entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAF5D192ACB");
 
             entity.Property(e => e.OrderId).HasColumnName("OrderID");
+            entity.Property(e => e.CartId).HasColumnName("Cart_ID");
             entity.Property(e => e.OrderDate).HasColumnType("datetime");
             entity.Property(e => e.Status).HasMaxLength(255);
             entity.Property(e => e.UserId).HasColumnName("User_ID");
+
+            entity.HasOne(d => d.Cart).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.CartId)
+                .HasConstraintName("Cart_ID");
 
             entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.UserId)
