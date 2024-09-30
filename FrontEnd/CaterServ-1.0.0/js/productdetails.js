@@ -73,7 +73,10 @@ localStorage.setItem('CartId', CartId);
 async function addToCart(productId) {
   debugger;
 
-  if (UserId != null) {
+  var UserId = localStorage.getItem("UserId");
+  var idUser =  localStorage.setItem('UserId',UserId);
+
+  if (UserId != "null") {
     var url = `https://localhost:44397/api/Cart?id=${UserId}`;
 
     var data = {
@@ -106,10 +109,9 @@ async function addToCart(productId) {
       product_id: productId,
       // cartId: CartId, 
       quantity: 1,
-
-      productName: name,
+      productName: productName,
       price: price,
-      imageUrl: image,
+      imageUrl: imageUrl,
     };
 
     // Check if there is already a cart in localStorage

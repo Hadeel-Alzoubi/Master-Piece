@@ -164,7 +164,7 @@ tfoot {
 </style>
 
 <body>
-
+<!-- 
     <div class="container-fluid nav-bar">
         <div class="container">
             <nav class="navbar navbar-light navbar-expand-lg py-4">
@@ -182,12 +182,45 @@ tfoot {
                         <a href="service.html" class="nav-item nav-link">الخدمات</a>
                         <a href="contact.html" class="nav-item nav-link">تواصل معنا</a>
                     </div>
+                    
                     <a href="" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">تسجيل الدخول</a>
                 </div>
             </nav>
         </div>
-    </div>
+    </div> -->
+    <div class="container-fluid nav-bar">
+      <div class="container">
+          <nav class="navbar navbar-light navbar-expand-lg py-4">
+              <a href="index.html" class="navbar-brand">
+                  <!-- <h1 class="text-primary fw-bold mb-0">هون اللوغو</h1> -->
+                   <img src="img/logo1-removebg-preview.png" alt="" width="150px">
+              </a>
+              <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                  <span class="fa fa-bars text-primary"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <div class="navbar-nav mx-auto">
+                      <a href="index.html" class="nav-item nav-link active">الرئيسية</a>
+                      <a href="Category.html" class="nav-item nav-link">الاصناف</a>
 
+
+                        <!-- User -->
+                        <a href="/FrontEnd/CaterServ-1.0.0/UserDashBoard.html" id="profileUserLink" class="nav-item nav-link" style="display:none;">ملف الشخصي</a>
+
+
+                      <a href="about.html" class="nav-item nav-link">من نحن</a>
+                      <a href="service.html" class="nav-item nav-link">الخدمات</a>
+                      <a href="contact.html" class="nav-item nav-link">تواصل معنا</a>
+                  </div>
+                  <a href="login.html" id="Login" class="btn btn-primary py-2 px-4  rounded-pill" style="display: inline-block;">تسجيل الدخول</a>
+
+                  <a href="#" id="logoutLink" class="btn btn-primary py-2 px-4  rounded-pill" style="display: inline;" onclick="logoutUser()">تسجيل الخروج</a>
+                  <!-- <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button> -->
+
+              </div>
+          </nav>
+      </div>
+  </div>
     <!-- CheckOut Form -->
     <div class="container" style="display: flex;justify-content: center; padding: 2em">
         <div class="iphone" style="text-align: right; border-top-left-radius: 0px; border-bottom-left-radius: 0px;">
@@ -232,7 +265,7 @@ tfoot {
                         <tbody>
                            
                         </tbody>
-                        <tfoot id="Pay">
+                        <tfoot id="PayInfo">
                             
                         </tfoot>
                     </table>

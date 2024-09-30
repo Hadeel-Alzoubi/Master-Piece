@@ -54,7 +54,6 @@ async function GetProduct() {
       let x = document.getElementById("cardProduct");
 
       // التعامل مع البيانات الموجودة داخل $values
-      if (data.$values && Array.isArray(data.$values)) {
           data.$values.forEach(element => {
               x.innerHTML += `
               <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.1s">
@@ -78,9 +77,7 @@ async function GetProduct() {
               </div>
               `;
           });
-      } else {
-          console.error("Data does not contain a valid array in $values:", data);
-      }
+      
   } catch (error) {
       console.error("Error fetching or processing data:", error);
   }
@@ -103,8 +100,11 @@ var cartid =  localStorage.setItem('cartId',cartId);
 // var productId = localStorage.getItem("selectedProductId");
 async function addToCart(productId) {
   debugger;
+  var UserId = localStorage.getItem("UserId");
 
-  if (UserId != null) {
+  if (UserId != "null") {
+
+
     var url = `https://localhost:44397/api/Cart?id=${UserId}`;
 
     var data = {

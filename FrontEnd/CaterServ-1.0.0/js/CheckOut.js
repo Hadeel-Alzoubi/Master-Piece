@@ -111,7 +111,7 @@ async function CheckOut() {
     debugger;
     let UserId = localStorage.getItem('UserId');
     let userInfo = document.getElementById('UserInfo');
-    let payInfo = document.getElementById('Pay');
+    let payInfo = document.getElementById('PayInfo');
 
     // Retrieve user information based on UserId
     const urlUserInfo = `https://localhost:44397/api/Users/GetUserByID?id=${UserId}`;
@@ -152,7 +152,7 @@ async function CheckOut() {
             <td name="TotalPrice">${totalPrice} دينار</td>
         </tr>
         <div>
-            <button type="button" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill" onclick="Order()">تأكيد الشراء</button>
+            <button type="button" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill" style="inline" onclick="Order()">تأكيد الشراء</button>
         </div>
     `;
 

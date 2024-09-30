@@ -128,7 +128,9 @@ async function LoginUser() {
 
 
 function logoutUser() {
+  debugger;
   localStorage.removeItem('isLoggedIn');
+  localStorage.removeItem('cartId');
   // Optionally, redirect to the login page
   window.location.href = 'index.html';
 }
