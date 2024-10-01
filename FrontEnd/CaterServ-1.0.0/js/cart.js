@@ -298,7 +298,9 @@ function clearCart(id) {
         showCancelButton: true,
         showCloseButton: true
     })
+   
     .then((result) => {
+        debugger;
         if (result.isConfirmed) {
             fetch(deleteUrl, {
                 method: 'DELETE',

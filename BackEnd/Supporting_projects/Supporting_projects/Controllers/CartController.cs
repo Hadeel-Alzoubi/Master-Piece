@@ -154,7 +154,7 @@ namespace Supporting_projects.Controllers
                 return BadRequest("ID must be greater than 0");
             }
 
-            var success = _db.CartItems.FirstOrDefault(p => p.Product.ProductId == id);
+            var success = _db.CartItems.FirstOrDefault(p => p.CartItemId == id);
             if (success == null)
             {
                 return NotFound();
