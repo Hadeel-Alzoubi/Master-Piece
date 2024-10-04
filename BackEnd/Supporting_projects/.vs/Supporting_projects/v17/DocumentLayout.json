@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\backend\\supporting_projects\\supporting_projects\\dtos\\orderdownloaddetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\dtos\\orderdownloaddetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\backend\\supporting_projects\\supporting_projects\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\backend\\supporting_projects\\supporting_projects\\dtos\\orderdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\dtos\\orderdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\backend\\supporting_projects\\supporting_projects\\dtos\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\dtos\\orderdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\backend\\supporting_projects\\supporting_projects\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\backend\\supporting_projects\\supporting_projects\\controllers\\vendorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -93,10 +97,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\backend\\supporting_projects\\supporting_projects\\models\\customrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\models\\customrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|c:\\users\\orange\\desktop\\master-piece\\backend\\supporting_projects\\supporting_projects\\dtos\\orderdownloaddetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6D1191C1-6CDC-4EB8-B245-E7CCB6A0ED83}|Supporting_projects\\Supporting_projects.csproj|solutionrelative:supporting_projects\\dtos\\orderdownloaddetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -114,32 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "OrderUserDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderUserDTO.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\OrderUserDTO.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderUserDTO.cs",
-              "RelativeToolTip": "Supporting_projects\\DTOs\\OrderUserDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T16:36:00.536Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrderController.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Controllers\\OrderController.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\OrderController.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Controllers\\OrderController.cs",
-              "RelativeToolTip": "Supporting_projects\\Controllers\\OrderController.cs",
-              "ViewState": "AQIAAGEAAAAAAAAAAAAtwG4AAAA0AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T09:05:34.912Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "CartController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Controllers\\CartController.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\CartController.cs",
@@ -147,11 +122,12 @@
               "RelativeToolTip": "Supporting_projects\\Controllers\\CartController.cs",
               "ViewState": "AQIAAH8AAAAAAAAAAAAcwJYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T05:50:28.178Z"
+              "WhenOpened": "2024-09-25T05:50:28.178Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "OrederCustomDTO.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrederCustomDTO.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\OrederCustomDTO.cs",
@@ -163,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "OrderWithDetailsDTO.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderWithDetailsDTO.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\OrderWithDetailsDTO.cs",
@@ -175,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "OrderDetailsDTO.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderDetailsDTO.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\OrderDetailsDTO.cs",
@@ -188,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "VendorController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Controllers\\VendorController.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\VendorController.cs",
@@ -196,12 +172,48 @@
               "RelativeToolTip": "Supporting_projects\\Controllers\\VendorController.cs",
               "ViewState": "AQIAACUAAAAAAAAAAAD4vzUAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T10:40:23.356Z",
+              "WhenOpened": "2024-09-27T10:40:23.356Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "OrderDownloadDetailsDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderDownloadDetailsDTO.cs",
+              "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\OrderDownloadDetailsDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderDownloadDetailsDTO.cs",
+              "RelativeToolTip": "Supporting_projects\\DTOs\\OrderDownloadDetailsDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T18:20:26.925Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Supporting_projects\\Controllers\\OrderController.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAtwG4AAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T09:05:34.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OrderUserDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderUserDTO.cs",
+              "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\OrderUserDTO.cs",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderUserDTO.cs",
+              "RelativeToolTip": "Supporting_projects\\DTOs\\OrderUserDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-01T16:36:00.536Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\ProductsController.cs",
@@ -213,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "CustomOrderController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Controllers\\CustomOrderController.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\CustomOrderController.cs",
@@ -225,7 +237,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "OrderDTO.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderDTO.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\OrderDTO.cs",
@@ -237,7 +249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Order.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Models\\Order.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Models\\Order.cs",
@@ -249,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "CategoriesController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Controllers\\CategoriesController.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\CategoriesController.cs",
@@ -261,7 +273,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "VendorForm.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Models\\VendorForm.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Models\\VendorForm.cs",
@@ -273,7 +285,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Models\\User.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Models\\User.cs",
@@ -285,7 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "UsersController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\UsersController.cs",
@@ -293,12 +305,11 @@
               "RelativeToolTip": "Supporting_projects\\Controllers\\UsersController.cs",
               "ViewState": "AQIAACAAAAAAAAAAAAAgwDgAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T11:11:56.495Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-27T11:11:56.495Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "CheckOutDTO.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\CheckOutDTO.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\CheckOutDTO.cs",
@@ -310,7 +321,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "OrderDetail.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Models\\OrderDetail.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Models\\OrderDetail.cs",
@@ -322,7 +333,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "TraineeController.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Controllers\\TraineeController.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Controllers\\TraineeController.cs",
@@ -334,7 +345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "traineeDTO.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\traineeDTO.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\traineeDTO.cs",
@@ -346,7 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Trainee.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Models\\Trainee.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Models\\Trainee.cs",
@@ -358,7 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "VendorDTO.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\VendorDTO.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\VendorDTO.cs",
@@ -370,7 +381,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "CustomOrderDTO.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\CustomOrderDTO.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\CustomOrderDTO.cs",
@@ -382,7 +393,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "CustomRequest.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\Models\\CustomRequest.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\Models\\CustomRequest.cs",
@@ -391,18 +402,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-25T09:43:31.395Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "OrderDownloadDetailsDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderDownloadDetailsDTO.cs",
-              "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\OrderDownloadDetailsDTO.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderDownloadDetailsDTO.cs",
-              "RelativeToolTip": "Supporting_projects\\DTOs\\OrderDownloadDetailsDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T18:20:26.925Z"
             }
           ]
         }
