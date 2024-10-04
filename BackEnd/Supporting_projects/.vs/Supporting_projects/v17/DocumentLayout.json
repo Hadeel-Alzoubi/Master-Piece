@@ -122,8 +122,7 @@
               "RelativeToolTip": "Supporting_projects\\DTOs\\OrderUserDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T16:36:00.536Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T16:36:00.536Z"
             },
             {
               "$type": "Document",
@@ -148,8 +147,7 @@
               "RelativeToolTip": "Supporting_projects\\Controllers\\CartController.cs",
               "ViewState": "AQIAAH8AAAAAAAAAAAAcwJYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T05:50:28.178Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-25T05:50:28.178Z"
             },
             {
               "$type": "Document",
@@ -161,8 +159,7 @@
               "RelativeToolTip": "Supporting_projects\\DTOs\\OrederCustomDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T09:08:02.432Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-25T09:08:02.432Z"
             },
             {
               "$type": "Document",
@@ -174,8 +171,7 @@
               "RelativeToolTip": "Supporting_projects\\DTOs\\OrderWithDetailsDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T05:09:45.863Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-25T05:09:45.863Z"
             },
             {
               "$type": "Document",
@@ -183,9 +179,9 @@
               "Title": "OrderDetailsDTO.cs",
               "DocumentMoniker": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderDetailsDTO.cs",
               "RelativeDocumentMoniker": "Supporting_projects\\DTOs\\OrderDetailsDTO.cs",
-              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderDetailsDTO.cs*",
-              "RelativeToolTip": "Supporting_projects\\DTOs\\OrderDetailsDTO.cs*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAArAAAA",
+              "ToolTip": "C:\\Users\\Orange\\Desktop\\Master-Piece\\BackEnd\\Supporting_projects\\Supporting_projects\\DTOs\\OrderDetailsDTO.cs",
+              "RelativeToolTip": "Supporting_projects\\DTOs\\OrderDetailsDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-22T07:56:46.058Z",
               "EditorCaption": ""
@@ -213,8 +209,7 @@
               "RelativeToolTip": "Supporting_projects\\Controllers\\ProductsController.cs",
               "ViewState": "AQIAALQAAAAAAAAAAAAmwMMAAAA1AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T18:54:06.423Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-27T18:54:06.423Z"
             },
             {
               "$type": "Document",
@@ -226,8 +221,7 @@
               "RelativeToolTip": "Supporting_projects\\Controllers\\CustomOrderController.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAIBJwGcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T12:16:39.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-27T12:16:39.727Z"
             },
             {
               "$type": "Document",
@@ -239,8 +233,7 @@
               "RelativeToolTip": "Supporting_projects\\DTOs\\OrderDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T14:28:06.831Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-28T14:28:06.831Z"
             },
             {
               "$type": "Document",
@@ -252,8 +245,7 @@
               "RelativeToolTip": "Supporting_projects\\Models\\Order.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T18:26:25.073Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T18:26:25.073Z"
             },
             {
               "$type": "Document",
@@ -265,8 +257,7 @@
               "RelativeToolTip": "Supporting_projects\\Controllers\\CategoriesController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADIAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T06:39:53.725Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-29T06:39:53.725Z"
             },
             {
               "$type": "Document",
@@ -278,8 +269,7 @@
               "RelativeToolTip": "Supporting_projects\\Models\\VendorForm.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T10:48:40.489Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-27T10:48:40.489Z"
             },
             {
               "$type": "Document",
@@ -291,8 +281,7 @@
               "RelativeToolTip": "Supporting_projects\\Models\\User.cs",
               "ViewState": "AQIAABIAAAAAAAAAAAAAwCUAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T10:56:49.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-27T10:56:49.316Z"
             },
             {
               "$type": "Document",
@@ -317,8 +306,7 @@
               "RelativeToolTip": "Supporting_projects\\DTOs\\CheckOutDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-28T12:25:39.791Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-28T12:25:39.791Z"
             },
             {
               "$type": "Document",
@@ -330,8 +318,7 @@
               "RelativeToolTip": "Supporting_projects\\Models\\OrderDetail.cs",
               "ViewState": "AQIAAAgAAAAAAAAAAAAAwA0AAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T18:27:35.583Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T18:27:35.583Z"
             },
             {
               "$type": "Document",
@@ -343,8 +330,7 @@
               "RelativeToolTip": "Supporting_projects\\Controllers\\TraineeController.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAIwCsAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T15:03:09.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-27T15:03:09.361Z"
             },
             {
               "$type": "Document",
@@ -356,8 +342,7 @@
               "RelativeToolTip": "Supporting_projects\\DTOs\\traineeDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T18:12:19.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-27T18:12:19.334Z"
             },
             {
               "$type": "Document",
@@ -369,8 +354,7 @@
               "RelativeToolTip": "Supporting_projects\\Models\\Trainee.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T18:12:26.487Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-27T18:12:26.487Z"
             },
             {
               "$type": "Document",
@@ -382,8 +366,7 @@
               "RelativeToolTip": "Supporting_projects\\DTOs\\VendorDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-27T10:48:33.361Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-27T10:48:33.361Z"
             },
             {
               "$type": "Document",
@@ -395,8 +378,7 @@
               "RelativeToolTip": "Supporting_projects\\DTOs\\CustomOrderDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T07:31:09.256Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-25T07:31:09.256Z"
             },
             {
               "$type": "Document",
@@ -408,8 +390,7 @@
               "RelativeToolTip": "Supporting_projects\\Models\\CustomRequest.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T09:43:31.395Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-25T09:43:31.395Z"
             },
             {
               "$type": "Document",
@@ -421,8 +402,7 @@
               "RelativeToolTip": "Supporting_projects\\DTOs\\OrderDownloadDetailsDTO.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-24T18:20:26.925Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-24T18:20:26.925Z"
             }
           ]
         }
