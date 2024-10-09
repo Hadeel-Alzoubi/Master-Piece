@@ -88,9 +88,6 @@ namespace Supporting_projects.Controllers
         }
 
 
-
-
-
         [HttpPost]
         public IActionResult addCartItem([FromBody] addCartItemRequestDTO cart , int id)
         {
@@ -140,18 +137,7 @@ namespace Supporting_projects.Controllers
         }
 
 
-        //[HttpPut("{id}")]
-        //public IActionResult updateProduct(int id, [FromBody] cartDTO cart)
-        //{
-        //    var c = _db.CartItems.FirstOrDefault(p => p.CartItemId == id);
-
-        //    c.Quantity = cart.Quantity;
-        //    var u = _db.CartItems.Update(c);
-
-        //    _db.SaveChanges();
-        //    return Ok(u);
-        //}
-
+       
         [Route("DeleteItem/{id}")]
         [HttpDelete]
         public IActionResult DeleteProduct(int id)

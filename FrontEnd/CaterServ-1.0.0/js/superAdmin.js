@@ -14,10 +14,9 @@ async function batool(){
     
         });
 }
-batool();
 async function sortproduct() {
     debugger
-    var categoryId = document.getElementById("batool")?.value || '';
+    var categoryId = document.getElementById("sortproduct")?.value || '';
     var hadeel = localStorage.setItem("hadeel", categoryId)
 
     const SortProductURL = `https://localhost:44397/api/Products/sortbycategoryID?id=${categoryId}`;
@@ -42,7 +41,10 @@ async function sortproduct() {
                         <p class="card-text">صورة المنتج :</p>
                         <img src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}" alt="" width="100px" height="100px">
                         <br><br>
-                          <a class="btn btn-warning" href="#EditProduct" onclick="storeProductId(${element.productId})"> تعديل</a>
+                          <a class="btn btn-warning" href="#EditProduct" onclick="storeProductId(${element.productId})">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
                     <button class="btn btn-danger" onclick="DeleteProduct(${element.productId})"> <i class="fa fa-times" aria-hidden="true"></i> </button>
                     </div>
                   
@@ -54,11 +56,12 @@ async function sortproduct() {
 
 async function showProduct() {
     debugger;
-
+batool();
     const showProductURL = 'https://localhost:44397/api/Products/GetAllProduct';
     const response = await fetch(showProductURL);
     const data = await response.json();
     let product = document.getElementById('tableProduct');
+
     product.innerHTML ="";
     if (data.$values && Array.isArray(data.$values)) {
         data.$values.forEach(element => {
@@ -75,7 +78,9 @@ async function showProduct() {
                         <p class="card-text">صورة المنتج :</p>
                         <img src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}" alt="" width="100px" height="100px">
                         <br><br>
-                          <a class="btn btn-warning" href="#EditProduct" onclick="storeProductId(${element.productId})"> تعديل</a>
+                        <a class="btn btn-warning" href="#EditProduct" onclick="storeProductId(${element.productId})">
+                            <i class="fas fa-edit"></i>
+                        </a>
                     <button class="btn btn-danger" onclick="DeleteProduct(${element.productId})"> <i class="fa fa-times" aria-hidden="true"></i> </button>
                     </div>
                   
@@ -134,6 +139,9 @@ async function ShowCustomer() {
     const data = await response.json();
 
     let customer = document.getElementById("CustomerTable");
+
+    customer.innerHTML = ""
+
     data.$values.forEach(element =>
         customer.innerHTML += `
         <tr>
@@ -142,7 +150,10 @@ async function ShowCustomer() {
             <td>${element.phone}</td>
             <td>${element.address}</td>
             <td>
-                <a href="#EditUser" onclick="storeUserId(${element.userId})">تعديل</a>
+                <a href="#EditProduct" onclick="storeUserId(${element.userId})">
+                    <i class="fas fa-edit"></i>
+                </a>
+
                 
             <a href="#" onclick="DeleteUser(${element.userId})"><i class="fa fa-times" aria-hidden="true"></i></a>
             </td>
@@ -209,6 +220,8 @@ async function ShowAdmin() {
     const data = await response.json();
 
     let customer = document.getElementById("AdminTable");
+
+    customer.innerHTML = ""
     data.$values.forEach(element =>
         customer.innerHTML += `
         <tr>
@@ -217,7 +230,9 @@ async function ShowAdmin() {
             <td>${element.phone}</td>
             <td>${element.address}</td>
             <td>
-                <a href="#EditAdmin" onclick="storeAdminId(${element.userId})">تعديل</a>
+                <a href="#EditAdmin" onclick="storeAdminId(${element.userId})">
+                <i class="fas fa-edit"></i>
+            </a>
                 
             <a href="#" onclick="DeleteِAdmin(${element.userId})"><i class="fa fa-times" aria-hidden="true"></i></a>
             </td>
@@ -280,6 +295,8 @@ async function ShowCategory() {
     const response = await fetch(categoryURL);
     const data = await response.json();
     let category = document.getElementById("CategoryTable");
+
+    category.innerHTML = ""
     data.$values.forEach(element =>
         category.innerHTML += `
         <tr>
@@ -326,7 +343,7 @@ async function ShowMessage() {
     const response = await fetch(messageshowURL);
     const data = await response.json();
     let contact = document.getElementById("ContactTable");
-
+    contact.innerHTML =""
     data.$values.forEach(element =>
         contact.innerHTML += `
         <tr>
@@ -384,7 +401,7 @@ async function showVendor() {
     const data = await response.json();
 
     let Vendor = document.getElementById('vendorOrder');
-    
+    Vendor.innerHTML ="";
     data.$values.forEach(element => {
         Vendor.innerHTML += `
         <div class="col" >
@@ -407,7 +424,6 @@ async function showVendor() {
         `;
     });
 }
-
 async function ApprovVendore(vendorid, vendorName, phone, address, email, category) {
 
     debugger
@@ -431,21 +447,25 @@ async function ApprovVendore(vendorid, vendorName, phone, address, email, catego
             document.getElementById(`vendor-${vendorid}`).remove();
             alert("تمت الموافقة على هذا التاجر");
             window.location.reload();
-
-        } else {
-            alert("حدث خطأ أثناء الموافقة على التاجر");
         }
+        //  else {
+        //     alert("حدث خطأ أثناء الموافقة على التاجر");
+        // }    
     } catch (error) {
         console.error('حدث خطأ أثناء الإرسال:', error);
         alert('حدث خطأ أثناء الإرسال');
     }
 }
-
 async function DeleteVendor(id) {
     const deletevendorURL = `https://localhost:44397/api/Vendor?id=${id}`;
     var del = await fetch(deletevendorURL,{
         method: 'DELETE'
     });
+
+    if (del.ok) {
+        alert("تم حذف التاجر بنجاح");
+        window.location.reload();
+    }
 }
 
 

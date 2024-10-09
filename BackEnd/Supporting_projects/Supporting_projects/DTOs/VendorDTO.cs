@@ -2,6 +2,8 @@
 {
     public class VendorDTO
     {
+        public int Vendorid { get; set; }
+
         public string? VendorName { get; set; }
 
         public string? Email { get; set; }

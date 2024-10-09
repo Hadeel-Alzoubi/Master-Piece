@@ -64,12 +64,21 @@ namespace Supporting_projects.Controllers
                 IsAdmin = true,
                 Password = "123",
 
-                // PasswordHash = Hash,
-                //PasswordSalt = Salt,
             };
 
             _db.Users.Add(data);
+            //_db.VendorForms.Remove(vendor);
             _db.SaveChanges();
+
+             var vendorFromRequst = _db.VendorForms.Where(x => x.Vendorid == vendor.Vendorid).FirstOrDefault(); // Retrieve the full entity
+
+            if (vendorFromRequst != null)
+            {
+                _db.VendorForms.Remove(vendorFromRequst); // Remove the entity
+                _db.SaveChanges(); // Save changes to the database
+            }
+
+          
             return Ok(vendor);
         }
 

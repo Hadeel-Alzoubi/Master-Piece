@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 
     <head>
-        <meta charset="utf-8">
+        <meta charset="UTF-8">
         <title>Anamel</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">  
         <meta content="" name="keywords">
@@ -214,6 +214,47 @@
             #progressbar li.active:after {
                 background: rgb(252, 103, 49);
             }
+
+
+
+/*****************************************************************************************/
+.modal {
+    display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+        border-radius: 10px; /* Rounded corners */
+        text-align: right; /* Align text to the right */
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+            
             </style>
     </head>
 
@@ -265,7 +306,7 @@
                             <li><a href="#account-details" class="nav-link userD" >معلومات المستخدم</a></li>
                             <li><a href="#account-passowrd" class="nav-link userD" >تعديل كلمة السر</a></li>
                             <li><a href="#orders" class="nav-link userD" onclick="OrderDetails()">طلباتي</a></li>
-                            <li><a href="#downloads" class="nav-link userD" onclick="OrderDownload()">تحميل ملف الطلب</a></li>
+                            <!-- <li><a href="#downloads" class="nav-link userD" onclick="OrderDownload()">تحميل ملف الطلب</a></li> -->
                             <!-- <li><a href="#custom-order" class="nav-link userD">طلبات خاصة</a></li> -->
 
                             <li><a href="index.html" class="nav-link  userD" onclick="logoutUser()">تسجيل الخروج</a></li>
@@ -317,51 +358,33 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="orders">
+
+                        <div id="productModal" class="modal" dir="rtl" >
+                            <div class="modal-content">
+                                <span id="closeModal" class="close">&times;</span>
+                                <h2>تفاصيل الطلب</h2>
+                                <pre id="productDetails" style="white-space: pre-line;"></pre>
+                            </div>
+                        </div>
+                            
                             <div class="title" id="orderD" >معلومات الطلب
                                 
                             </div>
-                          
-                  
                             <br>
                         
                             <div class="footer">
-                                <a href="/CaterServ-1.0.0/contact.html"> تواصل معنا  اذا كنت تحتاج للمساعدة </a>
+                                <a href="contact.html"> تواصل معنا  اذا كنت تحتاج للمساعدة </a>
                             </div>
                        
                         </div>
-                        <div id="downloads" class="tab-pane">
+
+                        <!-- <div id="downloads" class="tab-pane">
 
                             <div class="row row-cols-1 row-cols-md-2 g-4" id="orderDownload">
                          
                             </div>
-                            <!-- <h3></h3> -->
-                            <!-- <div class="coron_table table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr> -->
-                                            <!-- <th>Product</th> -->
-                                            <!-- <th>تاريخ الطلب</th>
-                                            <th>حالة الطلب</th>
-                                            <th>تحميل الملف</th>	 	 	 	
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr> -->
-                                            <!-- <td>Shopnovilla - Free Real Estate PSD Template</td> -->
-                                            <!-- <td>May 10, 2023</td>
-                                            <td><span class="danger">تم الاستلام</span></td>
-                                            <td><a href="#" class="view">تحميل الملف</a></td>
-                                        </tr>
-                                        <tr> -->
-                                            <!-- <td>Organic - ecommerce html template</td> -->
-                                            <!-- <td>Sep 11, 2023</td>
-                                            <td>في الطريق</td>
-                                            <td><a href="#" class="view">تحميل الملف</a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div> -->
-                        </div>
+                            
+                        </div> -->
                         
                         <div style="display: none;" id="orderInfo"></div>
                         <!-- <div id="custom-order" class="tab-pane">

@@ -127,6 +127,7 @@ async function OrderDetails() {
         console.log(data);  // Debug to ensure correct data structure
 
         let details = document.getElementById('orderD');
+        details.innerHTML = "";
         data.forEach(element =>
             details.innerHTML += `
                 <div class="info">
@@ -141,23 +142,7 @@ async function OrderDetails() {
                         </div>
                     </div>      
                 </div>      
-                <div class="pricing">
-                   
-                    <div class="row">
-                        <div class="col-9">
-                            <span id="name">التوصيل الى ${element.shippingAddress}</span>
-                        </div>
-                        <div class="col-3">
-                            <span id="price">1 دينار</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="total">
-                    <div class="row">
-                        <div class="col-9">المجموع الكلي</div>
-                        <div class="col-3">${element.totalPrice}</div>
-                    </div>
-                </div>
+               
                 <br>
                 <div class="total">
                     <div class="row">
@@ -173,30 +158,45 @@ async function OrderDetails() {
         console.error('Error fetching order details:', error);
     }
 }
+
 async function GetOrderDetails(id) {
-    debugger;
     const GetOrderDetailsURL = `https://localhost:44397/api/Order/GetOrderDetails?id=${id}`;
     const response = await fetch(GetOrderDetailsURL);
-    const data = await response.json();
-    let content = document.createElement("div");
-    //هون رح يعرض المعلومات ب صفحة لحال 
-   
-        // Prepare content for SweetAlert
-        content.innerHTML += `
-            <p>المنتج: ${data.productName}</p><br>
-            <p>السعر: </p>${data.price}<br>
-            <p>وصف المنتج: </p>${data.description}<br>
-           
-        `
-        console.log(content);
-        // Display SweetAlert with order details
-        swal({
-            title: "تفاصيل الطلب",
-            html: content,
-            icon: "info",
-            button: "إغلاق"
-        });
+    
+    // Check if the response is OK
+    if (!response.ok) {
+        console.error("Error fetching order details:", response.statusText);
+        return; // Exit if there's an error
+    }
 
+    const data = await response.json();
+
+    // Create the message to display
+    let alertMessage = '';
+    data.$values.forEach(product => {
+        alertMessage += `المنتج: ${product.productName}\n`;
+        alertMessage += `السعر: ${product.price}\n`;
+        alertMessage += `وصف المنتج: ${product.description}\n`;
+        alertMessage += '-----------------------\n'; // Separator between products
+    });
+
+    // Display in modal
+    document.getElementById('productDetails').innerText = alertMessage;
+    const modal = document.getElementById('productModal');
+    modal.style.display = "block"; // Show the modal
+
+    // Close modal functionality
+    const closeModal = document.getElementById('closeModal');
+    closeModal.onclick = function() {
+        modal.style.display = "none"; // Hide the modal
+    }
+
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none"; // Hide the modal
+        }
+    }
 }
 
 
