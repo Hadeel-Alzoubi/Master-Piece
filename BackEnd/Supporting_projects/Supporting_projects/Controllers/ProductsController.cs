@@ -57,11 +57,13 @@ namespace Supporting_projects.Controllers
 
         // Sort Product
 
-        [Route("SortProductByPrice")]
+        [Route("SortProductByPriceAsc")]
         [HttpGet]
         public IActionResult OrderProductA(int id)
         {
-            var product = _db.Products.OrderBy(p => p.Price).Select(p => new
+            // the id to sort the category Product
+
+            var product = _db.Products.OrderBy(p => p.Price).Where(x => x.CategoryId == id).Select(p => new
             {
                 p.ProductId,
                 p.ProductName,
@@ -75,13 +77,14 @@ namespace Supporting_projects.Controllers
                 }
             });
             return Ok(product);
+
         }
 
         [Route("SortProductByPriceDescending")]
         [HttpGet]
         public IActionResult OrderProductD(int id)
         {
-            var product = _db.Products.OrderByDescending(p => p.Price).Select(p => new
+            var product = _db.Products.OrderByDescending(p => p.Price).Where(x => x.CategoryId == id).Select(p => new
             {
                 p.ProductId,
                 p.ProductName,
@@ -98,12 +101,12 @@ namespace Supporting_projects.Controllers
         }
 
 
-        
+
         [Route("AddProductByCategoryID")]
         [HttpPost]
 
         // the id here is for userID
-        public IActionResult AddProduct(int id ,[FromForm] ProductRequestDTO productDTO)
+        public IActionResult AddProduct(int id, [FromForm] ProductRequestDTO productDTO)
         {
 
             var uploadImageFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
@@ -117,7 +120,7 @@ namespace Supporting_projects.Controllers
             //    productDTO.ImageUrl.CopyToAsync(stream);
             //}
 
-        
+
 
             var data = new Product
             {
@@ -181,9 +184,14 @@ namespace Supporting_projects.Controllers
             return Ok("Product deleted successfully.");
         }
 
+
+
+        //**********************************************************
+
         [HttpGet("GetProductByAdminId")]
         public IActionResult GetProductByAdminId(int id)
         {
+            //var admincategory = _db.Users.Where(x => x.UserId == id);
             var adminProduct = _db.Products.Where(x => x.AdminProduct == id).ToList();
             if (adminProduct == null)
             {
@@ -198,5 +206,17 @@ namespace Supporting_projects.Controllers
             var category = _db.Products.Where(x => x.CategoryId == id).ToList();
             return Ok(category);
         }
+
+        //[HttpDelete("AdminProductDelete")]
+        //public IActionResult DeleteAdminProduct(int id) {
+
+        //    var productid = _db.Products.Where(x => x.ProductId == id);
+        //    if (productid == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    _db.Products.Remove(productid);
+        //    return Ok();
+        //}
     }
 }

@@ -13,31 +13,58 @@ async function batool(){
             `
     
         });
-    }
-    batool();
+}
+batool();
+async function sortproduct() {
+    debugger
+    var categoryId = document.getElementById("batool")?.value || '';
+    var hadeel = localStorage.setItem("hadeel", categoryId)
 
-    async function sortproduct() {
-        var categoryId = document.getElementById("batool")?.value || '';
-        var hadeel = localStorage.setItem("hadeel", categoryId)
+    const SortProductURL = `https://localhost:44397/api/Products/sortbycategoryID?id=${categoryId}`;
+    const response = await fetch(SortProductURL);
+    const data = await response.json();
+
     
-        const SortProductURL = `https://localhost:44397/api/Products/sortbycategoryID?id=${categoryId}`;
-        const response = await fetch(SortProductURL);
-        const data = await response.json();
-        
-    }
+    var product = document.getElementById("tableProduct");
+    product.innerHTML ="";
+
+        data.$values.forEach(element => {
+            // let imageUrl = element.imageUrl ? `/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}` : 'path/to/default/image.png';
+
+            product.innerHTML += `
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title"> اسم المنتج : ${element.productName}</h5>
+                        <p class="card-text"> سعر المنتج  : ${element.price}</p>
+                        <p class="card-text"> الكمية لدى التاجر : ${element.stockQuantity}</p>
+                        <p class="card-text"> وصف المنتج : ${element.description}</p>
+                        <p class="card-text">صورة المنتج :</p>
+                        <img src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}" alt="" width="100px" height="100px">
+                        <br><br>
+                          <a class="btn btn-warning" href="#EditProduct" onclick="storeProductId(${element.productId})"> تعديل</a>
+                    <button class="btn btn-danger" onclick="DeleteProduct(${element.productId})"> <i class="fa fa-times" aria-hidden="true"></i> </button>
+                    </div>
+                  
+                </div>
+            </div>
+            `;
+        });
+}
+
 async function showProduct() {
     debugger;
+
     const showProductURL = 'https://localhost:44397/api/Products/GetAllProduct';
     const response = await fetch(showProductURL);
     const data = await response.json();
-
     let product = document.getElementById('tableProduct');
+    product.innerHTML ="";
     if (data.$values && Array.isArray(data.$values)) {
         data.$values.forEach(element => {
             // let imageUrl = element.imageUrl ? `/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}` : 'path/to/default/image.png';
 
             product.innerHTML += `
-            <>
             <div class="col">
                 <div class="card h-100">
                     <div class="card-body">

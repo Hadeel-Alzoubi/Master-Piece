@@ -73,6 +73,7 @@ GetCategory();
 
 function store(id) {
     localStorage.categoryId = id;
+    localStorage.setItem("categoryId", id);
     window.location.href = "product.html"
     
 }

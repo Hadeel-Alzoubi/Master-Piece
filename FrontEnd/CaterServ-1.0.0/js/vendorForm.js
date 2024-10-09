@@ -26,5 +26,6 @@ async function vendorRegister() {
     });
 
     alert("تم تقديم الطلب بنجاح سيتم التواصل معك في اقرب فرصة ");
+    window.location.href = "index.html";
 }
     

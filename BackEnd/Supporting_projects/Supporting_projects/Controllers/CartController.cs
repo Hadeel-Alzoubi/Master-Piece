@@ -77,10 +77,17 @@ namespace Supporting_projects.Controllers
                 return Ok("item was deleted");
             }
 
+            var productQ = _db.Products.Find(item.ProductId);
+            // هون لازم اعمل كمان شرط اذا كان اكثر من الستوك كونتيتي
+            if (update.Quantity > productQ.StockQuantity) {
+                return NotFound("الكمية غير متوفرة");
+            }
             item.Quantity = update.Quantity;
             _db.SaveChanges();
             return Ok();
         }
+
+
 
 
 

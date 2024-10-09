@@ -24,9 +24,7 @@ async function ProductDetails(id) {
                                     <div class="product-content">
                                         <div class="title"><h2>${data.productName}</h2></div>
 
-                                        <div class="ratting">
-                                           هووووووووووون النجوم لازم تنحط
-                                        </div>
+                          
                                          <br>
 
                                         
@@ -44,8 +42,16 @@ async function ProductDetails(id) {
                                         </div>
                                         <br>
 
+                                        <div id="Q">
+                                        <h4 id="stockQuantity">الكمية المتاحة : ${data.stockQuantity}</h4>
+                                        <br>
+                                        <input type="number" id="DataOfQ" placeholder="1" max="${data.stockQuantity}" />
+                                        </div>
+                                        <br>
                                         <div class="action">
-                                            <a class="btn btn-primary" onclick="addToCart(${data.productId})"><i class="fa fa-shopping-cart"></i>اضف الى عربة التسوق</a>
+                                          <a class="btn btn-primary" onclick="addToCart(${data.productId},'${data.productName}',${data.price},'${data.imageUrl}','${data.stockQuantity}')">
+                                              <i class="fa fa-shopping-cart"></i> اضف الى عربة التسوق
+                                          </a>
                                         </div>
                                     </div>
                                 </div>
@@ -70,19 +76,31 @@ var CartId = localStorage.getItem("CartId");
 // حفظ CartId في localStorage بعد الحصول عليه من الاستجابة
 localStorage.setItem('CartId', CartId);
 
-async function addToCart(productId) {
+async function addToCart(productId,productName,price,imageUrl,Q) {
   debugger;
 
   var UserId = localStorage.getItem("UserId");
   var idUser =  localStorage.setItem('UserId',UserId);
 
+
+  var DataQ = document.getElementById('DataOfQ').value;
+  var QinDB = document.getElementById('stockQuantity').textContent;
+  let quantityValue = QinDB.replace('الكمية المتاحة : ', '').trim(); // Removing the label to get only the number
+
+  let numericQinDB = Number(quantityValue);
+  let numericDataQ = Number(DataQ);
+
+  if (numericDataQ > numericQinDB) {
+    alert('الكمية غير متاحة سوف نقوم بتوفير الكمية المناسبة في اقرب فرصة')
+  }
+  else {
   if (UserId != "null") {
     var url = `https://localhost:44397/api/Cart?id=${UserId}`;
 
     var data = {
         productId: productId,
         // CartId: CartId, 
-      quantity: 1,
+      quantity: DataQ,
     };
 
     let response = await fetch(url, {
@@ -112,6 +130,7 @@ async function addToCart(productId) {
       productName: productName,
       price: price,
       imageUrl: imageUrl,
+      stockQuantity:stockQuantity
     };
 
     // Check if there is already a cart in localStorage
@@ -137,6 +156,7 @@ async function addToCart(productId) {
     // Optionally, reload or redirect to another page
     window.location.reload();
   }
+}
 }
 
 //الان هاد الستايل و ال اج تي ام ال كود عشان الريفيو و القصه عن التاجر لازم تشتغلي على قصة التاجر تكون من الداتا بيز 

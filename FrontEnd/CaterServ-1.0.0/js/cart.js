@@ -225,7 +225,7 @@ async function ShowCart() {
                       <div class="input-group quantity mt-4">
                           <input type="number" id="productQuantity-${item.productId}"
                           class="form-control form-control-sm text-center border-0" 
-                          style="width:10px" value="${item.quantity}" min="1" max="100" onchange="changeQuantity(${item.productId}, ${item.price})">
+                          style="width:10px" value="${item.quantity}" min="1" max="${item.stockQuantity}" onchange="changeQuantity(${item.productId}, ${item.price})">
                       </div>
                   </td>
                   <td>
@@ -355,4 +355,59 @@ debugger;
 
 window.location.reload();
 }
+
+
+function removeItemFromLocalCart(productId) {
+    // Retrieve the current cart items from localStorage
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || []; // Default to an empty array if not found
+
+    console.log('Current Cart Items:', cartItems); // Debug: Log current items in the cart
+
+    // Check if productId exists in the cart
+    const itemExists = cartItems.some(item => item.product_id === productId);
+    if (!itemExists) {
+        console.log(`Item with product ID ${productId} does not exist in the cart.`);
+        return; // Item doesn't exist, so return early
+    }
+
+    // Filter out the item with the specified productId
+    cartItems = cartItems.filter(item => item.product_id !== productId);
+
+    console.log('Updated Cart Items:', cartItems); // Debug: Log updated items in the cart
+
+    // Save the updated cart back to localStorage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+    // Refresh the cart display after removal
+    displayCartItems(); // Ensure you call this function to refresh the UI
+}
+
+// Function to refresh the cart display
+function displayCartItems() {
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const table = document.getElementById('cartTable'); // Ensure this is the correct ID of your table
+    table.innerHTML = ''; // Clear the current content
+
+    cartItems.forEach(item => {
+        table.innerHTML += `
+            <tr>
+                <th scope="row">
+                    <img src="/Supporting_projects/Supporting_projects/Uploads/${item.imageUrl}" class="rounded-circle" style="width: 80px; height: 80px;" alt="">
+                </th>
+                <td>${item.productName}</td>
+                <td>${item.price} دينار</td>
+                <td>
+                    <input type="number" id="productQuantity-${item.product_id}" value="${item.quantity}" min="1" max="${item.stockQuantity}"  onchange="changeQuantity(${item.product_id}, ${item.price})">
+                </td>
+                <td>مجموع السعر الكلي: ${item.price * item.quantity}</td>
+                <td>
+                    <button onclick="removeItemFromLocalCart(${item.product_id})">
+                        <i class="fa fa-times text-danger"></i>
+                    </button>
+                </td>
+            </tr>`;
+    });
+}
+
+
 ShowCart();

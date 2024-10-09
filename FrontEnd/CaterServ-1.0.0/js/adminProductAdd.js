@@ -107,12 +107,13 @@ async function UpdatePassowrd()
 // بناءا على الادمن اي دي لازم تظهر المنتجات الخاصة فيه
 async function showProduct() {
 debugger;
-    let categoryId = localStorage.getItem("categoryId");
-    const showProductURL = `https://localhost:44397/api/Products/GetProductByAdminId?id=${categoryId}`
+
+    let UserId = localStorage.getItem("UserId");
+    const showProductURL = `https://localhost:44397/api/Products/GetProductByAdminId?id=${UserId}`
     const response = await fetch(showProductURL)
     const data = await response.json()
     let product = document.getElementById('tableProduct');
-    if (data.$values && Array.isArray(data.$values)) {
+   product.innerHTML = ""
         data.$values.forEach(element => {
             product.innerHTML += 
             `
@@ -124,12 +125,15 @@ debugger;
                     <p class="card-text">${element.stockQuantity}</p>
                     <p class="card-text">${element.description}</p>
                     <img src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}" alt="" width="100px" height="100px"> 
+                    <br>
+                    <br>
+                    <button class="btn btn-danger" onclick="DeleteProduct(${element.productId})"> <i class="fa fa-times" aria-hidden="true"></i> </button>
                 </div>
              </div>
             </div>
             `
         });
-    }
+    
 }
 
 
@@ -169,6 +173,24 @@ async function fetchCustomOrders() {
 }
 // Call the function to fetch custom orders when needed
 // fetchCustomOrders();
+async function DeleteProduct(id) {
+    debugger
+    if (confirm("هل انت متاكد من حذف المنتج")) {
+        const deleteURL = `https://localhost:44397/api/Products/DeleteProduct?id=${id}`;
+        let response = await fetch(deleteURL, {
+            method: 'DELETE'
+        });
+    
+        if (response.ok) {
+            alert("تم حذف المنتج بنجاح");
+            window.location.reload();
+        }
+    }
+    else {
+            alert("تم الغاء العملية");
+        }
+   
+}    
 
 
 //هاي احتماااااال اتخلص منها خلاص

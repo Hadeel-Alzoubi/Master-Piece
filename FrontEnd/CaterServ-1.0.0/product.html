@@ -94,6 +94,15 @@
 
        <!-- Product Card Container -->
 <div class="container my-4">
+
+<div class="container d-flex align-items-center justify-content-center" style="width: 200px;" >
+    <select id="sortProduct" class="form-control chosen-select"  onchange="sortByPrice()">
+      <option value="all">الكل</option>
+      <option value="A">ترتيب من الاقل سعرا للاعلى</option>
+      <option value="D">ترتيب من الاعلى سعرا للاقل</option>
+    </select>
+  </div>
+
     <div class="row" id="cardProduct" style="gap: 10px;">
        
     </div>
