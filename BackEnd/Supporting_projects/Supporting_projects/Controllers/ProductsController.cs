@@ -106,7 +106,7 @@ namespace Supporting_projects.Controllers
         [HttpPost]
 
         // the id here is for userID
-        public IActionResult AddProduct(int id, [FromForm] ProductRequestDTO productDTO)
+        public IActionResult AddProduct(int id, [FromForm] ProductAddDTO productDTO)
         {
 
             var uploadImageFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
@@ -119,8 +119,6 @@ namespace Supporting_projects.Controllers
             //{
             //    productDTO.ImageUrl.CopyToAsync(stream);
             //}
-
-
 
             var data = new Product
             {
@@ -143,23 +141,46 @@ namespace Supporting_projects.Controllers
         public IActionResult EditProduct(int id, [FromForm] ProductRequestDTO productDTO)
         {
             var productId = _db.Products.FirstOrDefault(p => p.ProductId == id);
-            var uploadImageFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
-            if (!Directory.Exists(uploadImageFolder))
+
+            if (productDTO.ImageUrl != null)
             {
-                Directory.CreateDirectory(uploadImageFolder);
-            }
-            var imageFile = Path.Combine(uploadImageFolder, productDTO.ImageUrl.FileName);
-            using (var stream = new FileStream(imageFile, FileMode.Create))
-            {
-                productDTO.ImageUrl.CopyToAsync(stream);
+                var folder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+                if (!Directory.Exists(folder))
+                {
+                    Directory.CreateDirectory(folder);
+                }
+
+                var fileImage = Path.Combine(folder, productDTO.ImageUrl.FileName);
+                using (var stream = new FileStream(fileImage, FileMode.Create))
+                {
+                    productDTO.ImageUrl.CopyTo(stream);
+                }
+
+                // Only update the image if a new image is provided
+                productId.ImageUrl = productDTO.ImageUrl.FileName;
             }
 
-            productId.ImageUrl = productDTO.ImageUrl.FileName;
-            productId.ProductName = productDTO.ProductName;
-            productId.Price = productDTO.Price;
-            productId.Description = productDTO.Description;
-            productId.StockQuantity = productDTO.StockQuantity;
-            productId.CategoryId = productDTO.CategoryId;
+            //var uploadImageFolder = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+            //if (!Directory.Exists(uploadImageFolder))
+            //{
+            //    Directory.CreateDirectory(uploadImageFolder);
+            //}
+
+
+            //var imageFile = Path.Combine(uploadImageFolder, productDTO.ImageUrl.FileName);
+            //using (var stream = new FileStream(imageFile, FileMode.Create))
+            //{
+            //    productDTO.ImageUrl.CopyToAsync(stream);
+            //}
+
+         
+
+            //productId.ImageUrl = productDTO.ImageUrl.FileName ?? productId.ImageUrl;
+            productId.ProductName = productDTO.ProductName ?? productId.ProductName;
+            productId.Price = productDTO.Price ?? productId.Price;
+            productId.Description = productDTO.Description ?? productId.Description;
+            productId.StockQuantity = productDTO.StockQuantity ?? productId.StockQuantity;
+            productId.CategoryId = productDTO.CategoryId ?? productId.CategoryId;
 
             _db.SaveChanges();
             return Ok(productDTO);

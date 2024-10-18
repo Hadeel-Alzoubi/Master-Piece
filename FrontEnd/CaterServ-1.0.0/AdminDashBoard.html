@@ -222,6 +222,31 @@
                     </form>
                 </div>
             </section>
+            <section id="EditProduct" class="tab-pane">
+                <form id="editProductForm">
+                    <div class="mb-3">
+                        <label for="ProductName" class="form-label">اسم المنتج</label>
+                        <input type="text" class="form-control" id="ProductName" name="ProductName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Description" class="form-label">وصف المنتج</label>
+                        <input type="text" class="form-control" id="Description" name="Description">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Price" class="form-label">السعر</label>
+                        <input type="text" class="form-control" id="Price" name="Price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="StockQuantity" class="form-label">الكمية لدى التاجر</label>
+                        <input type="number" class="form-control" id="StockQuantity" name="StockQuantity">
+                    </div>
+                    <div class="mb-3">
+                        <label for="ImageUrl" class="form-label">الصورة</label>
+                        <input type="file" class="form-control" id="ImageUrl" name="ImageUrl">
+                    </div>
+                    <button type="submit" class="btn btn-primary" onclick="EditProduct()">حفظ التعديلات</button>
+                </form>
+            </section>
             <!-- <section id="payment-method"   class="tab-pane"> 
                 <h2>طرق الدفع</h2>
                 <form>

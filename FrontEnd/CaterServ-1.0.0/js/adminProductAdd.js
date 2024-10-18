@@ -127,6 +127,9 @@ debugger;
                     <img src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}" alt="" width="100px" height="100px"> 
                     <br>
                     <br>
+                      <a class="btn btn-warning" href="#EditProduct" onclick="storeProductId(${element.productId})">
+                            <i class="fas fa-edit"></i>
+                        </a>
                     <button class="btn btn-danger" onclick="DeleteProduct(${element.productId})"> <i class="fa fa-times" aria-hidden="true"></i> </button>
                 </div>
              </div>
@@ -134,6 +137,64 @@ debugger;
             `
         });
     
+}
+
+function storeProductId(productId) {
+    localStorage.setItem("productId", productId);
+}
+async function EditProduct() {
+    debugger;
+    
+    
+    let UserId = localStorage.getItem("UserId");
+    const showProductURL = `https://localhost:44397/api/Products/GetProductByAdminId?id=${UserId}`
+    const response1 = await fetch(showProductURL)
+    const data = await response1.json()
+    let product = document.getElementById('tableProduct');
+   product.innerHTML = ""
+        data.$values.forEach(element => {
+            product.innerHTML += 
+            `
+            <div class="col">
+             <div class="card h-100" >
+                <div class="card-body" >
+                    <h5 class="card-title">${element.productName}</h5>
+                    <p class="card-text">${element.price}</p>
+                    <p class="card-text">${element.stockQuantity}</p>
+                    <p class="card-text">${element.description}</p>
+                    <img src="/BackEnd/Supporting_projects/Supporting_projects/Uploads/${element.imageUrl}" alt="" width="100px" height="100px"> 
+                    <br>
+                    <br>
+                      <a class="btn btn-warning" href="#EditProduct" onclick="storeProductId(${element.productId})">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                    <button class="btn btn-danger" onclick="DeleteProduct(${element.productId})"> <i class="fa fa-times" aria-hidden="true"></i> </button>
+                </div>
+             </div>
+            </div>
+            `
+        });
+
+    // Retrieve the productId from localStorage
+    const id = Number(localStorage.getItem("productId"));
+    if (!id) {
+        alert("لم يتم العثور على المنتج.");
+        return;
+    }
+
+    const EditProductURL = `https://localhost:44397/api/Products/EditProduct?id=${id}`;
+    var form = new FormData(document.getElementById("editProductForm"));
+
+    let response = await fetch(EditProductURL, {
+        method: 'PUT',
+        body: form,
+    });
+
+    if (response.ok) {
+        alert("تم تحديث المنتج بنجاح");
+        window.location.hash= '#crud-products'  ;
+        // document.getElementById("EditProduct").style.display = 'none';
+    }
 }
 
 
