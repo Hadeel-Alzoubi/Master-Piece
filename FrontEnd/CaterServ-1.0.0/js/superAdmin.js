@@ -470,3 +470,21 @@ async function DeleteVendor(id) {
 
 
 //For Oder In Anamel
+async function ShowOrders() {
+    debugger;
+    const GetAllOrder = 'https://localhost:44397/api/Order/GetAllOrder';
+    const response = await fetch(GetAllOrder);
+    const data = await response.json();
+    let order = document.getElementById("orderTable");
+    order.innerHTML = "";
+    data.$values.forEach(element => {
+        order.innerHTML += `
+       <tr>
+                  <td>  ${element.orderId} </td>
+                   <td> ${element.orderDate}</td>
+                    <td>${element.quantity}</td>
+                    <td> ${element.totalAmount}</td>
+           </tr>    
+        `;
+    });
+}

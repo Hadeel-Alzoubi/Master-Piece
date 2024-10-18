@@ -32,7 +32,7 @@ namespace Supporting_projects.Controllers
         public IActionResult GetAllAdmin()
         {
 
-            var isadmin = db.Users.Where(x => x.IsAdmin == true).ToList();
+            var isadmin = db.Users.Where(x => x.IsAdmin == true && x.Email != "hadeelsuperAdmin@Anamel.com").ToList();
             return Ok(isadmin);
         }
 

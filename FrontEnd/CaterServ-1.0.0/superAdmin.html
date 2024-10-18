@@ -126,7 +126,7 @@
                                 <a href="#vendors" class="nav-link userD" onclick="ShowAdmin()">التجار</a>
                             </li>
                             <li>
-                                <a href="#products" class="nav-link userD">الطلبات في الموقع</a>
+                                <a href="#order" class="nav-link userD" onclick="ShowOrders()">الطلبات في الموقع</a>
                             </li>
                            
                             <li>
@@ -226,28 +226,20 @@
                         </div>
                     </section>
 
-                    <section id="products" class="tab-pane">
-                        <h1>المنتجات</h1>
+                    <section id="order" class="tab-pane">
+                        <h1>الطلبات في الموقع</h1>
                         <div>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>المنتج</th>
-                                        <th>الوصف</th>
-                                        <th>الصورة</th>
-                                        <th>التكلفة</th>
-                                        <th>الحالة</th>
-
+                                        <th>رقم الطلب</th>
+                                        <th>تاريخ الطلب</th>
+                                        <th>الكمية</th>
+                                        <th>اجمالي السعر</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>لعبة صوف</td>
-                                        <td>لعبة مصنوعه من الصوف</td>
-                                        <td><img src="https://via.placeholder.com/150" alt="Product 1"></td>
-                                        <td>$1</td>
-                                        <td>متوفر</td>
-                                    </tr>
+                                <tbody id="orderTable">
+                                   
                                 </tbody>
                             </table>
                         </div>
