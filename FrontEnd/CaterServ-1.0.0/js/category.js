@@ -46,7 +46,7 @@ async function GetCategory() {
                 <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
                     <div class="blog-item">
                         <div class="overflow-hidden rounded">
-                           <img src="img/${element.categoryImg}" class="img-fluid w-100" alt="${element.categoryName}">
+                           <img onclick="store(${element.categoryId})" src="img/${element.categoryImg}" class="img-fluid w-100" alt="${element.categoryName}">
                         </div>
                         <div class="blog-content mx-4 d-flex rounded bg-light">
                             <div class="text-dark bg-primary rounded-start">
